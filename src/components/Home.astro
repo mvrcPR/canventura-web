@@ -43,15 +43,17 @@ const housePhotos = [
           loading="eager"
         />
       </div>
-      <div class="hero-copy">
-        <h1 id="hero-title">Can Ventura</h1>
-        <div class="hero-details mono">
-          <p>Plaça Major nº1, Llívia, Girona</p>
-          <a href={`tel:${restaurant.phone}`}>{restaurant.phoneLabel}</a>
-          <a href={`mailto:${restaurant.email}`}>{restaurant.email}</a>
+      <div class="hero-frame">
+        <div class="hero-copy">
+          <h1 id="hero-title">Can Ventura</h1>
+          <div class="hero-details mono">
+            <p>Plaça Major nº1, Llívia, Girona</p>
+            <a href={`tel:${restaurant.phone}`}>{restaurant.phoneLabel}</a>
+            <a href={`mailto:${restaurant.email}`}>{restaurant.email}</a>
+          </div>
         </div>
+        <ReserveButton locale={locale} class="hero-reserve" />
       </div>
-      <ReserveButton locale={locale} class="hero-reserve" />
     </section>
     <section
       class="house-section section-space"

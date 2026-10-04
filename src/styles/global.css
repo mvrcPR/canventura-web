@@ -246,22 +246,28 @@ summary:focus-visible {
   display: none;
 }
 .hero {
-  min-height: 850px;
-  height: 100svh;
-  max-height: 1250px;
+  --hero-frame-height: clamp(850px, 100svh, 1250px);
+  min-height: var(--hero-frame-height);
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
-.hero-photo {
+.hero-frame {
   position: absolute;
-  top: 0;
-  right: -5%;
-  height: 100%;
+  inset: 0;
+  height: var(--hero-frame-height);
+}
+.hero-photo {
+  position: relative;
+  margin-left: 41%;
+  min-height: var(--hero-frame-height);
+  aspect-ratio: 4 / 5;
   width: 64%;
   z-index: -2;
 }
 .hero-photo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -273,7 +279,7 @@ summary:focus-visible {
   inset: 0;
   background:
     linear-gradient(90deg, #000 0%, transparent 28%),
-    linear-gradient(0deg, #000 0%, transparent 19%);
+    linear-gradient(0deg, #000 0%, transparent 10%);
 }
 .hero-copy {
   position: absolute;
@@ -800,7 +806,7 @@ summary:focus-visible {
     font-size: 12px;
   }
   .hero {
-    min-height: 750px;
+    --hero-frame-height: clamp(750px, 100svh, 1250px);
   }
   .hero-copy {
     top: 24%;
@@ -808,7 +814,7 @@ summary:focus-visible {
   }
   .hero-photo {
     width: 75%;
-    right: -15%;
+    margin-left: 40%;
   }
   .hero h1 {
     font-size: 10.5vw;
@@ -875,15 +881,13 @@ summary:focus-visible {
     justify-content: space-between;
   }
   .hero {
-    min-height: 780px;
-    height: 100svh;
-    max-height: 1000px;
+    --hero-frame-height: clamp(780px, 100svh, 1000px);
   }
   .hero-photo {
-    top: 180px;
-    right: -22%;
+    margin-top: 180px;
+    margin-left: 9%;
     width: 113%;
-    height: 70%;
+    min-height: calc(var(--hero-frame-height) * 0.7);
   }
   .hero-photo img {
     object-position: top right;
@@ -891,7 +895,7 @@ summary:focus-visible {
   .hero-photo::after {
     background:
       linear-gradient(90deg, #000 0%, transparent 30%),
-      linear-gradient(0deg, #000 0%, transparent 22%),
+      linear-gradient(0deg, #000 0%, transparent 12%),
       linear-gradient(180deg, #000 0%, transparent 35%);
   }
   .hero-copy {
