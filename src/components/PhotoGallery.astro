@@ -1,0 +1,153 @@
+---
+import type { ImageMetadata } from "astro";
+import { copy, type Locale } from "../content/site";
+interface Props {
+  id: string;
+  locale: Locale;
+  images: { image: ImageMetadata; alt: string }[];
+  label: string;
+  compact?: boolean;
+  start?: number;
+}
+const { id, locale, images, label, compact = false, start = 0 } = Astro.props;
+const t = copy[locale];
+---
+
+<section
+  class:list={["photo-gallery", { compact }]}
+  aria-label={label}
+  data-gallery
+  data-start={start}
+>
+  <div class="gallery-top mono">
+    <span>{label}</span>
+    <span
+      class="gallery-count"
+      aria-live="polite"
+      aria-atomic="true"
+      data-gallery-count
+      data-of={t.of}
+      data-photo={t.photo}
+    >
+      {t.photo} 01 {t.of} {String(images.length).padStart(2, "0")}
+    </span>
+  </div>
+  <div class="gallery-viewport" id={id} tabindex="0" aria-label={label}>
+    <ul class="gallery-track">
+      {images.map(({ image, alt }, index) => (
+        <li class="gallery-slide" data-slide>
+          <figure>
+            <img
+              src={image.src}
+              width={image.width}
+              height={image.height}
+              alt={alt}
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+            <figcaption class="mono">
+              <span>{String(index + 1).padStart(2, "0")}</span> {alt}
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div class="gallery-controls">
+    <button
+      class="circle-button"
+      type="button"
+      aria-label={t.previous}
+      aria-controls={id}
+      data-previous
+      disabled
+    >
+      ←
+    </button>
+    <button
+      class="circle-button"
+      type="button"
+      aria-label={t.next}
+      aria-controls={id}
+      data-next
+    >
+      →
+    </button>
+  </div>
+</section>
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-gallery]")
+    .forEach((gallery) => {
+      const viewport = gallery.querySelector<HTMLElement>(".gallery-viewport")!;
+      const slides = Array.from(
+        gallery.querySelectorAll<HTMLElement>("[data-slide]"),
+      );
+      const previous =
+        gallery.querySelector<HTMLButtonElement>("[data-previous]")!;
+      const next = gallery.querySelector<HTMLButtonElement>("[data-next]")!;
+      const count = gallery.querySelector<HTMLElement>("[data-gallery-count]")!;
+      let active = 0;
+      let initialized = false;
+      const position = (slide: HTMLElement) =>
+        slide.getBoundingClientRect().left -
+        viewport.getBoundingClientRect().left +
+        viewport.scrollLeft -
+        (viewport.clientWidth - slide.clientWidth) / 2;
+      const update = () => {
+        active = slides.reduce(
+          (best, slide, index) =>
+            Math.abs(position(slide) - viewport.scrollLeft) <
+            Math.abs(position(slides[best]) - viewport.scrollLeft)
+              ? index
+              : best,
+          0,
+        );
+        previous.disabled = active === 0;
+        next.disabled = active === slides.length - 1;
+        slides.forEach((slide, index) =>
+          slide.toggleAttribute("data-active", index === active),
+        );
+        count.textContent = `${count.dataset.photo} ${String(active + 1).padStart(2, "0")} ${count.dataset.of} ${String(slides.length).padStart(2, "0")}`;
+      };
+      const move = (delta: number) => {
+        const target = Math.max(0, Math.min(slides.length - 1, active + delta));
+        viewport.scrollTo({
+          left: position(slides[target]),
+          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "instant"
+            : "smooth",
+        });
+      };
+      previous.addEventListener("click", () => move(-1));
+      next.addEventListener("click", () => move(1));
+      viewport.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          move(event.key === "ArrowLeft" ? -1 : 1);
+        }
+        if (event.key === "Home" || event.key === "End") {
+          event.preventDefault();
+          move(event.key === "Home" ? -slides.length : slides.length);
+        }
+      });
+      viewport.addEventListener("scroll", update, { passive: true });
+      new ResizeObserver(() => {
+        if (!viewport.clientWidth) return;
+        if (!initialized) {
+          active = Math.max(
+            0,
+            Math.min(slides.length - 1, Number(gallery.dataset.start) || 0),
+          );
+          viewport.scrollTo({
+            left: position(slides[active]),
+            behavior: "instant",
+          });
+          initialized = true;
+          gallery.classList.add("gallery-enhanced");
+        }
+        update();
+      }).observe(viewport);
+    });
+</script>

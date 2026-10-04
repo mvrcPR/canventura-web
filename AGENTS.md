@@ -31,6 +31,9 @@ logo vectorial de `public/brand/can-ventura-logo.svg`.
 
 Les fonts revisades estan a `design/references/sources.json`. Preserva els
 originals; prepara derivats optimitzats a part quan implementis la web.
+Els originals fotogràfics viuen a `src/assets/photography/originals/`; conserva'n
+els bytes. La procedència i els límits de qualitat consten a
+`design/assets/photography-sources.json`.
 Confirma la vigència de menús, preus, horaris i dades de contacte abans de
 publicar-los. Identifica els textos provisionals durant la revisió.
 

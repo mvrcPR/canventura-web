@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { copy, homePath, restaurant, type Locale } from "../content/site";
+import { getCurrentMenu } from "../lib/menu";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+const menu = await getCurrentMenu(locale);
+---
+
+<Layout
+  locale={locale}
+  page="menu"
+  title={`${t.menu} · Can Ventura, Llívia`}
+  description={t.menuIntro}
+>
+  <main class="menu-page" id="main">
+    <a href={homePath(locale)} class="mono">
+      ← {t.back}
+    </a>
+    <h1>{t.menu}</h1>
+    <p class="menu-page-intro">{t.menuText}</p>
+    <a
+      class="text-link mono menu-source"
+      href={menu.source}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {t.menuSource} ↗
+    </a>
+    {menu.available ? (
+      <div class="menu-documents">
+        {menu.documents.map((document, index) => (
+          <a
+            class="menu-document"
+            href={document.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.menuDocument} ${index + 1}`}
+          >
+            <img
+              src={document.src}
+              width={document.width}
+              height={document.height}
+              alt={`${t.menu} · ${t.menuPage} ${index + 1}`}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+            />
+            <span class="mono">
+              {t.menuPage} {String(index + 1).padStart(2, "0")}{" "}
+              <span aria-hidden="true">↗</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="menu-empty">
+        <p>{t.menuUnavailable}</p>
+        <a class="text-link mono" href={`tel:${restaurant.phone}`}>
+          {restaurant.phoneLabel}
+        </a>
+      </div>
+    )}
+  </main>
+</Layout>

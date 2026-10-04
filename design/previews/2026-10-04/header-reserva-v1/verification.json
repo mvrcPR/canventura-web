@@ -1,0 +1,219 @@
+{
+  "checkedOn": "2026-10-04",
+  "base": "http://localhost:4321",
+  "results": [
+    {
+      "locale": "ca",
+      "width": 320,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 390,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 700,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 768,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 1440,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 320,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 700,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 768,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 1440,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 320,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 390,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 700,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 768,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 1440,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 700,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "header": "pass",
+      "dropdowns": "pass",
+      "reservation": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "route": "/carta/",
+      "status": 200,
+      "menuLanguageLinks": "pass",
+      "reservation": "pass"
+    },
+    {
+      "locale": "es",
+      "route": "/es/carta/",
+      "status": 200,
+      "menuLanguageLinks": "pass",
+      "reservation": "pass"
+    },
+    {
+      "locale": "fr",
+      "route": "/fr/carta/",
+      "status": 200,
+      "menuLanguageLinks": "pass",
+      "reservation": "pass"
+    },
+    {
+      "locale": "en",
+      "route": "/en/carta/",
+      "status": 200,
+      "menuLanguageLinks": "pass",
+      "reservation": "pass"
+    },
+    {
+      "smallViewport": "320x560",
+      "floatingBeforeHeroAction": false,
+      "floatingAfter": true
+    }
+  ]
+}

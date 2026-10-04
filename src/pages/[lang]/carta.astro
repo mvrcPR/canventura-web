@@ -1,0 +1,10 @@
+---
+import MenuPage from "../../components/MenuPage.astro";
+import { locales, type Locale } from "../../content/site";
+const lang = Astro.params.lang;
+if (!locales.includes(lang as Locale) || lang === "ca")
+  return new Response(null, { status: 404 });
+Astro.response.headers.set("Cache-Control", "no-store");
+---
+
+<MenuPage locale={lang as Locale} />

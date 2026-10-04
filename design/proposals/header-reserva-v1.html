@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Can Ventura · Proposta de header i reserva</title>
+    <style>
+      @font-face { font-family: Inter; src: url('../../public/fonts/inter-regular.ttf'); }
+      @font-face { font-family: Plex; src: url('../../public/fonts/ibm-plex-mono-regular.ttf'); }
+      * { box-sizing: border-box; }
+      :root { --text: #efeeeb; --gutter: clamp(24px, 4vw, 80px); }
+      body { margin: 0; background: #000; color: var(--text); font-family: Inter, sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      button, summary { cursor: pointer; font: inherit; color: inherit; }
+      a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; }
+      .mono { font-family: Plex, monospace; }
+      .hero { height: 100svh; min-height: 760px; max-height: 1250px; position: relative; isolation: isolate; overflow: hidden; }
+      .photo { position: absolute; top: 0; right: -5%; width: 64%; height: 100%; z-index: -2; }
+      .photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+      .photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #000 0%, transparent 28%), linear-gradient(0deg, #000 0%, transparent 24%); }
+      .hero::before { content: ''; position: absolute; inset: 0 0 auto; height: 190px; background: linear-gradient(#000 0%, #000d 38%, transparent); z-index: -1; }
+      header { height: 104px; padding: 24px var(--gutter); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 44px; }
+      .brand { width: 44px; height: 44px; display: grid; place-items: center; }
+      .brand img { width: 27px; height: 37px; filter: invert(1); }
+      nav { display: flex; gap: 36px; align-items: center; font-size: 14px; }
+      nav a, .actions > a { display: inline-flex; align-items: center; min-height: 44px; }
+      nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+      .actions { display: flex; justify-content: flex-end; align-items: center; gap: 30px; font-size: 14px; }
+      .header-reserve { gap: 20px; }
+      .header-reserve span { font-family: Inter, sans-serif; font-size: 22px; }
+      details { position: relative; }
+      summary { list-style: none; min-width: 44px; min-height: 44px; display: flex; align-items: center; gap: 10px; }
+      summary::-webkit-details-marker { display: none; }
+      .language-list { position: absolute; top: 44px; right: 0; display: grid; gap: 0; background: #111; border: 1px solid #353535; padding: 8px 16px; z-index: 5; }
+      .language-list a { min-height: 44px; display: flex; align-items: center; }
+      .mobile-menu { display: none; }
+      .copy { position: absolute; left: var(--gutter); top: 21%; width: 64%; }
+      h1 { font-size: clamp(75px, 8.9vw, 190px); font-weight: 400; line-height: 1.03; letter-spacing: -.055em; white-space: nowrap; margin: 0; }
+      .contact { margin-top: 22px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; font-size: clamp(14px, 1.4vw, 22px); padding-right: 34%; line-height: 1.85; }
+      .contact p { margin: 0; }
+      .location { position: absolute; bottom: 80px; left: var(--gutter); font-size: 12px; line-height: 1.8; }
+      .location span { color: #aaa; }
+      .reserve { position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 60px; padding: 8px 0 16px; border-bottom: 1px solid #efeeeb99; font-size: 28px; white-space: nowrap; }
+      .reserve span { font-size: 32px; transition: transform .2s; }
+      .reserve:hover span { transform: translate(3px, -3px); }
+      .reserve:hover { border-bottom-color: var(--text); }
+      body.variant-b .reserve { border: none; border-radius: 100px; background: var(--text); color: #000; font-size: 18px; padding: 19px 30px; gap: 30px; }
+      body.variant-b .reserve span { font-size: 25px; }
+      .scroll { position: absolute; right: var(--gutter); bottom: 80px; display: flex; gap: 24px; align-items: center; font-size: 12px; min-height: 44px; }
+      .scroll span { font-size: 23px; }
+      .review { padding: 70px var(--gutter); border-top: 1px solid #333; line-height: 1.6; max-width: 100%; }
+      .review h2 { font-size: 25px; font-weight: 400; }
+      .review p { max-width: 650px; color: #aaa; }
+      .review a { display: inline-flex; min-height: 44px; align-items: center; margin-right: 28px; text-decoration: underline; text-underline-offset: 6px; }
+      @media (max-width: 900px) {
+        header { gap: 20px; }
+        nav { gap: 20px; font-size: 12px; }
+        .actions { gap: 20px; font-size: 12px; }
+      }
+      @media (max-width: 650px) {
+        .hero { min-height: 740px; }
+        header { height: 90px; padding: 20px var(--gutter); grid-template-columns: 1fr auto; }
+        header > nav, .header-reserve { display: none !important; }
+        .actions { gap: 28px; font-size: 13px; }
+        .mobile-menu { display: block; }
+        .mobile-menu[open] .language-list { width: 185px; }
+        .photo { top: 275px; right: -20%; width: 100%; height: calc(100% - 275px); }
+        .photo img { object-position: top center; }
+        .photo::after { background: linear-gradient(90deg, #000 0%, transparent 35%), linear-gradient(0deg, #000 0%, #000a 16%, transparent 45%); }
+        .copy { top: 130px; width: calc(100% - 48px); }
+        h1 { font-size: 13.5vw; letter-spacing: -.06em; }
+        .contact { font-size: 11px; padding-right: 0; align-items: flex-start; text-align: left; margin-top: 18px; line-height: 1.8; }
+        .location { bottom: 176px; font-size: 11px; }
+        .reserve { bottom: 78px; font-size: 24px; gap: 40px; }
+        .reserve span { font-size: 28px; }
+        body.variant-b .reserve { font-size: 17px; padding: 17px 28px; }
+        .scroll { bottom: 15px; right: 50%; transform: translateX(50%); gap: 15px; font-size: 11px; white-space: nowrap; }
+      }
+      @media (prefers-reduced-motion: reduce) { .reserve span { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <script>if (new URLSearchParams(location.search).get('variant') === 'b') document.body.classList.add('variant-b');</script>
+    <section class="hero">
+      <div class="photo"><img src="../../src/assets/photography/originals/Portada_2-1.png" alt="El cuiner de Can Ventura preparant un plat" /></div>
+      <header>
+        <a class="brand" href="http://localhost:4321/" aria-label="Can Ventura, inici"><img src="../../public/brand/can-ventura-logo.svg" alt="" /></a>
+        <nav class="mono" aria-label="Navegació principal">
+          <a href="http://localhost:4321/#casa">La casa</a>
+          <a href="http://localhost:4321/carta/">Carta i menús</a>
+          <a href="http://localhost:4321/#contacte">Contacte</a>
+        </nav>
+        <div class="actions mono">
+          <details><summary aria-label="Idioma: català">CA <span aria-hidden="true">⌄</span></summary><div class="language-list"><a href="http://localhost:4321/">Català</a><a href="http://localhost:4321/es/">Castellano</a><a href="http://localhost:4321/fr/">Français</a><a href="http://localhost:4321/en/">English</a></div></details>
+          <a class="header-reserve" href="https://canventura.myrestoo.net/ca/reservar">Reservar <span aria-hidden="true">↗</span></a>
+          <details class="mobile-menu"><summary>Menú <span aria-hidden="true">+</span></summary><div class="language-list"><a href="http://localhost:4321/#casa">La casa</a><a href="http://localhost:4321/carta/">Carta i menús</a><a href="http://localhost:4321/#contacte">Contacte</a><a href="https://canventura.myrestoo.net/ca/reservar">Reservar taula ↗</a></div></details>
+        </div>
+      </header>
+      <div class="copy">
+        <h1>Can Ventura</h1>
+        <div class="contact mono"><p>Plaça Major nº1, Llívia, Girona</p><a href="tel:+34972896178">972 896 178</a><a href="mailto:canventura@hotmail.com">canventura@hotmail.com</a></div>
+      </div>
+      <div class="location mono">Llívia · La Cerdanya<br /><span>A taula des de 1977</span></div>
+      <a class="reserve" href="https://canventura.myrestoo.net/ca/reservar">Reservar taula <span aria-hidden="true">↗</span></a>
+      <a class="scroll mono" href="#revisio">Segueix el fil <span aria-hidden="true">↓</span></a>
+    </section>
+    <section class="review" id="revisio">
+      <h2>Proposta de header i reserva · v1</h2>
+      <p>Maqueta separada de la web. A: acció tipogràfica, la direcció recomanada. B: botó clar arrodonit, amb més contrast. Els enllaços de navegació porten a la web local i la reserva al MyRestoo existent.</p>
+      <a href="?variant=a">A · Tipografia i línia</a><a href="?variant=b">B · Botó clar</a>
+    </section>
+  </body>
+</html>

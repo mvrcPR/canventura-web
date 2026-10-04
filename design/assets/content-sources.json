@@ -1,0 +1,34 @@
+{
+  "reviewedOn": "2026-10-04",
+  "sources": [
+    {
+      "url": "https://canventura.com/",
+      "factsUsed": ["Restaurant a Llívia de cuina de la Cerdanya", "Obert el 1977 per Josep i Mercè", "Continuïtat familiar amb Esther i Jordi", "Plaça Major, 1", "972 896 178"],
+      "verification": "Public website observed in Chromium and search results; family review before publication remains pending."
+    },
+    {
+      "url": "https://canventura.myrestoo.net/ca/reservar",
+      "factsUsed": ["Restaurant Can Ventura", "Plaça Major, 1, Llívia", "972 89 61 78", "Booking destination and supported language links"],
+      "verification": "Public booking page inspected; no booking submitted."
+    },
+    {
+      "file": "design/references/LANDING.png",
+      "factsUsed": ["canventura@hotmail.com", "Hero composition and address"],
+      "verification": "User-supplied reference; mailbox ownership/delivery not independently checked."
+    },
+    {
+      "url": "https://canventura.com/els-nostres-menus/",
+      "factsUsed": ["14 current menu page images for Catalan and Spanish; 10 for French and English"],
+      "verification": "Rendered public menu page inspected. No public MyRestoo embed/API found. The user identifies MyRestoo as the automatic publishing owner; exact source URL requested."
+    }
+  ],
+  "technicalReferences": [
+    "https://docs.astro.build/en/guides/images/",
+    "https://developers.google.com/search/docs/specialty/international/localized-versions",
+    "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+  ],
+  "fonts": [
+    {"family": "Inter", "file": "public/fonts/inter-regular.ttf", "source": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap", "license": "public/fonts/inter-OFL.txt"},
+    {"family": "IBM Plex Mono", "file": "public/fonts/ibm-plex-mono-regular.ttf", "source": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap", "license": "public/fonts/ibm-plex-mono-OFL.txt"}
+  ]
+}

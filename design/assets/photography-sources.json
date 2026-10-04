@@ -1,0 +1,511 @@
+{
+  "retrievedOn": "2026-10-04",
+  "source": "https://canventura.com/wp-json/wp/v2/media?per_page=100&page=1",
+  "quality": "Highest published full-size files exposed by the public media library; camera originals not confirmed. Bytes preserved without resize or re-encoding.",
+  "photos": [
+    {
+      "file": "src/assets/photography/originals/Restaurante_44.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_44.webp",
+      "width": 637,
+      "height": 637,
+      "bytes": 34958,
+      "sha256": "10f3f76f33ad3d3bb1f14123a4fd4f8ab445f3c3dda5a0bff83da4497d3b54f1",
+      "sourceMediaId": 72084
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_53.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_53.webp",
+      "width": 676,
+      "height": 957,
+      "bytes": 22226,
+      "sha256": "758c75c060dfd14ff5e9cdaa3e9d77cf7e549bd6f4ca090e607ea08990c0b20d",
+      "sourceMediaId": 72079
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_54.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_54.webp",
+      "width": 617,
+      "height": 957,
+      "bytes": 21926,
+      "sha256": "4df98bcfbcdb439f9687fbbead3eef3cd45afac202dd672348c2caa4c3bc2b0b",
+      "sourceMediaId": 72078
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_52.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_52.webp",
+      "width": 864,
+      "height": 864,
+      "bytes": 30890,
+      "sha256": "7bb76f6a9d165851feb9d4ea089af5c0b689281314af67ae51827181eaa2b946",
+      "sourceMediaId": 72077
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_51.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_51.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 89608,
+      "sha256": "eefa23f5eed53932e107d3f2bd15d5ac1ef450e401c5d8b7b3d107fec1c08f8a",
+      "sourceMediaId": 72076
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_55.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_55.webp",
+      "width": 637,
+      "height": 958,
+      "bytes": 22744,
+      "sha256": "f5966d7d0035cba1061cf7f46bb81a0b1f5d86b96d6b1c7b0b4b689c626eacde",
+      "sourceMediaId": 72069
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_56.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_56.webp",
+      "width": 636,
+      "height": 957,
+      "bytes": 28578,
+      "sha256": "2642919c2aa5282b2f72960e9e07ee4303438b1a0e8f81e455e414bcbe250708",
+      "sourceMediaId": 72068
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_57.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_57.webp",
+      "width": 637,
+      "height": 957,
+      "bytes": 13364,
+      "sha256": "31b490c9c06c629886e168bdb64ce646933518c786145321a9d868b3afd8ecd1",
+      "sourceMediaId": 72067
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_58.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_58.webp",
+      "width": 397,
+      "height": 598,
+      "bytes": 18460,
+      "sha256": "b40de026d476caf129af55e2de01c7b85da764a6c3c4c64fb07d5c39f8e61f5a",
+      "sourceMediaId": 72066
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_59.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_59.webp",
+      "width": 766,
+      "height": 957,
+      "bytes": 30198,
+      "sha256": "ef07dfe66cb559afa31d8fafffc7209073b3e6266f70745881e9f3e4b8d213fa",
+      "sourceMediaId": 72065
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_59-1.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_59-1.webp",
+      "width": 595,
+      "height": 744,
+      "bytes": 60186,
+      "sha256": "79bbf84029645795e7073960caee088daf28d9d4a0a223a71e6aa7667fb31a29",
+      "sourceMediaId": 72064
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_60.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_60.webp",
+      "width": 637,
+      "height": 957,
+      "bytes": 16830,
+      "sha256": "e6984ba4b1aab081307dbc13645a4acdd2822ee17d30c58e8d7488c0d8d88779",
+      "sourceMediaId": 72062
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_60-1.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_60-1.webp",
+      "width": 637,
+      "height": 958,
+      "bytes": 23730,
+      "sha256": "b02a9b562b0b71ae3a3c66d18ceb95043ccfc0b5513125f657c7aa00f8816bb2",
+      "sourceMediaId": 72061
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_61.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_61.webp",
+      "width": 766,
+      "height": 957,
+      "bytes": 13406,
+      "sha256": "d67aa7f4d3f9c80dcfae97ba1fc178eb6836b86f237aec7bda10055d149026e8",
+      "sourceMediaId": 72060
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_62.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_62.webp",
+      "width": 864,
+      "height": 864,
+      "bytes": 30890,
+      "sha256": "7bb76f6a9d165851feb9d4ea089af5c0b689281314af67ae51827181eaa2b946",
+      "sourceMediaId": 72059
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_63.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_63.webp",
+      "width": 676,
+      "height": 957,
+      "bytes": 22226,
+      "sha256": "758c75c060dfd14ff5e9cdaa3e9d77cf7e549bd6f4ca090e607ea08990c0b20d",
+      "sourceMediaId": 72058
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_64.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_64.webp",
+      "width": 617,
+      "height": 957,
+      "bytes": 21926,
+      "sha256": "4df98bcfbcdb439f9687fbbead3eef3cd45afac202dd672348c2caa4c3bc2b0b",
+      "sourceMediaId": 72057
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_35.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_35.webp",
+      "width": 637,
+      "height": 957,
+      "bytes": 57362,
+      "sha256": "75506d3bfe14d149f32fbe0250be580b7aaa38e366f9b92a22e94c7b2a032472",
+      "sourceMediaId": 72053
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_26-1.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_26-1.webp",
+      "width": 766,
+      "height": 957,
+      "bytes": 34526,
+      "sha256": "336ee7703c7a907a34ff8999650f4c9644f66fa591555ff6086cbc8182a0d2f5",
+      "sourceMediaId": 72051
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_21.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_21.webp",
+      "width": 700,
+      "height": 875,
+      "bytes": 81242,
+      "sha256": "f9d167ce8b0a154c63586411ede5183cb21d21200dd280737e7e764025928e30",
+      "sourceMediaId": 72050
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_33-1.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_33-1.webp",
+      "width": 637,
+      "height": 958,
+      "bytes": 23644,
+      "sha256": "a47f27ba81a0ecc8aec00eb5e124ee1a40c40781702d841386d702f9ec0f4c1e",
+      "sourceMediaId": 72049
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_30.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_30.webp",
+      "width": 767,
+      "height": 957,
+      "bytes": 36010,
+      "sha256": "7fff3347ca05896f9ae8b328b88289da9fa11c819ec7c4796724a29cb5f4fbed",
+      "sourceMediaId": 72048
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_31.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_31.webp",
+      "width": 767,
+      "height": 957,
+      "bytes": 47684,
+      "sha256": "e8c760a57ebe80ea4c6a8ab2d382332d7195c084cb07ae71fdc5735b2ca4c17c",
+      "sourceMediaId": 72045
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_32.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_32.webp",
+      "width": 637,
+      "height": 958,
+      "bytes": 17268,
+      "sha256": "fa9d3585d85abfcf157be9fbdf3ab995df19cb32f78795c5bcba187d83f42b02",
+      "sourceMediaId": 72044
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_33.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_33.webp",
+      "width": 637,
+      "height": 958,
+      "bytes": 23644,
+      "sha256": "a47f27ba81a0ecc8aec00eb5e124ee1a40c40781702d841386d702f9ec0f4c1e",
+      "sourceMediaId": 72043
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_20.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_20.webp",
+      "width": 700,
+      "height": 875,
+      "bytes": 72452,
+      "sha256": "0f71a7e5488d91711ae9d2bf34de8590624be1ef7d751d964ac0266ec912616f",
+      "sourceMediaId": 72042
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_15-1.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_15-1.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 63848,
+      "sha256": "7509d506234d968e7169d55a5993676af69ceb39c6d48d3d3c66dceab2ca83f6",
+      "sourceMediaId": 72024
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_16.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_16.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 75436,
+      "sha256": "792dd779dc5f8a0180ac20721e077405131bcb8f7910a6d71458c7de9397446f",
+      "sourceMediaId": 72023
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_17.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_17.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 66006,
+      "sha256": "48c04b6fa926b1b40d9889ba2b9d31f620b686c12242bd27b97d8fc6340eaaae",
+      "sourceMediaId": 72022
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_11.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_11.png",
+      "width": 852,
+      "height": 681,
+      "bytes": 646328,
+      "sha256": "fed9749e701b1dcec64262f5f7d1518d427a3373a861440c981800a85798a597",
+      "sourceMediaId": 72011
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_12.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_12.png",
+      "width": 623,
+      "height": 957,
+      "bytes": 802463,
+      "sha256": "3b25af3ebc7f6dd51c83f48e1315aae34f327f9af1a8bbbf80aca6c4598d1545",
+      "sourceMediaId": 72010
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_13.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_13.png",
+      "width": 864,
+      "height": 864,
+      "bytes": 537191,
+      "sha256": "93bb0b049f6236751aa2b52b92524e8a974b7809e728890197a798e67b41e9b4",
+      "sourceMediaId": 72009
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_14.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_14.png",
+      "width": 676,
+      "height": 957,
+      "bytes": 693336,
+      "sha256": "dd27484fdf7c6627e8a6b665c33042fbdc58b4c6b90740541a2d4e1d28f279e8",
+      "sourceMediaId": 72008
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_15.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_15.png",
+      "width": 617,
+      "height": 957,
+      "bytes": 356363,
+      "sha256": "616e4765f7ea8223764ed949b36a76ed905cec4703e4d68b95d88d868f78ccac",
+      "sourceMediaId": 72007
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_16.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_16.png",
+      "width": 637,
+      "height": 957,
+      "bytes": 785336,
+      "sha256": "c5a7fd24548f24f5dcb7525c121d20e0b79d9dbff22ee857430100d21ee6a782",
+      "sourceMediaId": 72006
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_17.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_17.png",
+      "width": 766,
+      "height": 957,
+      "bytes": 710777,
+      "sha256": "2968b36dcdfe496214916dc6b45171d01479cf4dc3522d2094b60ac12bfcb43f",
+      "sourceMediaId": 72005
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_18.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_18.png",
+      "width": 766,
+      "height": 957,
+      "bytes": 861214,
+      "sha256": "652a2da96953ad486db11d2669405b5771323d2b01a66df7ccfe53564dcd77d6",
+      "sourceMediaId": 72004
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_19.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_19.png",
+      "width": 958,
+      "height": 766,
+      "bytes": 1069160,
+      "sha256": "a898c572076851b80af5af466059eafaa9ea16b42b402a319ab9105579261f3d",
+      "sourceMediaId": 72003
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_20.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_20.png",
+      "width": 637,
+      "height": 957,
+      "bytes": 637977,
+      "sha256": "98fe93289ec046f2cdf7667fedaaa200b6b3cd10849a23db5d10f7b86e0a0fd4",
+      "sourceMediaId": 72002
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_21.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_21.png",
+      "width": 958,
+      "height": 765,
+      "bytes": 1366300,
+      "sha256": "f5b54141d6571bf0255ad0cefecaeaf71c0d27e39a8c0e7366dce4fc09f48069",
+      "sourceMediaId": 72001
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_22.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_22.png",
+      "width": 957,
+      "height": 637,
+      "bytes": 1226373,
+      "sha256": "54968357705dc12caebfa3d3f689270333c4b72f10a41c43a72e0fe1aea36cca",
+      "sourceMediaId": 72000
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_23.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_23.png",
+      "width": 638,
+      "height": 957,
+      "bytes": 544566,
+      "sha256": "b2451af546f34be42db40752dc373a8672d40208194158b763deb2afd37c531c",
+      "sourceMediaId": 71999
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_24.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_24.png",
+      "width": 766,
+      "height": 957,
+      "bytes": 1005661,
+      "sha256": "7bfc8caec54c1d7bf2b7087eff0cfbfa5c2d21047f437ab45a3dc3389e053c6e",
+      "sourceMediaId": 71998
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_27.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_27.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 67294,
+      "sha256": "089812bf839715754b3da0742edf6f0614a204a53ccf82079166c95e249da8c2",
+      "sourceMediaId": 71995
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_28.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_28.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 48702,
+      "sha256": "41626745523bed8b4415daf8d50dbe5bd48f363c246d993c93fa5025089e17f0",
+      "sourceMediaId": 71994
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_29.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_29.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 60266,
+      "sha256": "35adf9405061439c55faa2189b4e55c390da9b89bbeb962813fab2c600b5b92d",
+      "sourceMediaId": 71993
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_35.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_35.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 71122,
+      "sha256": "d5923c3301f9bac16b7f5e4806318d5308eba5ca9a27f6148e449d4cabb953ba",
+      "sourceMediaId": 71992
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_36.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_36.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 68572,
+      "sha256": "c80da8c6f704209339f778e2bafc5746f4e7dee63b19b99257c75511e9f7831b",
+      "sourceMediaId": 71991
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_37.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_37.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 62624,
+      "sha256": "457e8eb354f1581c2f9228cff2bdd2187f67079523bf1ab7b9b71564955797dd",
+      "sourceMediaId": 71990
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_41.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_41.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 77238,
+      "sha256": "c5d0554f0e8b97d0e7077459661dcfa21289847705682f1d6388123f766342d9",
+      "sourceMediaId": 71988
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_42.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_42.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 74278,
+      "sha256": "ec0a25f278cb2faa4914a2d17241c82e1290a962550a60867757e09bb2318c1d",
+      "sourceMediaId": 71987
+    },
+    {
+      "file": "src/assets/photography/originals/Plato_43.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Plato_43.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 76254,
+      "sha256": "e60969c4693371b576150d3afebc73fc31e2a3ac85f33531086c46fa53e5f315",
+      "sourceMediaId": 71986
+    },
+    {
+      "file": "src/assets/photography/originals/Portada_1.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Portada_1.png",
+      "width": 766,
+      "height": 957,
+      "bytes": 1002227,
+      "sha256": "2e0ff50a5db6594f34ae12084da2ad023112ecc7b9dbf5c106cb8aea5a8d4f61",
+      "sourceMediaId": 71980
+    },
+    {
+      "file": "src/assets/photography/originals/Portada_2-1.png",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Portada_2-1.png",
+      "width": 744,
+      "height": 930,
+      "bytes": 800019,
+      "sha256": "28f2574a48c5b0c8889115e614f96ddadff19fd35bd50fc30d54f47c8e8cffcc",
+      "sourceMediaId": 71979
+    },
+    {
+      "file": "src/assets/photography/originals/Restaurante_18.webp",
+      "source": "https://canventura.com/wp-content/uploads/2024/06/Restaurante_18.webp",
+      "width": 1000,
+      "height": 1499,
+      "bytes": 74976,
+      "sha256": "db688fe30d797c7bd8f58271ce3de2fbfc545f2b736a93f66d48171d26814d8d",
+      "sourceMediaId": 71937
+    },
+    {
+      "file": "src/assets/photography/originals/DSC_1047.png",
+      "source": "https://canventura.com/wp-content/uploads/2023/12/DSC_1047.png",
+      "width": 766,
+      "height": 958,
+      "bytes": 1476220,
+      "sha256": "5a1aeea201b114e4909f15f52ac45b415479d29e3d9566d38cec9e3bf30165f7",
+      "sourceMediaId": 120
+    }
+  ]
+}

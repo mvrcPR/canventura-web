@@ -1,0 +1,159 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import ReserveButton from "../components/ReserveButton.astro";
+import { photos } from "../content/photos";
+import {
+  copy,
+  locales,
+  homePath,
+  menuPath,
+  restaurant,
+  siteUrl,
+  type Locale,
+} from "../content/site";
+interface Props {
+  locale: Locale;
+  page?: "home" | "menu";
+  title?: string;
+  description?: string;
+}
+const {
+  locale,
+  page = "home",
+  title = copy[locale].title,
+  description = copy[locale].description,
+} = Astro.props;
+const path = page === "menu" ? menuPath(locale) : homePath(locale);
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": `${siteUrl}/#restaurant`,
+  name: restaurant.name,
+  url: siteUrl,
+  image: `${siteUrl}${photos.facade.src}`,
+  telephone: restaurant.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Plaça Major, 1",
+    addressLocality: "Llívia",
+    addressRegion: "Girona",
+    addressCountry: "ES",
+  },
+  hasMenu: `${siteUrl}${menuPath(locale)}`,
+  sameAs: [restaurant.instagram],
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+    <link rel="canonical" href={`${siteUrl}${path}`} />
+    {locales.map((lang) => (
+      <link
+        rel="alternate"
+        hreflang={lang}
+        href={`${siteUrl}${page === "menu" ? menuPath(lang) : homePath(lang)}`}
+      />
+    ))}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={`${siteUrl}${page === "menu" ? menuPath("ca") : "/"}`}
+    />
+    <link
+      rel="preload"
+      href="/fonts/inter-regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={`${siteUrl}${path}`} />
+    <meta property="og:site_name" content="Can Ventura" />
+    <meta property="og:image" content={`${siteUrl}${photos.dish.src}`} />
+    <meta property="og:image:width" content={photos.dish.width} />
+    <meta property="og:image:height" content={photos.dish.height} />
+    <meta property="og:image:alt" content={copy[locale].photoDish} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="og:locale"
+      content={{ ca: "ca_ES", es: "es_ES", fr: "fr_FR", en: "en_GB" }[locale]}
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      {copy[locale].skip}
+    </a>
+    <Header locale={locale} page={page} />
+    <slot />
+    <footer class="site-footer mono">
+      <a href={homePath(locale)}>Can Ventura</a>
+      <span>{copy[locale].location}</span>
+      <a href={restaurant.instagram}>{copy[locale].instagram} ↗</a>
+      <span>© {new Date().getFullYear()}</span>
+    </footer>
+    <ReserveButton
+      locale={locale}
+      class={`floating-reserve${page === "menu" ? " visible" : ""}`}
+    />
+    <script>
+      const heroReserve = document.querySelector(".hero-reserve");
+      const floating = document.querySelector(".floating-reserve");
+      const fixedHeader = document.querySelector<HTMLElement>(".site-header");
+      if (floating) {
+        const setReservationVisibility = (visible: boolean) => {
+          fixedHeader?.classList.toggle("reservation-visible", visible);
+          floating.classList.toggle("visible", visible);
+          floating.toggleAttribute("inert", !visible);
+        };
+        if (heroReserve) {
+          const updateReservation = () =>
+            setReservationVisibility(
+              heroReserve.getBoundingClientRect().bottom <=
+                (fixedHeader?.offsetHeight ?? 0),
+            );
+          updateReservation();
+          window.addEventListener("scroll", updateReservation, {
+            passive: true,
+          });
+          window.addEventListener("resize", updateReservation);
+        } else setReservationVisibility(true);
+      }
+      if (
+        "IntersectionObserver" in window &&
+        !matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries)
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+          },
+          { threshold: 0.1 },
+        );
+        document.querySelectorAll("[data-reveal]").forEach((el) => {
+          el.classList.add("will-reveal");
+          observer.observe(el);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,14 +1,16 @@
 # Plans de Can Ventura
 
 Aquesta carpeta conserva els plans, les revisions i les decisions de la web.
-El pla inicial està pendent d'iteració abans de començar la implementació.
+La versió 2 del pla de la web està en implementació, autoritzada per l'usuari.
 
 ## Índex
 
 | Pla | Versió | Estat | Objectiu |
 | --- | --- | --- | --- |
-| [0001 Proposta de web](0001-2026-10-04-proposta-web-v1.md) | 1 | En revisió | Disseny, estructura i implementació per fases |
+| [0001 Proposta de web](0001-2026-10-04-proposta-web-v2.md) | 2 | En curs | Implementació de la web, carta automàtica i originals fotogràfics |
+| [0001 Proposta inicial](0001-2026-10-04-proposta-web-v1.md) | 1 | Substituït | Històric de la proposta inicial |
 | [0002 Skills reutilitzables](0002-2026-10-04-skills-v1.md) | 1 | Completat | Instal·lar i generalitzar cinc skills del repositori de referència |
+| [0003 Capçalera i reserva](0003-2026-10-04-header-reserva-v1.md) | 1 | Completat | Header monoespai en majúscules, reserva a l'esquerra, desplegables i estats de scroll |
 
 ## Convenció
 

@@ -1,0 +1,317 @@
+export const locales = ["ca", "es", "fr", "en"] as const;
+export type Locale = (typeof locales)[number];
+export const languageNames = {
+  ca: "Català",
+  es: "Castellano",
+  fr: "Français",
+  en: "English",
+};
+export const siteUrl = "https://canventura.com";
+export const restaurant = {
+  name: "Can Ventura",
+  phone: "+34972896178",
+  phoneLabel: "972 896 178",
+  email: "canventura@hotmail.com",
+  address: "Plaça Major, 1 · Llívia, Girona",
+  instagram: "https://www.instagram.com/canventurarestaurant/",
+  directions:
+    "https://www.google.com/maps/search/?api=1&query=Can+Ventura+Pla%C3%A7a+Major+1+Ll%C3%ADvia",
+};
+export function homePath(locale: Locale) {
+  return locale === "ca" ? "/" : `/${locale}/`;
+}
+export function menuPath(locale: Locale) {
+  return `${homePath(locale)}carta/`;
+}
+export function reservationUrl(locale: Locale) {
+  return `https://canventura.myrestoo.net/${locale}/reservar`;
+}
+export function currentMenuUrl(locale: Locale) {
+  return `https://canventura.com/${locale === "ca" ? "" : `${locale}/`}els-nostres-menus/`;
+}
+
+// Editorial copy based on the supplied design and the restaurant's current public website.
+// Family names/year and contact details: design/assets/content-sources.json.
+export const copy = {
+  ca: {
+    title: "Can Ventura · Restaurant a Llívia",
+    description:
+      "Cuina de la Cerdanya i una casa a la Plaça Major de Llívia. Descobreix Can Ventura, consulta la carta i reserva taula.",
+    skip: "Anar al contingut",
+    languages: "Idioma",
+    navigation: "Navegació principal",
+    navigationToggle: "Menú",
+    book: "Reservar",
+    home: "Inici",
+    house: "La casa",
+    kitchen: "La cuina",
+    menu: "Carta",
+    family: "La família",
+    contact: "Contacte",
+    reserve: "Reservar taula",
+    reservation: "Reserva",
+    intro: "Cuina de la Cerdanya. Una casa a Llívia.",
+    scroll: "Segueix el fil",
+    since: "A taula des de 1977",
+    location: "Llívia · La Cerdanya",
+    houseTitle: "Fem un tomb?",
+    houseInvitation: "Prem aquí per fer un tomb ràpid.",
+    houseText:
+      "Una porta a la Plaça Major. A dins, sales amb història i taules per compartir-la.",
+    openHouse: "Entrar a la casa",
+    houseGallery: "Un tomb per Can Ventura",
+    close: "Tancar",
+    kitchenTitle: "Del territori,\na la taula.",
+    kitchenText:
+      "Receptes de la Cerdanya, producte de temporada i la nostra manera de cuinar-lo.",
+    galleryLabel: "Galeria d’imatges",
+    previous: "Fotografia anterior",
+    next: "Fotografia següent",
+    photo: "Fotografia",
+    of: "de",
+    menuTitle: "Avui,\nquè et ve de gust?",
+    menuText:
+      "La nostra cuina segueix el ritme de les estacions. Consulta la carta i els menús abans de venir.",
+    viewMenu: "Veure la carta",
+    menuIntro: "La carta i els menús de Can Ventura.",
+    menuSource: "Obrir la carta completa",
+    menuUnavailable:
+      "Pots consultar la carta completa aquí o trucar-nos si tens qualsevol dubte.",
+    menuDocument: "Obrir aquesta pàgina de la carta",
+    menuPage: "Pàgina",
+    familyTitle: "Una casa.\nUna família.",
+    familyText:
+      "El Josep i la Mercè van obrir Can Ventura el 1977. Avui, l’Esther i el Jordi continuen una història que es cuina cada dia.",
+    familySecond:
+      "La cuina canvia amb les estacions. La manera d’acollir-te segueix sent la de casa.",
+    contactTitle: "Ens veiem\na Llívia.",
+    findUs: "On som",
+    callUs: "Parlem?",
+    hours: "Quan ens veiem?",
+    hoursText:
+      "Consulta els serveis disponibles en reservar o truca’ns per confirmar els horaris.",
+    directions: "Com arribar-hi",
+    instagram: "Segueix-nos a Instagram",
+    back: "Tornar a la casa",
+    notFound: "Aquesta pàgina no és a casa.",
+    notFoundText: "Torna a l’inici i segueix el fil.",
+    photoChef: "El cuiner de Can Ventura treballant amb una tòfona a la cuina",
+    photoFacade: "Façana de Can Ventura a la Plaça Major de Llívia",
+    photoRoom: "Una taula preparada a les sales de Can Ventura",
+    photoDetails: "Detalls de la casa i de les seves sales",
+    photoDish: "Un plat de la cuina de Can Ventura",
+    photoGrill: "La cuina de Can Ventura a la brasa",
+    photoHands: "Les mans del cuiner preparant un plat",
+  },
+  es: {
+    title: "Can Ventura · Restaurante en Llívia",
+    description:
+      "Cocina de la Cerdanya y una casa en la Plaça Major de Llívia. Descubre Can Ventura, consulta la carta y reserva mesa.",
+    skip: "Ir al contenido",
+    languages: "Idioma",
+    navigation: "Navegación principal",
+    navigationToggle: "Menú",
+    book: "Reservar",
+    home: "Inicio",
+    house: "La casa",
+    kitchen: "La cocina",
+    menu: "Carta",
+    family: "La familia",
+    contact: "Contacto",
+    reserve: "Reservar mesa",
+    reservation: "Reserva",
+    intro: "Cocina de la Cerdanya. Una casa en Llívia.",
+    scroll: "Sigue el hilo",
+    since: "A la mesa desde 1977",
+    location: "Llívia · La Cerdanya",
+    houseTitle: "¿Damos una vuelta?",
+    houseInvitation: "Pulsa aquí para dar una vuelta.",
+    houseText:
+      "Una puerta en la Plaça Major. Dentro, salas con historia y mesas para compartirla.",
+    openHouse: "Entrar en la casa",
+    houseGallery: "Un paseo por Can Ventura",
+    close: "Cerrar",
+    kitchenTitle: "Del territorio,\na la mesa.",
+    kitchenText:
+      "Recetas de la Cerdanya, producto de temporada y nuestra manera de cocinarlo.",
+    galleryLabel: "Galería de imágenes",
+    previous: "Fotografía anterior",
+    next: "Fotografía siguiente",
+    photo: "Fotografía",
+    of: "de",
+    menuTitle: "Hoy,\n¿qué te apetece?",
+    menuText:
+      "Nuestra cocina sigue el ritmo de las estaciones. Consulta la carta y los menús antes de venir.",
+    viewMenu: "Ver la carta",
+    menuIntro: "La carta y los menús de Can Ventura.",
+    menuSource: "Abrir la carta completa",
+    menuUnavailable:
+      "Puedes consultar la carta completa aquí o llamarnos si tienes alguna duda.",
+    menuDocument: "Abrir esta página de la carta",
+    menuPage: "Página",
+    familyTitle: "Una casa.\nUna familia.",
+    familyText:
+      "Josep y Mercè abrieron Can Ventura en 1977. Hoy, Esther y Jordi continúan una historia que se cocina cada día.",
+    familySecond:
+      "La cocina cambia con las estaciones. La manera de recibirte sigue siendo la de casa.",
+    contactTitle: "Nos vemos\nen Llívia.",
+    findUs: "Dónde estamos",
+    callUs: "¿Hablamos?",
+    hours: "¿Cuándo nos vemos?",
+    hoursText:
+      "Consulta los servicios disponibles al reservar o llámanos para confirmar los horarios.",
+    directions: "Cómo llegar",
+    instagram: "Síguenos en Instagram",
+    back: "Volver a la casa",
+    notFound: "Esta página no está en casa.",
+    notFoundText: "Vuelve al inicio y sigue el hilo.",
+    photoChef:
+      "El cocinero de Can Ventura trabajando con una trufa en la cocina",
+    photoFacade: "Fachada de Can Ventura en la Plaça Major de Llívia",
+    photoRoom: "Una mesa preparada en las salas de Can Ventura",
+    photoDetails: "Detalles de la casa y sus salas",
+    photoDish: "Un plato de la cocina de Can Ventura",
+    photoGrill: "La cocina de Can Ventura a la brasa",
+    photoHands: "Las manos del cocinero preparando un plato",
+  },
+  fr: {
+    title: "Can Ventura · Restaurant à Llívia",
+    description:
+      "La cuisine de la Cerdagne, dans une maison de la Plaça Major à Llívia. Découvrez Can Ventura, consultez la carte et réservez votre table.",
+    skip: "Aller au contenu",
+    languages: "Langue",
+    navigation: "Navigation principale",
+    navigationToggle: "Menu",
+    book: "Réserver",
+    home: "Accueil",
+    house: "La maison",
+    kitchen: "La cuisine",
+    menu: "Carte",
+    family: "La famille",
+    contact: "Contact",
+    reserve: "Réserver une table",
+    reservation: "Réserver",
+    intro: "La cuisine de la Cerdagne. Une maison à Llívia.",
+    scroll: "Suivez le fil",
+    since: "À table depuis 1977",
+    location: "Llívia · La Cerdagne",
+    houseTitle: "On fait un tour ?",
+    houseInvitation: "Entrez pour faire un petit tour.",
+    houseText:
+      "Une porte sur la Plaça Major. À l’intérieur, des salles chargées d’histoire et des tables pour la partager.",
+    openHouse: "Entrer dans la maison",
+    houseGallery: "Un tour de Can Ventura",
+    close: "Fermer",
+    kitchenTitle: "Du terroir,\nà la table.",
+    kitchenText:
+      "Des recettes de la Cerdagne, des produits de saison et notre façon de les cuisiner.",
+    galleryLabel: "Galerie de photos",
+    previous: "Photo précédente",
+    next: "Photo suivante",
+    photo: "Photo",
+    of: "sur",
+    menuTitle: "Aujourd’hui,\nqu’est-ce qui vous tente ?",
+    menuText:
+      "Notre cuisine suit le rythme des saisons. Consultez la carte et les menus avant votre visite.",
+    viewMenu: "Voir la carte",
+    menuIntro: "La carte et les menus de Can Ventura.",
+    menuSource: "Ouvrir la carte complète",
+    menuUnavailable:
+      "Consultez la carte complète ici ou appelez-nous si vous avez une question.",
+    menuDocument: "Ouvrir cette page de la carte",
+    menuPage: "Page",
+    familyTitle: "Une maison.\nUne famille.",
+    familyText:
+      "Josep et Mercè ont ouvert Can Ventura en 1977. Aujourd’hui, Esther et Jordi poursuivent une histoire qui se cuisine chaque jour.",
+    familySecond:
+      "La cuisine change au fil des saisons. L’accueil reste celui de la maison.",
+    contactTitle: "À bientôt\nà Llívia.",
+    findUs: "Nous trouver",
+    callUs: "On en parle ?",
+    hours: "Quand venir ?",
+    hoursText:
+      "Consultez les services disponibles lors de la réservation ou appelez-nous pour confirmer les horaires.",
+    directions: "Comment venir",
+    instagram: "Suivez-nous sur Instagram",
+    back: "Retour à la maison",
+    notFound: "Cette page n’est pas à la maison.",
+    notFoundText: "Revenez à l’accueil et suivez le fil.",
+    photoChef: "Le cuisinier de Can Ventura travaillant une truffe en cuisine",
+    photoFacade: "Façade de Can Ventura sur la Plaça Major à Llívia",
+    photoRoom: "Une table dressée dans les salles de Can Ventura",
+    photoDetails: "Détails de la maison et de ses salles",
+    photoDish: "Un plat de la cuisine de Can Ventura",
+    photoGrill: "La cuisine de Can Ventura au gril",
+    photoHands: "Les mains du cuisinier préparant un plat",
+  },
+  en: {
+    title: "Can Ventura · Restaurant in Llívia",
+    description:
+      "Cerdanya cooking in a house on Plaça Major, Llívia. Discover Can Ventura, explore the menu and book a table.",
+    skip: "Skip to content",
+    languages: "Language",
+    navigation: "Main navigation",
+    navigationToggle: "Menu",
+    book: "Book",
+    home: "Home",
+    house: "The house",
+    kitchen: "The kitchen",
+    menu: "Menu",
+    family: "The family",
+    contact: "Contact",
+    reserve: "Book a table",
+    reservation: "Book",
+    intro: "Cerdanya cooking. A house in Llívia.",
+    scroll: "Follow the thread",
+    since: "Around the table since 1977",
+    location: "Llívia · Cerdanya",
+    houseTitle: "Shall we have a look?",
+    houseInvitation: "Step inside for a quick look around.",
+    houseText:
+      "A door on Plaça Major. Inside, rooms with a history and tables to share it around.",
+    openHouse: "Step inside",
+    houseGallery: "A look around Can Ventura",
+    close: "Close",
+    kitchenTitle: "From the land,\nto the table.",
+    kitchenText:
+      "Recipes from Cerdanya, seasonal ingredients and our way of cooking them.",
+    galleryLabel: "Photo gallery",
+    previous: "Previous photo",
+    next: "Next photo",
+    photo: "Photo",
+    of: "of",
+    menuTitle: "What takes\nyour fancy today?",
+    menuText:
+      "Our cooking follows the seasons. Explore the menus before you visit.",
+    viewMenu: "Explore the menu",
+    menuIntro: "The menus at Can Ventura.",
+    menuSource: "Open the full menu",
+    menuUnavailable:
+      "Explore the full menu here, or give us a call if you have any questions.",
+    menuDocument: "Open this menu page",
+    menuPage: "Page",
+    familyTitle: "One house.\nOne family.",
+    familyText:
+      "Josep and Mercè opened Can Ventura in 1977. Today, Esther and Jordi carry on a story that is cooked afresh every day.",
+    familySecond:
+      "The cooking changes with the seasons. The welcome is still the one you find at home.",
+    contactTitle: "See you\nin Llívia.",
+    findUs: "Find us",
+    callUs: "Let’s talk",
+    hours: "When to visit",
+    hoursText:
+      "Check the available services when booking, or call us to confirm opening hours.",
+    directions: "Get directions",
+    instagram: "Follow us on Instagram",
+    back: "Back to the house",
+    notFound: "This page isn’t at home.",
+    notFoundText: "Head back to the homepage and follow the thread.",
+    photoChef: "The Can Ventura chef working with a truffle in the kitchen",
+    photoFacade: "The façade of Can Ventura on Plaça Major, Llívia",
+    photoRoom: "A table set in the dining rooms at Can Ventura",
+    photoDetails: "Details of the house and its rooms",
+    photoDish: "A dish from the Can Ventura kitchen",
+    photoGrill: "Cooking over the grill at Can Ventura",
+    photoHands: "The chef’s hands preparing a dish",
+  },
+} satisfies Record<Locale, Record<string, string>>;

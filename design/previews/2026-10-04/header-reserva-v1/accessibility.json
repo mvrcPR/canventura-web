@@ -1,0 +1,58 @@
+[
+  {
+    "state": "desktop closed",
+    "violations": []
+  },
+  {
+    "state": "desktop languages",
+    "violations": []
+  },
+  {
+    "state": "desktop scroll",
+    "violations": []
+  },
+  {
+    "state": "mobile closed",
+    "violations": []
+  },
+  {
+    "state": "mobile languages",
+    "violations": []
+  },
+  {
+    "state": "mobile menu",
+    "violations": []
+  },
+  {
+    "state": "mobile scroll",
+    "violations": []
+  },
+  {
+    "state": "mobile-fr closed",
+    "violations": []
+  },
+  {
+    "state": "mobile-fr languages",
+    "violations": []
+  },
+  {
+    "state": "mobile-fr menu",
+    "violations": []
+  },
+  {
+    "state": "mobile-fr scroll",
+    "violations": []
+  },
+  {
+    "state": "menu-fr closed",
+    "violations": []
+  },
+  {
+    "state": "menu-fr languages",
+    "violations": []
+  },
+  {
+    "state": "menu-fr menu",
+    "violations": []
+  }
+]

@@ -1,0 +1,15 @@
+---
+import { copy, reservationUrl, type Locale } from "../content/site";
+interface Props {
+  locale: Locale;
+  class?: string;
+}
+const { locale, class: className } = Astro.props;
+---
+
+<a class:list={["reserve-button", className]} href={reservationUrl(locale)}>
+  <span>{copy[locale].reserve}</span>
+  <span class="reserve-arrow" aria-hidden="true">
+    ↗
+  </span>
+</a>

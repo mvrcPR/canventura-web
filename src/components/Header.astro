@@ -1,0 +1,126 @@
+---
+import logo from "../../public/brand/can-ventura-logo.svg?raw";
+import {
+  copy,
+  locales,
+  homePath,
+  menuPath,
+  reservationUrl,
+  languageNames,
+  type Locale,
+} from "../content/site";
+interface Props {
+  locale: Locale;
+  page?: "home" | "menu";
+}
+const { locale, page = "home" } = Astro.props;
+const t = copy[locale];
+---
+
+<header class="site-header" data-page={page}>
+  <a
+    class="brand"
+    href={homePath(locale)}
+    aria-label={`Can Ventura · ${t.home}`}
+    set:html={logo}
+  />
+  <nav class="primary-nav mono" aria-label={t.navigation}>
+    <a href={`${homePath(locale)}#casa`}>{t.house}</a>
+    <a
+      href={menuPath(locale)}
+      aria-current={page === "menu" ? "page" : undefined}
+    >
+      {t.menu}
+    </a>
+    <a href={`${homePath(locale)}#contacte`}>{t.contact}</a>
+  </nav>
+  <div class="header-actions mono">
+    <details class="language-picker header-disclosure">
+      <summary aria-label={`${t.languages}: ${languageNames[locale]}`}>
+        {locale.toUpperCase()} <span aria-hidden="true">⌄</span>
+      </summary>
+      <nav class="header-panel language-options" aria-label={t.languages}>
+        {locales.map((lang) => (
+          <a
+            href={page === "menu" ? menuPath(lang) : homePath(lang)}
+            lang={lang}
+            hreflang={lang}
+            aria-current={lang === locale ? "page" : undefined}
+          >
+            {languageNames[lang]}
+          </a>
+        ))}
+      </nav>
+    </details>
+    <a class="header-reserve" href={reservationUrl(locale)}>
+      {t.book} <span aria-hidden="true">↗</span>
+    </a>
+    <details class="mobile-navigation header-disclosure">
+      <summary>
+        {t.navigationToggle}{" "}
+        <span class="menu-sign" aria-hidden="true">
+          +
+        </span>
+      </summary>
+      <nav class="header-panel mobile-links" aria-label={t.navigation}>
+        <a href={`${homePath(locale)}#casa`}>{t.house}</a>
+        <a
+          href={menuPath(locale)}
+          aria-current={page === "menu" ? "page" : undefined}
+        >
+          {t.menu}
+        </a>
+        <a href={`${homePath(locale)}#contacte`}>{t.contact}</a>
+        <a class="mobile-reserve" href={reservationUrl(locale)}>
+          {t.reserve} <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>(".site-header")!;
+  const disclosures = [
+    ...header.querySelectorAll<HTMLDetailsElement>(".header-disclosure"),
+  ];
+  const updateHeader = () =>
+    header.classList.toggle("scrolled", window.scrollY > 16);
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+
+  for (const disclosure of disclosures) {
+    disclosure.addEventListener("toggle", () => {
+      if (disclosure.open) {
+        for (const other of disclosures)
+          if (other !== disclosure) other.open = false;
+      }
+    });
+    disclosure.addEventListener("focusout", (event) => {
+      if (!disclosure.contains(event.relatedTarget as Node | null))
+        disclosure.open = false;
+    });
+    disclosure.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        disclosure.open = false;
+      });
+    });
+  }
+  document.addEventListener("pointerdown", (event) => {
+    for (const disclosure of disclosures) {
+      if (!disclosure.contains(event.target as Node)) disclosure.open = false;
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    for (const disclosure of disclosures) {
+      if (disclosure.open) {
+        disclosure.open = false;
+        disclosure.querySelector("summary")?.focus();
+      }
+    }
+  });
+  matchMedia("(max-width: 700px)").addEventListener("change", () => {
+    for (const disclosure of disclosures) disclosure.open = false;
+  });
+</script>

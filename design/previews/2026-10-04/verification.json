@@ -1,0 +1,57 @@
+{
+  "checkedOn": "2026-10-04",
+  "runtime": "Cloudflare local preview",
+  "results": [
+    {
+      "route": "/",
+      "lang": "ca",
+      "status": 200,
+      "documents": 0
+    },
+    {
+      "route": "/es/",
+      "lang": "es",
+      "status": 200,
+      "documents": 0
+    },
+    {
+      "route": "/fr/",
+      "lang": "fr",
+      "status": 200,
+      "documents": 0
+    },
+    {
+      "route": "/en/",
+      "lang": "en",
+      "status": 200,
+      "documents": 0
+    },
+    {
+      "route": "/carta/",
+      "lang": "ca",
+      "status": 200,
+      "documents": 14
+    },
+    {
+      "route": "/es/carta/",
+      "lang": "es",
+      "status": 200,
+      "documents": 14
+    },
+    {
+      "route": "/fr/carta/",
+      "lang": "fr",
+      "status": 200,
+      "documents": 10
+    },
+    {
+      "route": "/en/carta/",
+      "lang": "en",
+      "status": 200,
+      "documents": 10
+    },
+    {
+      "javascriptDisabled": "Content, gallery photos and inline house tour remain available"
+    }
+  ]
+}

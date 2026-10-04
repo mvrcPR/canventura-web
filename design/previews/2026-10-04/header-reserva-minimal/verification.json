@@ -1,0 +1,107 @@
+{
+  "checkedOn": "2026-10-04",
+  "results": [
+    {
+      "lang": "ca",
+      "width": 390,
+      "initialReserve": "hero only",
+      "scrollReserve": "mobile bar",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "ca",
+      "width": 1440,
+      "initialReserve": "hero only",
+      "scrollReserve": "header",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "es",
+      "width": 390,
+      "initialReserve": "hero only",
+      "scrollReserve": "mobile bar",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "es",
+      "width": 1440,
+      "initialReserve": "hero only",
+      "scrollReserve": "header",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "fr",
+      "width": 390,
+      "initialReserve": "hero only",
+      "scrollReserve": "mobile bar",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "fr",
+      "width": 1440,
+      "initialReserve": "hero only",
+      "scrollReserve": "header",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "initialReserve": "hero only",
+      "scrollReserve": "mobile bar",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "lang": "en",
+      "width": 1440,
+      "initialReserve": "hero only",
+      "scrollReserve": "header",
+      "headerBorder": "none",
+      "gradientHeight": 280,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "height": 560,
+      "directJump": "pass"
+    },
+    {
+      "width": 320,
+      "height": 560,
+      "directJump": "pass"
+    },
+    {
+      "route": "/carta/",
+      "width": 390,
+      "reservation": "visible on arrival",
+      "headerBorder": "none"
+    },
+    {
+      "route": "/carta/",
+      "width": 1440,
+      "reservation": "visible on arrival",
+      "headerBorder": "none"
+    }
+  ]
+}
