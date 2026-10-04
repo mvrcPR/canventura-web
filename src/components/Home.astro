@@ -58,11 +58,27 @@ const housePhotos = [
       id="casa"
       aria-labelledby="house-title"
     >
-      <div class="section-heading mono">
-        <span>01 / {t.house}</span>
-        <span>Can Ventura · Llívia</span>
-      </div>
       <div class="house-composition" data-reveal>
+        <div class="house-note">
+          <a class="house-entry-copy" href="#house-tour" data-open-tour>
+            <h2 id="house-title">{t.houseTitle}</h2>
+            <div class="house-invitation">
+              <p class="mono">{t.houseInvitation}</p>
+              <div class="house-arrow" aria-hidden="true">
+                <svg class="hand-arrow" viewBox="0 0 550 360" fill="none">
+                  <path
+                    d="M550 0C520 103 423 213 306 258C207 296 97 277 29 229M29 229L39 264M29 229L66 218"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="butt"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="house-tip-marker"></span>
+              </div>
+            </div>
+          </a>
+        </div>
         <a
           class="house-door"
           href="#house-tour"
@@ -77,29 +93,7 @@ const housePhotos = [
             loading="lazy"
             decoding="async"
           />
-          <span class="door-label mono">
-            {t.openHouse} <span aria-hidden="true">↗</span>
-          </span>
         </a>
-        <div class="house-note">
-          <h2 id="house-title">{t.houseTitle}</h2>
-          <p class="mono">{t.houseInvitation}</p>
-          <svg
-            class="hand-arrow"
-            viewBox="0 0 550 360"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M490 12C468 103 423 213 306 258C207 296 97 277 29 229M29 229L39 264M29 229L66 218"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <p class="house-description">{t.houseText}</p>
-        </div>
       </div>
       <div id="house-tour" class="house-tour">
         <div class="tour-heading">
@@ -240,30 +234,67 @@ const housePhotos = [
   </main>
   <script>
     const tour = document.querySelector<HTMLElement>(".house-tour")!;
-    const trigger =
-      document.querySelector<HTMLAnchorElement>("[data-open-tour]")!;
+    const triggers =
+      document.querySelectorAll<HTMLAnchorElement>("[data-open-tour]");
+    let activeTrigger = triggers[0];
+    const composition =
+      document.querySelector<HTMLElement>(".house-composition")!;
+    const touchPointer = matchMedia("(hover: none), (pointer: coarse)");
+    let hintTimer: ReturnType<typeof setTimeout> | undefined;
+    let hasOpenedTour = false;
+    const clearHint = () => {
+      clearTimeout(hintTimer);
+      composition.classList.remove("tour-hint-visible");
+    };
+    const hintObserver = new IntersectionObserver(
+      ([entry]) => {
+        clearHint();
+        if (
+          entry.intersectionRatio >= 0.3 &&
+          touchPointer.matches &&
+          !hasOpenedTour
+        ) {
+          hintTimer = setTimeout(
+            () => composition.classList.add("tour-hint-visible"),
+            2000,
+          );
+        }
+      },
+      { threshold: 0.3, rootMargin: "-110px 0px -90px 0px" },
+    );
+    hintObserver.observe(composition);
     const closeButton =
       tour.querySelector<HTMLButtonElement>("[data-close-tour]")!;
     const dialog = document.createElement("dialog");
     dialog.className = "tour-dialog";
+    dialog.id = "house-tour-dialog";
     dialog.setAttribute("aria-label", tour.querySelector("h2")!.textContent!);
     tour.parentNode!.insertBefore(dialog, tour);
     dialog.append(tour);
     const close = () => {
       dialog.close();
       document.body.classList.remove("dialog-open");
-      trigger.focus();
+      activeTrigger.focus();
     };
-    trigger.addEventListener("click", (event) => {
-      event.preventDefault();
-      dialog.showModal();
-      document.body.classList.add("dialog-open");
-      closeButton.focus();
+    triggers.forEach((trigger) => {
+      trigger.setAttribute("aria-haspopup", "dialog");
+      trigger.setAttribute("aria-controls", dialog.id);
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        activeTrigger = trigger;
+        hasOpenedTour = true;
+        clearHint();
+        hintObserver.disconnect();
+        dialog.showModal();
+        document.body.classList.add("dialog-open");
+        closeButton.focus();
+      });
     });
     closeButton.addEventListener("click", close);
-    dialog.addEventListener("cancel", () =>
-      document.body.classList.remove("dialog-open"),
-    );
+    dialog.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      close();
+    });
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) close();
     });

@@ -1,0 +1,39 @@
+{
+  "checkedOn": "2026-10-04",
+  "results": [
+    {
+      "width": 1440,
+      "initialHeader": "transparent",
+      "topGradient": "removed",
+      "scrollHeader": "black",
+      "backToTop": "transparent",
+      "dropdown": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "initialHeader": "transparent",
+      "topGradient": "removed",
+      "scrollHeader": "black",
+      "backToTop": "transparent",
+      "dropdown": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 320,
+      "initialHeader": "transparent",
+      "topGradient": "removed",
+      "scrollHeader": "black",
+      "backToTop": "transparent",
+      "dropdown": "pass",
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "route": "/carta/",
+      "header": "black"
+    }
+  ]
+}

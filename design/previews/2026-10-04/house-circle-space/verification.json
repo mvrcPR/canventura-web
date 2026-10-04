@@ -1,0 +1,35 @@
+{
+  "checkedOn": "2026-10-04",
+  "results": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "diameter": 50,
+      "gapFromTip": 10.014908536740137,
+      "gapFromArrow": 10.014908536740137,
+      "ahead": true,
+      "overflow": false,
+      "opacity": "0.8"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "diameter": 50,
+      "gapFromTip": 10.015413153712679,
+      "gapFromArrow": 10.015413153712679,
+      "ahead": true,
+      "overflow": false,
+      "opacity": "0.8"
+    },
+    {
+      "name": "small",
+      "width": 320,
+      "diameter": 50,
+      "gapFromTip": 10.010790932510659,
+      "gapFromArrow": 10.010790932510659,
+      "ahead": true,
+      "overflow": false,
+      "opacity": "0.8"
+    }
+  ]
+}

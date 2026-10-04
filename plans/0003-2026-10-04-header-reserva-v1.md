@@ -164,3 +164,14 @@ a sota de la portada. No afegim aquesta proposta a les rutes de producció.
   i [resultats](../design/previews/2026-10-04/header-reserva-minimal/verification.json).
 - 2026-10-04: l'usuari accepta la versió actual i autoritza commit i push al
   repositori de GitHub. La prohibició temporal de fer commits queda revocada.
+- 2026-10-04: prova local encarregada per l'usuari amb header transparent en
+  arribar a la landing. Eliminat el degradat superior de la portada; el fons
+  negre del header continua apareixent després de 16 px de scroll i es manté
+  a la carta. Compilació superada i comprovats escriptori, mòbil, retorn al
+  principi i selector d'idioma, sense desbordament ni errors JavaScript.
+  [Captura d'escriptori](../design/previews/2026-10-04/header-transparent/desktop-portada.png),
+  [captura mòbil](../design/previews/2026-10-04/header-transparent/mobile-portada.png)
+  i [resultats](../design/previews/2026-10-04/header-transparent/verification.json).
+  Prova pendent de revisió visual, sense commit ni push en aquest encàrrec.
+- 2026-10-04: l'usuari autoritza commit i push de la versió actual, incloent
+  el header transparent i els ajustos de la secció de la casa.

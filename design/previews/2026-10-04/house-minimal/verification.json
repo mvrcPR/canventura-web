@@ -1,0 +1,275 @@
+{
+  "checkedOn": "2026-10-04",
+  "results": [
+    {
+      "locale": "ca",
+      "width": 1440,
+      "tailOffset": 0.004991319444457076,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 824.6065538194445,
+        "y": 378.203125,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 497.2403645833333,
+        "y": 522.0934461805556,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 200,
+        "right": 630,
+        "top": 230,
+        "bottom": 767.5
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 390,
+      "tailOffset": 0.013237847222285382,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 319.1820746527777,
+        "y": 277.390625,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 141.8747395833333,
+        "y": 355.3241753472222,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 329.390625,
+        "bottom": 650.015625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 320,
+      "tailOffset": 0.0013020833333143855,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 249.19661458333331,
+        "y": 277.390625,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 97.6453125,
+        "y": 344.0033854166667,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 228,
+        "top": 329.390625,
+        "bottom": 584.390625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 768,
+      "tailOffset": 0.00021701388891415263,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 463.6017795138889,
+        "y": 356.984375,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 217.32526041666668,
+        "y": 465.2325954861111,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 30.71875,
+        "right": 359,
+        "top": 230,
+        "bottom": 640.34375
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 2560,
+      "tailOffset": 0.001953125,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 1384.599609375,
+        "y": 412.984375,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 1053.07265625,
+        "y": 558.703515625,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 640,
+        "right": 1160,
+        "top": 260,
+        "bottom": 910
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "tailOffset": 0.005425347222285382,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 315.5883246527777,
+        "y": 277.390625,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 138.2809895833333,
+        "y": 355.3241753472222,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 329.390625,
+        "bottom": 650.015625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 390,
+      "tailOffset": 0.005425347222228538,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 304.79144965277777,
+        "y": 277.390625,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 127.48411458333332,
+        "y": 355.3241753472222,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 329.390625,
+        "bottom": 650.015625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "tailOffset": 0.005425347222228538,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 304.79144965277777,
+        "y": 277.390625,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 127.48411458333332,
+        "y": 355.3241753472222,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 329.390625,
+        "bottom": 650.015625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "tailOffset": 0.0028211805555429237,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 841.4034288194445,
+        "y": 378.203125,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 514.0372395833333,
+        "y": 522.0934461805556,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 200,
+        "right": 630,
+        "top": 230,
+        "bottom": 767.5
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    }
+  ]
+}

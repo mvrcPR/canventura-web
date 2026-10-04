@@ -1,0 +1,140 @@
+{
+  "checkedOn": "2026-10-04",
+  "results": [
+    {
+      "locale": "ca",
+      "width": 1440,
+      "markerTipOffset": 0.02581907181761813,
+      "tailOffset": 0.0034722222221716947,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 390,
+      "markerTipOffset": 0.018036556844709766,
+      "tailOffset": 0.00390625,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 320,
+      "markerTipOffset": 0.021836601342771385,
+      "tailOffset": 0.001953125,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 768,
+      "markerTipOffset": 0.02360620385330423,
+      "tailOffset": 0.017144097222228538,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 2560,
+      "markerTipOffset": 0.022767766804630066,
+      "tailOffset": 0.019314236111085847,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "markerTipOffset": 0.018036556844709766,
+      "tailOffset": 0.00390625,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 390,
+      "markerTipOffset": 0.018036556844709766,
+      "tailOffset": 0.00390625,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "markerTipOffset": 0.018036556844709766,
+      "tailOffset": 0.01171875,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "markerTipOffset": 0.022569444444474566,
+      "tailOffset": 0.0008680555556566105,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "photoAndTextClick": "pass",
+      "keyboard": "pass",
+      "focusReturn": "pass",
+      "errors": []
+    },
+    {
+      "mode": "desktop",
+      "tipHint": "pass",
+      "overflow": false
+    },
+    {
+      "mode": "touch",
+      "tipHint": "pass",
+      "overflow": false
+    },
+    {
+      "mode": "reduced-motion",
+      "tipHint": "pass",
+      "overflow": false
+    },
+    {
+      "noJavaScript": "inlineGalleryPass"
+    }
+  ]
+}

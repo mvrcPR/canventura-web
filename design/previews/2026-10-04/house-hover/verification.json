@@ -1,0 +1,290 @@
+{
+  "checkedOn": "2026-10-04",
+  "results": [
+    {
+      "locale": "ca",
+      "width": 1440,
+      "tailOffset": 0.011501736111085847,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 898.4259982638889,
+        "y": 332.40625,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 531.2611979166667,
+        "y": 493.78962673611113,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 200,
+        "right": 630,
+        "top": 230,
+        "bottom": 767.5
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 390,
+      "tailOffset": 0.00390625,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 270.42578125,
+        "y": 242,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 122.6734375,
+        "y": 306.94296875,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 284,
+        "bottom": 604.625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 320,
+      "tailOffset": 0.001953125,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 200.427734375,
+        "y": 242,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 77.30078125,
+        "y": 296.119140625,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 228,
+        "top": 284,
+        "bottom": 539
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 768,
+      "tailOffset": 0.009331597222228538,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 485.44379340277777,
+        "y": 311.1875,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 214.11223958333335,
+        "y": 430.4483940972222,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 30.71875,
+        "right": 359,
+        "top": 230,
+        "bottom": 640.34375
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "ca",
+      "width": 2560,
+      "tailOffset": 0.014322916666515084,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 1470.1497395833335,
+        "y": 367.1875,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 1053.2140625000002,
+        "y": 550.4471354166667,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 640,
+        "right": 1160,
+        "top": 260,
+        "bottom": 910
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "tailOffset": 0.01171875,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 230.20703125,
+        "y": 242,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 82.4546875,
+        "y": 306.94296875,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 284,
+        "bottom": 604.625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "fr",
+      "width": 390,
+      "tailOffset": 0.00390625,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 259.20703125,
+        "y": 242,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 111.4546875,
+        "y": 306.94296875,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 284,
+        "bottom": 604.625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "tailOffset": 0.00390625,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 222.16015625,
+        "y": 242,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 74.4078125,
+        "y": 306.94296875,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 24,
+        "right": 280.5,
+        "top": 284,
+        "bottom": 604.625
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "tailOffset": 0.007595486111085847,
+      "tailBelowText": 18,
+      "tipInsidePhoto": true,
+      "overflow": false,
+      "tail": {
+        "x": 963.3049045138889,
+        "y": 332.40625,
+        "z": 0,
+        "w": 1
+      },
+      "tip": {
+        "x": 534.6783854166667,
+        "y": 520.8044704861111,
+        "z": 0,
+        "w": 1
+      },
+      "image": {
+        "left": 200,
+        "right": 630,
+        "top": 230,
+        "bottom": 767.5
+      },
+      "photoClick": "pass",
+      "keyboard": "pass",
+      "closeFocusReturn": "pass",
+      "errors": []
+    },
+    {
+      "mode": "desktop",
+      "hoverScale": 1.035000042582667,
+      "overflow": false
+    },
+    {
+      "mode": "touch",
+      "hoverScale": 1,
+      "overflow": false
+    },
+    {
+      "mode": "reduced-motion",
+      "hoverScale": 1,
+      "overflow": false
+    }
+  ]
+}

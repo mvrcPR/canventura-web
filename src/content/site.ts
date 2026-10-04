@@ -55,7 +55,7 @@ export const copy = {
     since: "A taula des de 1977",
     location: "Llívia · La Cerdanya",
     houseTitle: "Fem un tomb?",
-    houseInvitation: "Prem aquí per fer un tomb ràpid.",
+    houseInvitation: "Entra, ets a casa.",
     houseText:
       "Una porta a la Plaça Major. A dins, sales amb història i taules per compartir-la.",
     openHouse: "Entrar a la casa",
@@ -125,7 +125,7 @@ export const copy = {
     since: "A la mesa desde 1977",
     location: "Llívia · La Cerdanya",
     houseTitle: "¿Damos una vuelta?",
-    houseInvitation: "Pulsa aquí para dar una vuelta.",
+    houseInvitation: "Entra, estás en casa.",
     houseText:
       "Una puerta en la Plaça Major. Dentro, salas con historia y mesas para compartirla.",
     openHouse: "Entrar en la casa",
@@ -196,7 +196,7 @@ export const copy = {
     since: "À table depuis 1977",
     location: "Llívia · La Cerdagne",
     houseTitle: "On fait un tour ?",
-    houseInvitation: "Entrez pour faire un petit tour.",
+    houseInvitation: "Entrez, vous êtes chez vous.",
     houseText:
       "Une porte sur la Plaça Major. À l’intérieur, des salles chargées d’histoire et des tables pour la partager.",
     openHouse: "Entrer dans la maison",
@@ -266,7 +266,7 @@ export const copy = {
     since: "Around the table since 1977",
     location: "Llívia · Cerdanya",
     houseTitle: "Shall we have a look?",
-    houseInvitation: "Step inside for a quick look around.",
+    houseInvitation: "Come in, you're at home.",
     houseText:
       "A door on Plaça Major. Inside, rooms with a history and tables to share it around.",
     openHouse: "Step inside",
