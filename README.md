@@ -36,12 +36,15 @@ La portada està prerenderitzada en català (`/`), castellà (`/es/`), francès
 - Galeries accessibles amb botons, teclat i desplaçament tàctil natiu.
 - Reserva externa al MyRestoo existent; no es manté una agenda pròpia.
 
-Els 56 fitxers fotogràfics de `src/assets/photography/originals/` conserven els
-bytes publicats, sense resize ni recompressió. El registre de procedència,
-resolució i SHA-256 està a `design/assets/photography-sources.json`. Són les
-versions completes exposades per la biblioteca pública de WordPress; no s’han
-confirmat originals de càmera. La foto del cuiner fa 744 × 930 píxels.
-Les 11 fotos utilitzades també es copien al build sense canviar-ne els bytes.
+Es conserven els 56 fitxers de la web anterior i els 52 PNG aportats a
+`CanVentura.zip`, aquests últims a `src/assets/photography/originals/supplied/`.
+El registre de procedència, resolució i SHA-256 està a
+`design/assets/photography-sources.json`. Els fitxers es preserven sense resize
+ni recompressió; no s'ha confirmat que siguin originals de càmera.
+De les 11 fotos utilitzades, 10 fan servir les versions aportades, inclosa la
+del cuiner de 1488 × 1860 píxels. La foto de família amb el davantal conserva
+la versió de la web anterior perquè no té equivalent al ZIP.
+Les fotos utilitzades també es copien al build sense canviar-ne els bytes.
 
 La base factual i les fonts tipogràfiques estan a
 `design/assets/content-sources.json`. Les fonts se serveixen localment amb

@@ -8,14 +8,17 @@ acords de la conversa. Les instruccions explícites de l'usuari prevalen.
 
 - Comunica't en català i explica els canvis amb llenguatge clar.
 - Treballa per peces petites que es puguin veure i comentar al navegador.
-- Abans d'una fase, consulta `plans/README.md` i el pla corresponent.
+- Els plans són per fases grans i decisions importants. Els retocs visuals,
+  de text o d'espaiat només necessiten el canvi i una comprovació proporcional;
+  no creen plans, registres o captures nous per defecte. Git conserva l'històric.
+- Abans d'una fase gran, consulta `plans/README.md` i el pla corresponent.
 - Respecta l'estat del pla: si està en revisió, treballa en la documentació i
   les decisions pendents fins que l'usuari indiqui que vol començar a implementar.
 - Quan l'usuari encarregui una fase, completa-la dins de l'abast acordat sense
   tornar a demanar confirmació per decisions ja resoltes o ajustos rutinaris.
-- Registra al pla les decisions, els canvis d'abast i la verificació feta.
+- Registra al pla només les decisions importants, els canvis d'abast i la
+  verificació de la fase.
   No marquis com a fet allò que només està proposat.
-- Conserva l'històric segons la convenció de `plans/README.md`.
 
 ## Direcció de disseny
 

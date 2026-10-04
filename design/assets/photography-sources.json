@@ -506,6 +506,543 @@
       "bytes": 1476220,
       "sha256": "5a1aeea201b114e4909f15f52ac45b415479d29e3d9566d38cec9e3bf30165f7",
       "sourceMediaId": 120
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/ESPAI.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "ESPAI.png",
+      "width": 2880,
+      "height": 2048,
+      "bytes": 10853997,
+      "sha256": "1803386af8c5b098a2ef20716f84bb96190bfad3adeda510bdca8bc998d2e393"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0017.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0017.png",
+      "width": 1274,
+      "height": 1914,
+      "bytes": 3319396,
+      "sha256": "f20d2714f77b0c4d213ca7efeb8c047682ce5ec965f2b26b906cf7953690d8ef",
+      "replacesPublishedFile": "src/assets/photography/originals/Plato_16.png"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0029.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0029.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 2916325,
+      "sha256": "0a5b63b2593ecb9cf77a7c08ba9428a3fc2c4b824c0ddaa845bc1963e88f0e0c"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0053.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0053.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 3641540,
+      "sha256": "bb35059df0be470ae62d569ef4ff9f4c6e26cf0e349937079246f7ab590b5c8b"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0058.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0058.png",
+      "width": 1916,
+      "height": 1532,
+      "bytes": 4487329,
+      "sha256": "5f560cb367f6cd61c616678fc3d1f39c52d544a5dbcf83c9074375af4f0d6884"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0075.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0075.png",
+      "width": 1274,
+      "height": 1914,
+      "bytes": 2723100,
+      "sha256": "3f551314aabc793c88d1b7331fff924478bfe8f185abee9a61bfb257a2edeada"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0084.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0084.png",
+      "width": 1916,
+      "height": 1530,
+      "bytes": 5359347,
+      "sha256": "536f8bb32442089f30d42f4e0b19c604ed951ed6703b6cc9fe19a61566c3ccf7",
+      "replacesPublishedFile": "src/assets/photography/originals/Plato_21.png"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0090.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0090.png",
+      "width": 1234,
+      "height": 1914,
+      "bytes": 1406660,
+      "sha256": "325e119381f8f3cf32b76122d384082e0eabce414a146907b403d719bbd1be4f"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0109.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0109.png",
+      "width": 1352,
+      "height": 1914,
+      "bytes": 2964285,
+      "sha256": "7b673f79ecf70f32d02836074696cfd2f0665131bee842165ac2f1d52888267d"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0144.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0144.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 4561363,
+      "sha256": "3b62a36d3414a1349c847c34e97a3ee131505f0ae5218f50efa5c6d1dfc94ace"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0409.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0409.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 5015568,
+      "sha256": "a74707c42dd1ba0eb735d013d161292d966c4ba20131cf75da49ea455ff98d59"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0411.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0411.png",
+      "width": 1534,
+      "height": 1914,
+      "bytes": 5185511,
+      "sha256": "ea8db8d5b52d32cc5cdcee438238e0b8160bb7addea5cdf2f9448b21a1e4d715",
+      "replacesPublishedFile": "src/assets/photography/originals/Restaurante_31.webp"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0420.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0420.png",
+      "width": 1728,
+      "height": 1728,
+      "bytes": 2387545,
+      "sha256": "ed1a9e8027a90d779932150140ce5cbde95d054c5c1abf9e0e15ef1c786a17ca"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0436.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0436.png",
+      "width": 1246,
+      "height": 1914,
+      "bytes": 3215402,
+      "sha256": "ee94775f0bfe429103ab6105a3959893fe879126f4b243d5fbed77656dadf36e"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0445.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0445.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 3860424,
+      "sha256": "e72d9aec05efc3e29848395b07d7c86f71d5284792bdb85aec2b399af70aa273"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0477.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0477.png",
+      "width": 1704,
+      "height": 1362,
+      "bytes": 2761754,
+      "sha256": "5cd573752dfb333c153c9988cbc19a91632a1963c08d95717d85f95abec81b50"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0478.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0478.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 4470425,
+      "sha256": "970ed6397ab3059819ecba7e01111620fa7a8a408fa578e66fa9d2f1f59d9cbf",
+      "replacesPublishedFile": "src/assets/photography/originals/Restaurante_26-1.webp"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0490.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0490.png",
+      "width": 1274,
+      "height": 1914,
+      "bytes": 2473086,
+      "sha256": "d24924feadec62560d79afe9f98f5bcea242b8d66ef1a7c8b01a9fbb23ee93f6"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0522.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0522.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 3498909,
+      "sha256": "eb71adc360b6baa8b0c606813940ae5d5e4b4d1f767186c3cb38d3b730ddd8bd"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0531.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0531.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 3273973,
+      "sha256": "17a9e1d336d038ed264779d4f3f34cc7761e6e203efccff80a213837f6dfa5dc"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0552 2.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0552 2.png",
+      "width": 1250,
+      "height": 1914,
+      "bytes": 2886031,
+      "sha256": "b1c2bcf8fdd41f1a8a0c87599966c2e97e4d26c4d0907437665b14a93d2ec2a3",
+      "replacesPublishedFile": "src/assets/photography/originals/Plato_58.webp"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0552.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0552.png",
+      "width": 794,
+      "height": 1196,
+      "bytes": 1157359,
+      "sha256": "99ab03864d1179111cbf8268d8f03f4ad9abeaf6e72149afb33e6209e7e54600"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0569.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0569.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 4271611,
+      "sha256": "aa90f69dd75b7feaa8689840b09a942ee50c5ee70a77b6b63c95c45747d1fdfd"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0580.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0580.png",
+      "width": 1488,
+      "height": 1860,
+      "bytes": 3524790,
+      "sha256": "dc664676b4c2c4ed7d0f51066cfd871bd9ef87dba7f59c9e4d540edeabcd4f19",
+      "replacesPublishedFile": "src/assets/photography/originals/Portada_2-1.png"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0594.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0594.png",
+      "width": 1914,
+      "height": 1274,
+      "bytes": 4954174,
+      "sha256": "1f1072843a1a34733851f4338bd833ffe7fdde595edbe69ad3a1bdc2c5c6d9fc"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0636.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0636.png",
+      "width": 1276,
+      "height": 1914,
+      "bytes": 2161672,
+      "sha256": "e4a05ced3f53abe4437d4ead6a021d8cd096ce1d7eb8e7b20f29427eddfa6b0f"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0647.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0647.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 4140942,
+      "sha256": "591664a7eba40bafc9dbf94ddab9477fcd9b16f4488a7f438eaf0f143c3682ac"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0668.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0668.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 3855415,
+      "sha256": "6a35fb2db7ae8be057f7c574b30509d6e7eb072bf8dc553d7445837c1c744ad5"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0909.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0909.png",
+      "width": 1272,
+      "height": 1914,
+      "bytes": 3495982,
+      "sha256": "2a9681467a6a349ea5fabc1f3f875515c022a34e1049ebf286b5e8f1ef1d4392"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0918.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0918.png",
+      "width": 1274,
+      "height": 1914,
+      "bytes": 1525600,
+      "sha256": "a1a9df12873f122f69556bcb9e0dca4675e926302720d6fb2bb380a3775170d9"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1041.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1041.png",
+      "width": 1534,
+      "height": 1914,
+      "bytes": 4246042,
+      "sha256": "7abf4de4aa830eb20c8daa3c88a21f75e1dbee602054b6d9a261915277b66891",
+      "replacesPublishedFile": "src/assets/photography/originals/Restaurante_30.webp"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1043.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1043.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 6472889,
+      "sha256": "000c6e7bfa24fd8e946ea1f27fafbdc00f17e5edd5b4cfae6e8e4c53a8de4ead",
+      "replacesPublishedFile": "src/assets/photography/originals/Restaurante_21.webp"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1045.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1045.png",
+      "width": 1274,
+      "height": 1914,
+      "bytes": 4326766,
+      "sha256": "b1770f107c9637c6f2189164fd13ecae9a05e66829df4aa0c5dcd22504a5c246"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1047.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1047.png",
+      "width": 1532,
+      "height": 1916,
+      "bytes": 6095312,
+      "sha256": "312835aa96daa5ec45bc13d0976644aa697bfce78ec5951cc1835153255d36b0"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1051.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1051.png",
+      "width": 1496,
+      "height": 1868,
+      "bytes": 5420409,
+      "sha256": "984bc148d1e64327c1f60f18df36e3d174a32bacc77e7534a34697b1a354cda6"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1069.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1069.png",
+      "width": 1496,
+      "height": 1870,
+      "bytes": 4304262,
+      "sha256": "35cae494b0c4a0e6069d546c0df9934aefdf60048c9dd67208ece169ee1e1da1"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1072.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1072.png",
+      "width": 1532,
+      "height": 1916,
+      "bytes": 3392461,
+      "sha256": "0ae9f14586d2fef5cdc3d27bd447c965f9080d4bbb660bd902bc783819062f93"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1086.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1086.png",
+      "width": 1190,
+      "height": 1488,
+      "bytes": 2938563,
+      "sha256": "ad33f4f55deaf92092fa6f2baea4797f885b93e79d46a970a59502e34e886a14"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1115.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1115.png",
+      "width": 1252,
+      "height": 1916,
+      "bytes": 3367727,
+      "sha256": "fedc43a85245a91e377daa714025fe530e7564c944a4190d889c351da6ea5bee"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1118.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1118.png",
+      "width": 1534,
+      "height": 1916,
+      "bytes": 4075657,
+      "sha256": "763551a9935b2eb61aa3272fe7d38dd64cc3df7418be8716ba23dbc85f5f45a5"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1195.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1195.png",
+      "width": 1274,
+      "height": 1916,
+      "bytes": 2877374,
+      "sha256": "f62e7e3b5bb61186add72f76632ac8e97f17ab88c6ade32432f402ee0f40dc55",
+      "replacesPublishedFile": "src/assets/photography/originals/Plato_55.webp"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1198.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1198.png",
+      "width": 1916,
+      "height": 1274,
+      "bytes": 3885936,
+      "sha256": "ccd5d2beee61d4a931e412a4af72dc12eaf0512b64d1a02ae5e14ad1b34553b7"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0421.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0421.png",
+      "width": 1274,
+      "height": 1916,
+      "bytes": 2240479,
+      "sha256": "6b4ef749740a7d390aa7944f978ebdcfb3320830d0b9f72adc93716b85e5d2d8",
+      "replacesPublishedFile": "src/assets/photography/originals/Restaurante_33.webp"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0486.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0486.png",
+      "width": 1274,
+      "height": 1916,
+      "bytes": 3292984,
+      "sha256": "12622d5378a67b59ced4cfe5cead8a4c836c52356be93411da17384f337b7a86"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0632.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0632.png",
+      "width": 1274,
+      "height": 1916,
+      "bytes": 2449422,
+      "sha256": "3e89c25a75a9d6c57f3c86b4cee6cdba8fcd1bad9bd9bb2ae180263198213134"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0633.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0633.png",
+      "width": 1534,
+      "height": 1916,
+      "bytes": 5381537,
+      "sha256": "33d3b566d6700d6562bd844f019e616dc7be9516fd980e1584b7b25a009c7f0b"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0634.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0634.png",
+      "width": 1272,
+      "height": 1916,
+      "bytes": 3536055,
+      "sha256": "438f6468ead244873b8b530550b80176fa2fbf3de43d117cf89191b24ba64d87"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0639.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0639.png",
+      "width": 1530,
+      "height": 1916,
+      "bytes": 4669223,
+      "sha256": "d93a66dcc1e0c2c6a5b5e692e9babc98bdbabb09503c56a82982624d47a01006"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0644.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0644.png",
+      "width": 1274,
+      "height": 1916,
+      "bytes": 3803152,
+      "sha256": "4453c03cccf379b0f83dded98fbd7d2ef3350625ccefdcf5c67229ac49368500"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0649.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0649.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 3695094,
+      "sha256": "10c75b3600114adc1a5a2ef1d4b7ae1c536dd8ce1f674fa881c152526663ebe5"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_0659.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_0659.png",
+      "width": 1532,
+      "height": 1914,
+      "bytes": 3338222,
+      "sha256": "b326c9f880bcc12a148edd7ad15becbddd397ef6f37af7f2454859a6777d1703"
+    },
+    {
+      "file": "src/assets/photography/originals/supplied/DSC_1106.png",
+      "source": "CanVentura.zip",
+      "sourceKind": "owner-supplied",
+      "archiveEntry": "DSC_1106.png",
+      "width": 1534,
+      "height": 1914,
+      "bytes": 3399364,
+      "sha256": "1130cf1eaeba88db2964ab7bb463dc5166ce23b6734e1a4366cb4660e18d0566"
     }
-  ]
+  ],
+  "suppliedArchive": {
+    "file": "CanVentura.zip",
+    "receivedOn": "2026-10-04",
+    "bytes": 197563665,
+    "sha256": "ee6b06186990af69998cfc7fe641e375d96d044fe720b5c1af696e06bdd87460",
+    "quality": "PNG files supplied by the owner, preserved byte for byte. Camera-original status not confirmed."
+  }
 }
