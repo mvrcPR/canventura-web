@@ -1,0 +1,42 @@
+{
+  "reviewedOn": "2026-10-04",
+  "priority": ["user-design", "awarded-websites", "current-website-content"],
+  "userDesign": ["LANDING.png", "LANDING-1.png", "LANDING-2.png"],
+  "logo": {
+    "source": "logo-original.png",
+    "output": "../../public/brand/can-ventura-logo.svg",
+    "method": "Potrace tracing of source alpha mask at threshold 128",
+    "color": "currentColor",
+    "silhouetteIntersectionOverUnion": 0.99039
+  },
+  "inspiration": [
+    {
+      "name": "Mugaritz",
+      "website": "https://www.mugaritz.com/",
+      "award": "Honorable Mention, 2025-04-08",
+      "awardSource": "https://www.awwwards.com/sites/mugaritz"
+    },
+    {
+      "name": "Toqué",
+      "website": "https://www.restaurant-toque.com/en/",
+      "award": "Honorable Mention, 2019-04-16",
+      "awardSource": "https://www.awwwards.com/sites/toque",
+      "reviewedAwardedDesignImage": "https://assets.awwwards.com/awards/submissions/2019/04/5cb4a0644b8a2114170897.jpg"
+    },
+    {
+      "name": "BAVET",
+      "website": "https://bavet.eu/",
+      "award": "Site of the Day, 2023-07-04",
+      "awardSource": "https://www.awwwards.com/sites/bavet"
+    }
+  ],
+  "currentWebsite": {
+    "home": "https://canventura.com/",
+    "about": "https://canventura.com/qui-som/",
+    "menus": "https://canventura.com/els-nostres-menus/",
+    "dishes": "https://canventura.com/els-nostres-plats/",
+    "reservations": "https://canventura.myrestoo.net/ca/reservar",
+    "existingHeroImage": "https://canventura.com/wp-content/uploads/2024/06/Portada_2-1.png",
+    "existingHeroImageDimensions": [744, 930]
+  }
+}
