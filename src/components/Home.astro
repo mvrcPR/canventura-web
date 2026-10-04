@@ -4,6 +4,7 @@ import ReserveButton from "./ReserveButton.astro";
 import PhotoGallery from "./PhotoGallery.astro";
 import {
   copy,
+  houseTour,
   menuPath,
   reservationUrl,
   restaurant,
@@ -21,12 +22,6 @@ const kitchenPhotos = [
   { image: photos.room, alt: t.photoRoom },
   { image: photos.hands, alt: t.photoHands },
   { image: photos.season, alt: t.photoDish },
-];
-const housePhotos = [
-  { image: photos.window, alt: t.photoRoom },
-  { image: photos.roundTable, alt: t.photoRoom },
-  { image: photos.details, alt: t.photoDetails },
-  { image: photos.room, alt: t.photoRoom },
 ];
 ---
 
@@ -62,7 +57,7 @@ const housePhotos = [
     >
       <div class="house-composition" data-reveal>
         <div class="house-note">
-          <a class="house-entry-copy" href="#house-tour" data-open-tour>
+          <a class="house-entry-copy" href={houseTour.url} data-open-tour>
             <h2 id="house-title">{t.houseTitle}</h2>
             <div class="house-invitation">
               <p class="mono">{t.houseInvitation}</p>
@@ -83,7 +78,7 @@ const housePhotos = [
         </div>
         <a
           class="house-door"
-          href="#house-tour"
+          href={houseTour.url}
           data-open-tour
           aria-label={t.openHouse}
         >
@@ -97,21 +92,42 @@ const housePhotos = [
           />
         </a>
       </div>
-      <div id="house-tour" class="house-tour">
-        <div class="tour-heading">
-          <h2>{t.houseGallery}</h2>
-          <button type="button" class="tour-close mono" data-close-tour>
-            {t.close} <span aria-hidden="true">×</span>
-          </button>
+      <dialog
+        id="house-tour-dialog"
+        class="tour-dialog"
+        aria-labelledby="house-tour-title"
+      >
+        <div class="house-tour">
+          <div class="tour-heading mono">
+            <h2 id="house-tour-title">{t.houseGallery}</h2>
+            <div class="tour-actions">
+              <a
+                class="tour-external"
+                href={houseTour.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.openTourExternal}
+              >
+                Google Maps <span aria-hidden="true">↗</span>
+              </a>
+              <button type="button" class="tour-close" data-close-tour>
+                {t.close} <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+          <div class="tour-viewer">
+            <p class="tour-loading mono" role="status">
+              {t.tourLoading}
+            </p>
+            <iframe
+              title={t.houseGallery}
+              data-src={`${houseTour.embedUrl}&hl=${locale}`}
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
         </div>
-        <PhotoGallery
-          id="house-gallery"
-          locale={locale}
-          label={t.houseGallery}
-          images={housePhotos}
-          compact
-        />
-      </div>
+      </dialog>
     </section>
     <section
       class="kitchen-section section-space"
@@ -235,13 +251,21 @@ const housePhotos = [
     </section>
   </main>
   <script>
-    const tour = document.querySelector<HTMLElement>(".house-tour")!;
+    const dialog = document.querySelector<HTMLDialogElement>(".tour-dialog")!;
+    const viewer = dialog.querySelector<HTMLElement>(".tour-viewer")!;
+    const frame = viewer.querySelector<HTMLIFrameElement>("iframe")!;
+    const loading = viewer.querySelector<HTMLElement>(".tour-loading")!;
     const triggers =
       document.querySelectorAll<HTMLAnchorElement>("[data-open-tour]");
     let activeTrigger = triggers[0];
     const composition =
       document.querySelector<HTMLElement>(".house-composition")!;
     const touchPointer = matchMedia("(hover: none), (pointer: coarse)");
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const door = composition.querySelector<HTMLElement>(".house-door")!;
+    let entryAnimation: Animation | undefined;
+    let opening = false;
+    let closing = false;
     let hintTimer: ReturnType<typeof setTimeout> | undefined;
     let hasOpenedTour = false;
     const clearHint = () => {
@@ -266,29 +290,71 @@ const housePhotos = [
     );
     hintObserver.observe(composition);
     const closeButton =
-      tour.querySelector<HTMLButtonElement>("[data-close-tour]")!;
-    const dialog = document.createElement("dialog");
-    dialog.className = "tour-dialog";
-    dialog.id = "house-tour-dialog";
-    dialog.setAttribute("aria-label", tour.querySelector("h2")!.textContent!);
-    tour.parentNode!.insertBefore(dialog, tour);
-    dialog.append(tour);
-    const close = () => {
+      dialog.querySelector<HTMLButtonElement>("[data-close-tour]")!;
+    frame.addEventListener("load", () => {
+      if (!frame.hasAttribute("src")) return;
+      viewer.classList.add("is-loaded");
+      viewer.removeAttribute("aria-busy");
+      loading.hidden = true;
+    });
+    const close = async () => {
+      if (closing || !dialog.open) return;
+      closing = true;
+      dialog.classList.add("is-closing");
+      if (!reducedMotion.matches) {
+        const currentStyle = getComputedStyle(dialog);
+        await dialog.animate(
+          [
+            { opacity: currentStyle.opacity, transform: currentStyle.transform },
+            { opacity: 0, transform: "scale(0.995)" },
+          ],
+          { duration: 320, easing: "ease-in-out", fill: "forwards" },
+        ).finished;
+      }
       dialog.close();
-      document.body.classList.remove("dialog-open");
-      activeTrigger.focus();
     };
+    dialog.addEventListener("close", () => {
+      dialog.getAnimations().forEach((animation) => animation.cancel());
+      dialog.classList.remove("is-closing");
+      entryAnimation?.cancel();
+      closing = false;
+      frame.removeAttribute("src");
+      viewer.classList.remove("is-loaded");
+      viewer.removeAttribute("aria-busy");
+      loading.hidden = false;
+      document.body.classList.remove("dialog-open");
+      activeTrigger.focus({ preventScroll: true });
+    });
     triggers.forEach((trigger) => {
       trigger.setAttribute("aria-haspopup", "dialog");
       trigger.setAttribute("aria-controls", dialog.id);
-      trigger.addEventListener("click", (event) => {
+      trigger.addEventListener("click", async (event) => {
         event.preventDefault();
+        if (opening || closing || dialog.open) return;
+        opening = true;
         activeTrigger = trigger;
         hasOpenedTour = true;
         clearHint();
         hintObserver.disconnect();
-        dialog.showModal();
         document.body.classList.add("dialog-open");
+        viewer.setAttribute("aria-busy", "true");
+        frame.src = frame.dataset.src!;
+        if (!reducedMotion.matches) {
+          entryAnimation = door.animate(
+            [
+              { transform: getComputedStyle(door).transform },
+              { transform: "scale(1.085)" },
+            ],
+            {
+              duration: 650,
+              easing: "cubic-bezier(0.45, 0, 0.2, 1)",
+              fill: "forwards",
+            },
+          );
+          await entryAnimation.finished;
+        }
+        dialog.showModal();
+        opening = false;
         closeButton.focus();
       });
     });

@@ -17,6 +17,12 @@ export const restaurant = {
   directions:
     "https://www.google.com/maps/search/?api=1&query=Can+Ventura+Pla%C3%A7a+Major+1+Ll%C3%ADvia",
 };
+export const houseTour = {
+  url: "https://www.google.com/maps/@42.4646971,1.9806291,0a,112.6y,94.91h,89.66t/data=!3m4!1e1!3m2!1sCIHM0ogKEICAgICBnKGvFQ!2e10?source=apiv3",
+  // Request minimum zoom; Google clamps the initial view in its embedded viewer.
+  embedUrl:
+    "https://www.google.com/maps/embed?pb=!4v1791143233340!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQ0JuS0d2RlE.!2m2!1d42.46469705504466!2d1.980629136440221!3f94.91!4f-0.3400000000000034!5f0",
+};
 export function homePath(locale: Locale) {
   return locale === "ca" ? "/" : `/${locale}/`;
 }
@@ -60,6 +66,8 @@ export const copy = {
       "Una porta a la Plaça Major. A dins, sales amb història i taules per compartir-la.",
     openHouse: "Entrar a la casa",
     houseGallery: "Un tomb per Can Ventura",
+    tourLoading: "Entrant a la casa…",
+    openTourExternal: "Obrir el recorregut a Google Maps (nova pestanya)",
     close: "Tancar",
     kitchenTitle: "Del territori,\na la taula.",
     kitchenText:
@@ -130,6 +138,8 @@ export const copy = {
       "Una puerta en la Plaça Major. Dentro, salas con historia y mesas para compartirla.",
     openHouse: "Entrar en la casa",
     houseGallery: "Un paseo por Can Ventura",
+    tourLoading: "Entrando en la casa…",
+    openTourExternal: "Abrir el recorrido en Google Maps (nueva pestaña)",
     close: "Cerrar",
     kitchenTitle: "Del territorio,\na la mesa.",
     kitchenText:
@@ -201,6 +211,8 @@ export const copy = {
       "Une porte sur la Plaça Major. À l’intérieur, des salles chargées d’histoire et des tables pour la partager.",
     openHouse: "Entrer dans la maison",
     houseGallery: "Un tour de Can Ventura",
+    tourLoading: "Entrée dans la maison…",
+    openTourExternal: "Ouvrir la visite dans Google Maps (nouvel onglet)",
     close: "Fermer",
     kitchenTitle: "Du terroir,\nà la table.",
     kitchenText:
@@ -271,6 +283,8 @@ export const copy = {
       "A door on Plaça Major. Inside, rooms with a history and tables to share it around.",
     openHouse: "Step inside",
     houseGallery: "A look around Can Ventura",
+    tourLoading: "Stepping inside…",
+    openTourExternal: "Open the tour in Google Maps (new tab)",
     close: "Close",
     kitchenTitle: "From the land,\nto the table.",
     kitchenText:
