@@ -6,5 +6,6 @@ export default defineConfig({
   trailingSlash: "always",
   devToolbar: { enabled: false },
   output: "server",
+  session: false,
   adapter: cloudflare({ imageService: "compile" }),
 });

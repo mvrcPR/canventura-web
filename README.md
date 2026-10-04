@@ -78,6 +78,34 @@ npx wrangler login
 npm run deploy
 ```
 
-Per Workers Builds: `npm run build` i `npx wrangler deploy`.
+### Desplegament automàtic des de GitHub
+
+El destí és el compte **Can Ventura**, definit a `wrangler.jsonc`. La web de
+prova es publica només a `workers.dev`; no s'hi configura cap domini propi.
+
+A Cloudflare Workers Builds, connecta `mvrcPR/canventura-web` amb aquests
+valors:
+
+| Opció | Valor |
+| --- | --- |
+| Worker | `canventura-web` |
+| Branca de producció | `main` |
+| Directori arrel | `/` |
+| Comanda de compilació | `npm ci && npm run build` |
+| Comanda de desplegament | `npx wrangler deploy` |
+| Variable de compilació | `NODE_VERSION=22.16.0` |
+| Builds d'altres branques | Desactivats |
+
+Cada push a `main` ha de compilar i publicar la web un cop activada la connexió.
+Mantén Workers Free i Workers Builds Free. No cal configurar D1, R2 ni secrets
+de GitHub Actions. Les sessions d'Astro estan desactivades perquè encara no
+s'utilitzen; així l'adaptador no provisiona un KV per a sessions.
+La connexió necessita autoritzar l'aplicació de Cloudflare a GitHub amb accés
+a aquest repositori; el connector de GitHub de ChatGPT no substitueix aquesta
+autorització.
+
+Estat de l'activació i comprovacions:
+[pla de desplegament](plans/0004-2026-10-04-desplegament-workers-v1.md).
+
 Configuració a `wrangler.jsonc` i documentació de
 [l’adaptador oficial](https://docs.astro.build/en/guides/integrations-guide/cloudflare/).

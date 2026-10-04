@@ -11,6 +11,7 @@ La versió 2 del pla de la web està en implementació, autoritzada per l'usuari
 | [0001 Proposta inicial](0001-2026-10-04-proposta-web-v1.md) | 1 | Substituït | Històric de la proposta inicial |
 | [0002 Skills reutilitzables](0002-2026-10-04-skills-v1.md) | 1 | Completat | Instal·lar i generalitzar cinc skills del repositori de referència |
 | [0003 Capçalera i reserva](0003-2026-10-04-header-reserva-v1.md) | 1 | Completat | Header monoespai en majúscules, reserva a l'esquerra, desplegables i estats de scroll |
+| [0004 Desplegament a Workers](0004-2026-10-04-desplegament-workers-v1.md) | 1 | En curs | Configuració aportada pel patch; activació de Workers Builds i publicació de prova pendents |
 
 ## Convenció
 
