@@ -8,6 +8,7 @@ El pla inicial està pendent d'iteració abans de començar la implementació.
 | Pla | Versió | Estat | Objectiu |
 | --- | --- | --- | --- |
 | [0001 Proposta de web](0001-2026-10-04-proposta-web-v1.md) | 1 | En revisió | Disseny, estructura i implementació per fases |
+| [0002 Skills reutilitzables](0002-2026-10-04-skills-v1.md) | 1 | Completat | Instal·lar i generalitzar cinc skills del repositori de referència |
 
 ## Convenció
 

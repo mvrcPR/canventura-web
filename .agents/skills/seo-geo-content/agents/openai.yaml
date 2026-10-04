@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO/GEO Content"
+  short_description: "Write evidence-based SEO/GEO content"
+  default_prompt: "Use $seo-geo-content to improve this website content for its reader task, search intent, evidence, and clear reuse in search or AI answers."

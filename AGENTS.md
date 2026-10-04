@@ -64,6 +64,7 @@ npx wrangler deploy --dry-run
 - Les skills del projecte viuen a `.agents/skills/<nom>/SKILL.md`.
 - Crea-les quan hi hagi un flux repetible útil; les pautes generals van aquí.
 - Llegeix les instruccions de la skill pertinent abans d'aplicar-la.
+- Per editar instruccions d'agents o skills, aplica `agent-instruction-engineering`.
 - Repositori remot: `https://github.com/mvrcPR/canventura-web.git`.
 - Branca inicial: `main`. Fes commits amb un abast coherent quan l'usuari els
   encarregui i conserva els canvis de treball existents.

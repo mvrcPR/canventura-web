@@ -1,0 +1,55 @@
+{
+  "installedOn": "2026-10-04",
+  "sourceRepository": "https://github.com/Protofy-xyz/vento-website",
+  "sourceRevision": "288507d98248aa5e4d417392cae75e958f58efce",
+  "installedFirst": "agent-instruction-engineering",
+  "adaptationWorkflow": "agent-instruction-engineering",
+  "skills": [
+    {
+      "name": "agent-instruction-engineering",
+      "sourcePath": ".agents/skills/agent-instruction-engineering",
+      "adaptedFiles": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "sourcePath": ".agents/skills/ui-ux-pro-max",
+      "adaptedFiles": [
+        "SKILL.md",
+        "scripts/design_system.py"
+      ]
+    },
+    {
+      "name": "copywriting",
+      "sourcePath": ".agents/skills/copywriting",
+      "adaptedFiles": [
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/copy-frameworks.md",
+        "references/natural-transitions.md"
+      ]
+    },
+    {
+      "name": "seo-geo-content",
+      "sourcePath": ".agents/skills/seo-geo-content",
+      "adaptedFiles": [
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/content-patterns.md",
+        "references/evidence.md",
+        "references/terminology.md"
+      ]
+    },
+    {
+      "name": "technical-seo",
+      "sourcePath": ".agents/skills/technical-seo",
+      "adaptedFiles": [
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/analytics-measurement.md",
+        "references/repository-surfaces.md"
+      ]
+    }
+  ]
+}

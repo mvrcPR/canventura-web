@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technical SEO"
+  short_description: "Protect crawlability and search-facing HTML"
+  default_prompt: "Use $technical-seo to review or implement this technical SEO change using the project's actual routes, delivery chain, and validation tools."

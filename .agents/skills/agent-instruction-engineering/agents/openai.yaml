@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Instruction Engineering"
+  short_description: "Review and refine agent-facing instructions"
+  default_prompt: "Use $agent-instruction-engineering to review this agent-facing language change for ownership, clarity, and evidence."

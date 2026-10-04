@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copywriting"
+  short_description: "Turn verified business facts into clear website copy"
+  default_prompt: "Use $copywriting to make this website copy clearer and more persuasive, following the project's voice, affected languages, and requested proposal or implementation mode."
