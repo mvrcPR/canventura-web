@@ -108,10 +108,30 @@ export const copy = {
     photoDetails: "Detalls de la casa i de les seves sales",
     photoDish: "Un plat de la cuina de Can Ventura",
     foodPhotos: {
-      cannelloni: "Canelons de Can Ventura",
-      fillet: "Filet a la brasa",
-      trotters: "Peus de porc farcits",
-      salmon: "Salmó de Can Ventura",
+      cannelloni: "Canelons de carn, ceps i foie amb tòfona i salsa de parmesà",
+      fillet: "Filet de vaca servit a la llosa calenta amb patates fregides",
+      trotters:
+        "Peus de porc farcits de botifarra negra amb allioli de codony",
+      trinxat: "Trinxat de Cerdanya i rosta de Cal Jaume de Bellver",
+      scallops: "Vieires amb arròs Venere i maionesa d’all negre",
+      cod: "Bacallà d’autor El Barquero a la llauna",
+      rumpsteak: "Rumpsteak de vedella amb rovell d’ou i salsa ponzu",
+      donut: "Torrija de donut amb gelat de llet merengada",
+      pearVichyssoise: "Vichyssoise de pera amb llagostins",
+      strawberrySalmorejo:
+        "Salmorejo de maduixa amb burrata de búfala DOP",
+      mountainRice: "Arròs de muntanya amb botifarra de Cal Jaume",
+      chickenLangoustines: "Pollastre amb escamarlans",
+      duckMagret: "Magret d’ànec amb puré de carbassa i ratafia Rufaca",
+      duckPears: "Tiró amb peres de Puigcerdà",
+      organicBeef:
+        "Llata ecològica de Cal Grauet amb castanyes i foie micuit",
+      botifarraTrinxat:
+        "Botifarra de Cal Jaume amb trinxat de Ceretani del Molí de Ger i maionesa de ceps",
+      salmon:
+        "Salmó marinat amb crema d’alvocat, pico de gallo i jalapeños",
+      wildAsparagus:
+        "Espàrrecs de marge amb ou de Cal Carbonell de Llívia a baixa temperatura i tòfona fresca",
     },
     photoGrill: "La cuina de Can Ventura a la brasa",
     photoHands: "Les mans del cuiner preparant un plat",
@@ -186,10 +206,31 @@ export const copy = {
     photoDetails: "Detalles de la casa y sus salas",
     photoDish: "Un plato de la cocina de Can Ventura",
     foodPhotos: {
-      cannelloni: "Canelones de Can Ventura",
-      fillet: "Solomillo a la brasa",
-      trotters: "Manitas de cerdo rellenas",
-      salmon: "Salmón de Can Ventura",
+      cannelloni:
+        "Canelones de carne, ceps y foie con trufa y salsa de parmesano",
+      fillet: "Filete de vaca servido a la piedra caliente con patatas fritas",
+      trotters:
+        "Manitas de cerdo rellenas de butifarra negra con alioli de membrillo",
+      trinxat: "Trinxat de la Cerdanya con tocino de Cal Jaume de Bellver",
+      scallops: "Vieiras con arroz Venere y mayonesa de ajo negro",
+      cod: "Bacalao de autor El Barquero a la llauna",
+      rumpsteak: "Rumpsteak de ternera con yema de huevo y salsa ponzu",
+      donut: "Torrija de donut con helado de leche merengada",
+      pearVichyssoise: "Vichyssoise de pera con langostinos",
+      strawberrySalmorejo:
+        "Salmorejo de fresa con burrata de búfala DOP",
+      mountainRice: "Arroz de montaña con butifarra de Cal Jaume",
+      chickenLangoustines: "Pollo con cigalas",
+      duckMagret: "Magret de pato con puré de calabaza y ratafía Rufaca",
+      duckPears: "Pato con peras de Puigcerdà",
+      organicBeef:
+        "Llata ecológica de Cal Grauet con castañas y foie micuit",
+      botifarraTrinxat:
+        "Butifarra de Cal Jaume con trinxat de Ceretani del Molí de Ger y mayonesa de ceps",
+      salmon:
+        "Salmón marinado con crema de aguacate, pico de gallo y jalapeños",
+      wildAsparagus:
+        "Espárragos silvestres con huevo de Cal Carbonell de Llívia a baja temperatura y trufa fresca",
     },
     photoGrill: "La cocina de Can Ventura a la brasa",
     photoHands: "Las manos del cocinero preparando un plato",
@@ -263,10 +304,32 @@ export const copy = {
     photoDetails: "Détails de la maison et de ses salles",
     photoDish: "Un plat de la cuisine de Can Ventura",
     foodPhotos: {
-      cannelloni: "Cannellonis de Can Ventura",
-      fillet: "Filet de bœuf au gril",
-      trotters: "Pieds de porc farcis",
-      salmon: "Saumon de Can Ventura",
+      cannelloni:
+        "Cannellonis de viande, cèpes et foie gras, truffe et sauce au parmesan",
+      fillet: "Filet de bœuf servi sur pierre chaude avec des frites",
+      trotters:
+        "Pieds de porc farcis au boudin noir, aïoli au coing",
+      trinxat:
+        "Trinxat de Cerdagne et lard croustillant de Cal Jaume de Bellver",
+      scallops: "Saint-Jacques, riz Venere et mayonnaise à l’ail noir",
+      cod: "Morue de signature El Barquero à la llauna",
+      rumpsteak: "Rumsteck de bœuf, jaune d’œuf et sauce ponzu",
+      donut: "Torrija de donut et glace au lait meringué",
+      pearVichyssoise: "Vichyssoise de poire aux crevettes",
+      strawberrySalmorejo:
+        "Salmorejo de fraise et burrata au lait de bufflonne AOP",
+      mountainRice: "Riz de montagne à la botifarra de Cal Jaume",
+      chickenLangoustines: "Poulet aux langoustines",
+      duckMagret: "Magret de canard, purée de courge et ratafia Rufaca",
+      duckPears: "Canard aux poires de Puigcerdà",
+      organicBeef:
+        "Paleron de bœuf bio de Cal Grauet, châtaignes et foie gras mi-cuit",
+      botifarraTrinxat:
+        "Botifarra de Cal Jaume, trinxat de Ceretani du Molí de Ger et mayonnaise aux cèpes",
+      salmon:
+        "Saumon mariné, crème d’avocat, pico de gallo et jalapeños",
+      wildAsparagus:
+        "Asperges sauvages, œuf de Cal Carbonell de Llívia cuit à basse température et truffe fraîche",
     },
     photoGrill: "La cuisine de Can Ventura au gril",
     photoHands: "Les mains du cuisinier préparant un plat",
@@ -340,10 +403,31 @@ export const copy = {
     photoDetails: "Details of the house and its rooms",
     photoDish: "A dish from the Can Ventura kitchen",
     foodPhotos: {
-      cannelloni: "Can Ventura cannelloni",
-      fillet: "Grilled beef fillet",
-      trotters: "Stuffed pig’s trotters",
-      salmon: "Can Ventura salmon",
+      cannelloni:
+        "Meat, porcini and foie gras cannelloni with truffle and Parmesan sauce",
+      fillet: "Beef fillet served on a hot stone with chips",
+      trotters:
+        "Pig’s trotters stuffed with black pudding and quince aioli",
+      trinxat: "Cerdanya trinxat with crispy pork from Cal Jaume de Bellver",
+      scallops: "Scallops with Venere rice and black garlic mayonnaise",
+      cod: "El Barquero signature cod a la llauna",
+      rumpsteak: "Rump steak with egg yolk and ponzu sauce",
+      donut: "Donut torrija with leche merengada ice cream",
+      pearVichyssoise: "Pear vichyssoise with prawns",
+      strawberrySalmorejo:
+        "Strawberry salmorejo with PDO buffalo burrata",
+      mountainRice: "Mountain-style rice with Cal Jaume botifarra",
+      chickenLangoustines: "Chicken with langoustines",
+      duckMagret: "Duck magret with pumpkin purée and Rufaca ratafia",
+      duckPears: "Duck with Puigcerdà pears",
+      organicBeef:
+        "Organic beef shoulder from Cal Grauet with chestnuts and mi-cuit foie gras",
+      botifarraTrinxat:
+        "Cal Jaume botifarra with Ceretani trinxat from Molí de Ger and porcini mayonnaise",
+      salmon:
+        "Marinated salmon with avocado cream, pico de gallo and jalapeños",
+      wildAsparagus:
+        "Wild asparagus with a slow-cooked egg from Cal Carbonell in Llívia and fresh truffle",
     },
     photoGrill: "Cooking over the grill at Can Ventura",
     photoHands: "The chef’s hands preparing a dish",

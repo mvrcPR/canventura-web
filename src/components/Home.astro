@@ -20,12 +20,7 @@ const kitchenPhotos = kitchenPhotography.map(
   ({ image, subject, objectPosition }) => ({
     image,
     objectPosition,
-    alt:
-      subject === "dish"
-        ? t.photoDish
-        : subject === "grill"
-          ? t.photoGrill
-          : t.foodPhotos[subject],
+    alt: t.foodPhotos[subject],
   }),
 );
 ---
@@ -143,7 +138,13 @@ const kitchenPhotos = kitchenPhotography.map(
         <h2 class="display-heading" id="kitchen-title">
           {t.kitchenTitle}
         </h2>
-        <p>{t.kitchenText}</p>
+        <div class="section-intro-copy" id="carta">
+          <p>{t.kitchenText}</p>
+          <a class="text-link kitchen-menu-link mono" href={menuPath(locale)}>
+            {t.viewMenu}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
       <PhotoGallery
         id="kitchen-gallery"
@@ -153,32 +154,6 @@ const kitchenPhotos = kitchenPhotography.map(
         start={2}
         loop
       />
-    </section>
-    <section
-      class="menu-section section-space"
-      id="carta"
-      aria-labelledby="menu-title"
-    >
-      <div class="menu-composition" data-reveal>
-        <div class="menu-copy">
-          <h2 class="display-heading" id="menu-title">
-            {t.menuTitle}
-          </h2>
-          <p>{t.menuText}</p>
-          <a class="text-link mono" href={menuPath(locale)}>
-            {t.viewMenu}
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <img
-          src={photos.hands.src}
-          width={photos.hands.width}
-          height={photos.hands.height}
-          alt={t.photoHands}
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
     </section>
     <section
       class="family-section section-space"

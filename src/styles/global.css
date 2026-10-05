@@ -592,11 +592,19 @@ summary:focus-visible {
   letter-spacing: -0.055em;
   white-space: pre-line;
 }
-.section-intro > p {
+.section-intro-copy {
   max-width: 330px;
   justify-self: end;
+}
+.section-intro-copy p {
   color: var(--muted);
   text-wrap: balance;
+}
+.kitchen-menu-link {
+  margin-top: 24px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 .photo-gallery {
   position: relative;
@@ -683,23 +691,6 @@ summary:focus-visible {
 .compact .gallery-slide figure > img {
   aspect-ratio: 4/3;
   object-fit: contain;
-}
-.menu-composition {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 100px;
-  align-items: center;
-  margin: 0 var(--gutter);
-}
-.menu-copy p {
-  margin: 40px 0;
-  max-width: 400px;
-  color: var(--muted);
-}
-.menu-composition > img {
-  width: 100%;
-  max-height: 650px;
-  object-fit: cover;
 }
 .text-link {
   display: inline-flex;
@@ -899,9 +890,6 @@ summary:focus-visible {
   .section-intro {
     gap: 40px;
   }
-  .menu-composition {
-    gap: 45px;
-  }
   .family-composition {
     gap: 55px;
   }
@@ -1053,10 +1041,12 @@ summary:focus-visible {
   .display-heading {
     font-size: clamp(39px, 11vw, 65px);
   }
-  .section-intro > p {
-    font-size: 15px;
+  .section-intro-copy {
     max-width: 280px;
     justify-self: start;
+  }
+  .section-intro-copy p {
+    font-size: 15px;
   }
   .gallery-slide {
     width: 78vw;
@@ -1089,19 +1079,6 @@ summary:focus-visible {
   }
   .compact .gallery-slide figure > img {
     aspect-ratio: 3/4;
-  }
-  .menu-composition {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  .menu-copy p {
-    margin: 30px 0;
-    font-size: 15px;
-  }
-  .menu-composition > img {
-    width: 75%;
-    margin-left: auto;
-    max-height: 460px;
   }
   .text-link {
     font-size: 12px;
