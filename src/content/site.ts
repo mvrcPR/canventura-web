@@ -88,9 +88,13 @@ export const copy = {
     menuPage: "Pàgina",
     familyTitle: "Una casa.\nUna família.",
     familyText:
-      "El Josep i la Mercè van obrir Can Ventura el 1977. Avui, l’Esther i el Jordi continuen una història que es cuina cada dia.",
+      "El 1977, en Josep i la Mercè van obrir Can Ventura amb la il·lusió de tenir una casa de menjars.",
     familySecond:
-      "La cuina canvia amb les estacions. La manera d’acollir-te segueix sent la de casa.",
+      "Des del 1994, en Jordi i l’Esther continuen aquella història, amb la família i l’equip que fan possible cada servei.",
+    familyFoundersCaption: "Josep i Mercè, els fundadors.",
+    familyTeamCaption: "La família i l’equip, al balcó de casa.",
+    photoFounders: "Josep Pous i Mercè Rodríguez, fundadors de Can Ventura",
+    photoFamily: "La família i l’equip de Can Ventura al balcó del restaurant",
     contactTitle: "Ens veiem\na Llívia.",
     findUs: "On som",
     callUs: "Parlem?",
@@ -186,9 +190,14 @@ export const copy = {
     menuPage: "Página",
     familyTitle: "Una casa.\nUna familia.",
     familyText:
-      "Josep y Mercè abrieron Can Ventura en 1977. Hoy, Esther y Jordi continúan una historia que se cocina cada día.",
+      "En 1977, Josep y Mercè abrieron Can Ventura con la ilusión de tener su propia casa de comidas.",
     familySecond:
-      "La cocina cambia con las estaciones. La manera de recibirte sigue siendo la de casa.",
+      "Desde 1994, Jordi y Esther continúan aquella historia, junto a la familia y el equipo que hacen posible cada servicio.",
+    familyFoundersCaption: "Josep y Mercè, los fundadores.",
+    familyTeamCaption: "La familia y el equipo, en el balcón de casa.",
+    photoFounders: "Josep Pous y Mercè Rodríguez, fundadores de Can Ventura",
+    photoFamily:
+      "La familia y el equipo de Can Ventura en el balcón del restaurante",
     contactTitle: "Nos vemos\nen Llívia.",
     findUs: "Dónde estamos",
     callUs: "¿Hablamos?",
@@ -286,9 +295,13 @@ export const copy = {
     menuPage: "Page",
     familyTitle: "Une maison.\nUne famille.",
     familyText:
-      "Josep et Mercè ont ouvert Can Ventura en 1977. Aujourd’hui, Esther et Jordi poursuivent une histoire qui se cuisine chaque jour.",
+      "En 1977, Josep et Mercè ont ouvert Can Ventura avec le rêve de tenir leur propre restaurant.",
     familySecond:
-      "La cuisine change au fil des saisons. L’accueil reste celui de la maison.",
+      "Depuis 1994, Jordi et Esther poursuivent cette histoire, avec la famille et l’équipe qui rendent chaque service possible.",
+    familyFoundersCaption: "Josep et Mercè, les fondateurs.",
+    familyTeamCaption: "La famille et l’équipe, au balcon de Can Ventura.",
+    photoFounders: "Josep Pous et Mercè Rodríguez, fondateurs de Can Ventura",
+    photoFamily: "La famille et l’équipe de Can Ventura au balcon du restaurant",
     contactTitle: "À bientôt\nà Llívia.",
     findUs: "Nous trouver",
     callUs: "On en parle ?",
@@ -386,9 +399,13 @@ export const copy = {
     menuPage: "Page",
     familyTitle: "One house.\nOne family.",
     familyText:
-      "Josep and Mercè opened Can Ventura in 1977. Today, Esther and Jordi carry on a story that is cooked afresh every day.",
+      "In 1977, Josep and Mercè opened Can Ventura with the dream of running a restaurant of their own.",
     familySecond:
-      "The cooking changes with the seasons. The welcome is still the one you find at home.",
+      "Since 1994, Jordi and Esther have carried that story forward, alongside the family and team who make every service possible.",
+    familyFoundersCaption: "Josep and Mercè, the founders.",
+    familyTeamCaption: "The family and team, on the restaurant balcony.",
+    photoFounders: "Josep Pous and Mercè Rodríguez, founders of Can Ventura",
+    photoFamily: "The Can Ventura family and team on the restaurant balcony",
     contactTitle: "See you\nin Llívia.",
     findUs: "Find us",
     callUs: "Let’s talk",

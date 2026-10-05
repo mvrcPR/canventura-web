@@ -50,6 +50,72 @@ const kitchenPhotos = kitchenPhotography.map(
       </div>
     </section>
     <section
+      class="family-section section-space"
+      id="familia"
+      aria-labelledby="family-title"
+    >
+      <div class="family-composition" data-reveal>
+        <h2 class="display-heading" id="family-title">
+          {t.familyTitle}
+        </h2>
+        <figure class="family-archive">
+          <img
+            src={photos.founders.src}
+            width={photos.founders.width}
+            height={photos.founders.height}
+            alt={t.photoFounders}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="mono">{t.familyFoundersCaption}</figcaption>
+        </figure>
+        <figure class="family-team">
+          <img
+            src={photos.family.src}
+            width={photos.family.width}
+            height={photos.family.height}
+            alt={t.photoFamily}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="mono">
+            <span>{t.familyTeamCaption}</span>
+            <span class="family-photo-credit">Pere Virgili</span>
+          </figcaption>
+        </figure>
+        <div class="family-story">
+          <p>{t.familyText}</p>
+          <p class="muted">{t.familySecond}</p>
+        </div>
+      </div>
+    </section>
+    <section
+      class="kitchen-section section-space"
+      id="cuina"
+      aria-labelledby="kitchen-title"
+    >
+      <div class="section-intro" data-reveal>
+        <h2 class="display-heading" id="kitchen-title">
+          {t.kitchenTitle}
+        </h2>
+        <div class="section-intro-copy" id="carta">
+          <p>{t.kitchenText}</p>
+          <a class="text-link kitchen-menu-link mono" href={menuPath(locale)}>
+            {t.viewMenu}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <PhotoGallery
+        id="kitchen-gallery"
+        locale={locale}
+        images={kitchenPhotos}
+        label={t.galleryLabel}
+        start={2}
+        loop
+      />
+    </section>
+    <section
       class="house-section section-space"
       id="casa"
       aria-labelledby="house-title"
@@ -127,55 +193,6 @@ const kitchenPhotos = kitchenPhotography.map(
           </div>
         </div>
       </dialog>
-    </section>
-    <section
-      class="kitchen-section section-space"
-      id="cuina"
-      aria-labelledby="kitchen-title"
-    >
-      <div class="section-intro" data-reveal>
-        <h2 class="display-heading" id="kitchen-title">
-          {t.kitchenTitle}
-        </h2>
-        <div class="section-intro-copy" id="carta">
-          <p>{t.kitchenText}</p>
-          <a class="text-link kitchen-menu-link mono" href={menuPath(locale)}>
-            {t.viewMenu}
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-      <PhotoGallery
-        id="kitchen-gallery"
-        locale={locale}
-        images={kitchenPhotos}
-        label={t.galleryLabel}
-        start={2}
-        loop
-      />
-    </section>
-    <section
-      class="family-section section-space"
-      id="familia"
-      aria-labelledby="family-title"
-    >
-      <div class="family-composition" data-reveal>
-        <img
-          src={photos.kitchen.src}
-          width={photos.kitchen.width}
-          height={photos.kitchen.height}
-          alt={t.photoHands}
-          loading="lazy"
-          decoding="async"
-        />
-        <div>
-          <h2 class="display-heading" id="family-title">
-            {t.familyTitle}
-          </h2>
-          <p>{t.familyText}</p>
-          <p class="muted">{t.familySecond}</p>
-        </div>
-      </div>
     </section>
   </main>
   <script>

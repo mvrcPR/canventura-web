@@ -1036,6 +1036,31 @@
       "height": 1914,
       "bytes": 3399364,
       "sha256": "1130cf1eaeba88db2964ab7bb463dc5166ce23b6734e1a4366cb4660e18d0566"
+    },
+    {
+      "file": "src/assets/photography/originals/press/josep-merce-pous.jpg",
+      "source": "https://menjatandorra.com/wp-content/uploads/2024/10/El-matrimoni-Pous-fundadors-de-la-nissaga.jpg",
+      "sourceKind": "press-published",
+      "article": "https://menjatandorra.com/actualitat/jordi-pous-i-can-ventura/",
+      "retrievedOn": "2026-10-05",
+      "width": 1920,
+      "height": 1220,
+      "bytes": 226389,
+      "sha256": "4dc1544302ae3f323973f39d91670f7878f14ef607a7e9add5482369e699944f",
+      "quality": "Published photograph of a historical print; original scan not available. Visible glare retained. Bytes preserved without resize or re-encoding."
+    },
+    {
+      "file": "src/assets/photography/originals/press/can-ventura-balcony-pere-virgili.jpg",
+      "source": "https://static1.ara.cat/clip/029a0a50-1b50-4f51-a37a-a117b163ad9e_source-aspect-ratio_default_0_x1660y860.jpg",
+      "sourceKind": "press-published",
+      "article": "https://mengem.ara.cat/restaurants/can-ventura-superar-pors-viure-somnis_1_5119434.html",
+      "retrievedOn": "2026-10-05",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 467878,
+      "sha256": "18eae466739fc48bd5402b2b97b3fa1babdebd031c5fd71097d62b03b69bad00",
+      "quality": "Highest source-size image retrieved from the article. Photographer original not available. Bytes preserved without resize or re-encoding.",
+      "photographer": "Pere Virgili"
     }
   ],
   "suppliedArchive": {

@@ -705,26 +705,50 @@ summary:focus-visible {
 }
 .family-composition {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 120px;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.85fr);
+  gap: 64px 8vw;
   margin: 0 auto;
-  max-width: 1260px;
+  max-width: 1440px;
   padding: 0 var(--gutter);
-  align-items: center;
+  align-items: start;
 }
-.family-composition > img {
+.family-composition img {
   width: 100%;
-  max-height: 690px;
-  object-fit: cover;
+  height: auto;
 }
 .family-composition h2 {
-  font-size: clamp(45px, 5.2vw, 90px);
-  margin-bottom: 45px;
+  font-size: clamp(48px, 6.2vw, 92px);
+  margin: 0;
 }
-.family-composition p {
-  max-width: 420px;
-  margin-top: 24px;
-  font-size: 17px;
+.family-archive,
+.family-team {
+  width: 100%;
+  margin: 0;
+}
+.family-composition figcaption {
+  margin-top: 13px;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.family-team figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.family-photo-credit {
+  margin-left: auto;
+}
+.family-story {
+  margin-top: 52px;
+}
+.family-story p {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.family-story p:last-child {
+  margin-bottom: 0;
 }
 .contact-section {
   padding: 64px 0 70px;
@@ -953,9 +977,6 @@ summary:focus-visible {
   .section-intro {
     gap: 40px;
   }
-  .family-composition {
-    gap: 55px;
-  }
   .contact-composition {
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
     gap: 40px;
@@ -1155,21 +1176,23 @@ summary:focus-visible {
   }
   .family-composition {
     grid-template-columns: 1fr;
-    gap: 45px;
+    gap: 32px;
   }
-  .family-composition > img {
-    width: 75%;
-    max-height: 460px;
+  .family-archive {
+    width: 72%;
+    justify-self: end;
   }
-  .family-composition > div {
-    padding-left: 8%;
+  .family-team figcaption > span:first-child {
+    display: none;
   }
   .family-composition h2 {
-    font-size: 11vw;
-    margin-bottom: 30px;
+    font-size: 13vw;
   }
-  .family-composition p {
-    font-size: 15px;
+  .family-story {
+    margin-top: 0;
+  }
+  .family-story p {
+    font-size: 16px;
   }
   .contact-section {
     padding: 30px 0 38px;
