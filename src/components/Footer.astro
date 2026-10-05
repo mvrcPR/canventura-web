@@ -1,0 +1,106 @@
+---
+import { copy, reservationUrl, restaurant, type Locale } from "../content/site";
+
+interface Props {
+  locale: Locale;
+  showContact?: boolean;
+}
+
+const { locale, showContact = true } = Astro.props;
+const t = copy[locale];
+---
+
+<footer class="site-footer">
+  {showContact && (
+    <section
+      class="contact-section"
+      id="contacte"
+      aria-labelledby="contact-title"
+    >
+      <div class="contact-composition" data-reveal>
+        <div class="contact-invitation">
+          <h2 class="display-heading" id="contact-title">
+            {t.contactTitle}
+          </h2>
+          <a
+            class="text-link contact-reserve mono"
+            href={reservationUrl(locale)}
+          >
+            {t.reserve} <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <h3 class="mono">{t.findUs}</h3>
+            <address>
+              Plaça Major, 1<br />
+              17527 Llívia, Girona
+            </address>
+            <a class="text-link mono" href={restaurant.directions}>
+              {t.directions}
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
+                <circle cx="12" cy="10" r="2.75" />
+              </svg>
+            </a>
+          </div>
+          <div>
+            <h3 class="mono">{t.callUs}</h3>
+            <a class="contact-phone" href={`tel:${restaurant.phone}`}>
+              {restaurant.phoneLabel}
+            </a>
+            <a class="contact-email" href={`mailto:${restaurant.email}`}>
+              {restaurant.email}
+            </a>
+          </div>
+          <div class="contact-hours">
+            <h3 class="mono">{t.hours}</h3>
+            <p>{t.hoursText}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+  <div class="footer-bottom mono">
+    <span class="footer-copyright">
+      © {new Date().getFullYear()} Can Ventura
+    </span>
+    <a
+      class="footer-social"
+      href={restaurant.instagram}
+      aria-label={t.instagram}
+      title="Instagram"
+    >
+      <svg
+        class="footer-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+      <span>Instagram</span>
+    </a>
+    <div class="footer-signature">
+      <span class="footer-signature-label">{t.designCredit}{" "}</span>
+      <span class="footer-signature-name">marccc</span>
+    </div>
+  </div>
+</footer>

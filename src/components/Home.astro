@@ -6,7 +6,6 @@ import {
   copy,
   houseTour,
   menuPath,
-  reservationUrl,
   restaurant,
   type Locale,
 } from "../content/site";
@@ -175,43 +174,6 @@ const kitchenPhotos = kitchenPhotography.map(
           </h2>
           <p>{t.familyText}</p>
           <p class="muted">{t.familySecond}</p>
-        </div>
-      </div>
-    </section>
-    <section
-      class="contact-section section-space"
-      id="contacte"
-      aria-labelledby="contact-title"
-    >
-      <h2 class="display-heading" id="contact-title" data-reveal>
-        {t.contactTitle}
-      </h2>
-      <div class="contact-grid">
-        <div>
-          <h3 class="mono">{t.findUs}</h3>
-          <address>
-            Plaça Major, 1<br />
-            17527 Llívia, Girona
-          </address>
-          <a class="text-link mono" href={restaurant.directions}>
-            {t.directions} ↗
-          </a>
-        </div>
-        <div>
-          <h3 class="mono">{t.callUs}</h3>
-          <a class="contact-phone" href={`tel:${restaurant.phone}`}>
-            {restaurant.phoneLabel}
-          </a>
-          <a class="contact-email" href={`mailto:${restaurant.email}`}>
-            {restaurant.email}
-          </a>
-        </div>
-        <div>
-          <h3 class="mono">{t.hours}</h3>
-          <p>{t.hoursText}</p>
-          <a class="text-link mono" href={reservationUrl(locale)}>
-            {t.reserve} ↗
-          </a>
         </div>
       </div>
     </section>
