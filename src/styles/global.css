@@ -753,7 +753,8 @@ summary:focus-visible {
 }
 .gallery-slide figure > img {
   width: 100%;
-  aspect-ratio: 5/4;
+  aspect-ratio: 7/5;
+  max-height: min(72svh, calc(100svh - 210px));
   object-fit: cover;
   object-position: center;
   transition: opacity 400ms ease;
@@ -1465,6 +1466,7 @@ summary:focus-visible {
   }
   .gallery-slide figure > img {
     aspect-ratio: 4/5;
+    max-height: 55svh;
   }
   .gallery-slide figcaption {
     font-size: 11px;
