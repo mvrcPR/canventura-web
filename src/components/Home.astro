@@ -10,19 +10,24 @@ import {
   restaurant,
   type Locale,
 } from "../content/site";
-import { photos } from "../content/photos";
+import { kitchenPhotography, photos } from "../content/photos";
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const t = copy[locale];
-const kitchenPhotos = [
-  { image: photos.grill, alt: t.photoGrill },
-  { image: photos.dish, alt: t.photoDish },
-  { image: photos.room, alt: t.photoRoom },
-  { image: photos.hands, alt: t.photoHands },
-  { image: photos.season, alt: t.photoDish },
-];
+const kitchenPhotos = kitchenPhotography.map(
+  ({ image, subject, objectPosition }) => ({
+    image,
+    objectPosition,
+    alt:
+      subject === "dish"
+        ? t.photoDish
+        : subject === "grill"
+          ? t.photoGrill
+          : t.foodPhotos[subject],
+  }),
+);
 ---
 
 <Layout locale={locale}>
@@ -134,10 +139,6 @@ const kitchenPhotos = [
       id="cuina"
       aria-labelledby="kitchen-title"
     >
-      <div class="section-heading mono">
-        <span>02 / {t.kitchen}</span>
-        <span>{t.galleryLabel}</span>
-      </div>
       <div class="section-intro" data-reveal>
         <h2 class="display-heading" id="kitchen-title">
           {t.kitchenTitle}
@@ -149,7 +150,8 @@ const kitchenPhotos = [
         locale={locale}
         images={kitchenPhotos}
         label={t.galleryLabel}
-        start={1}
+        start={2}
+        loop
       />
     </section>
     <section
@@ -157,9 +159,6 @@ const kitchenPhotos = [
       id="carta"
       aria-labelledby="menu-title"
     >
-      <div class="section-heading mono">
-        <span>03 / {t.menu}</span>
-      </div>
       <div class="menu-composition" data-reveal>
         <div class="menu-copy">
           <h2 class="display-heading" id="menu-title">
@@ -186,10 +185,6 @@ const kitchenPhotos = [
       id="familia"
       aria-labelledby="family-title"
     >
-      <div class="section-heading mono">
-        <span>04 / {t.family}</span>
-        <span>1977 — {new Date().getFullYear()}</span>
-      </div>
       <div class="family-composition" data-reveal>
         <img
           src={photos.kitchen.src}
@@ -213,10 +208,6 @@ const kitchenPhotos = [
       id="contacte"
       aria-labelledby="contact-title"
     >
-      <div class="section-heading mono">
-        <span>05 / {t.contact}</span>
-        <span>{t.location}</span>
-      </div>
       <h2 class="display-heading" id="contact-title" data-reveal>
         {t.contactTitle}
       </h2>

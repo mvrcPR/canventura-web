@@ -336,14 +336,6 @@ summary:focus-visible {
 .section-space {
   padding: 110px 0 120px;
 }
-.section-heading {
-  margin: 0 var(--gutter) 90px;
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  color: var(--muted);
-  font-size: 12px;
-}
 .house-section {
   padding-top: 120px;
 }
@@ -592,7 +584,7 @@ summary:focus-visible {
   grid-template-columns: 1.2fr 1fr;
   gap: 100px;
   margin: 0 var(--gutter) 100px;
-  align-items: end;
+  align-items: center;
 }
 .display-heading {
   font-size: clamp(45px, 6.5vw, 110px);
@@ -602,20 +594,13 @@ summary:focus-visible {
 }
 .section-intro > p {
   max-width: 330px;
+  justify-self: end;
   color: var(--muted);
-  padding-bottom: 6px;
+  text-wrap: balance;
 }
 .photo-gallery {
   position: relative;
   padding-bottom: 10px;
-}
-.gallery-top {
-  margin: 0 var(--gutter) 44px;
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
-  font-size: 12px;
-  color: var(--muted);
 }
 .gallery-viewport {
   overflow-x: auto;
@@ -623,6 +608,13 @@ summary:focus-visible {
   scrollbar-width: none;
   position: relative;
   overscroll-behavior-x: contain;
+  overflow-anchor: none;
+}
+.gallery-viewport.is-rebasing {
+  scroll-snap-type: none;
+}
+.gallery-viewport.is-rebasing .gallery-slide figure > img {
+  transition: none;
 }
 .gallery-viewport::-webkit-scrollbar {
   display: none;
@@ -1003,14 +995,6 @@ summary:focus-visible {
   .section-space {
     padding: 75px 0 65px;
   }
-  .section-heading {
-    margin-bottom: 50px;
-    font-size: 10px;
-  }
-  .section-heading > span:nth-child(2) {
-    text-align: right;
-    max-width: 45%;
-  }
   .house-composition {
     grid-template-columns: 1fr;
     gap: 60px;
@@ -1072,16 +1056,7 @@ summary:focus-visible {
   .section-intro > p {
     font-size: 15px;
     max-width: 280px;
-  }
-  .gallery-top {
-    font-size: 10px;
-    margin-bottom: 28px;
-  }
-  .gallery-top > span:first-child {
-    max-width: 50%;
-  }
-  .gallery-count {
-    white-space: nowrap;
+    justify-self: start;
   }
   .gallery-slide {
     width: 78vw;

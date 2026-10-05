@@ -4,38 +4,68 @@ import { copy, type Locale } from "../content/site";
 interface Props {
   id: string;
   locale: Locale;
-  images: { image: ImageMetadata; alt: string }[];
+  images: { image: ImageMetadata; alt: string; objectPosition?: string }[];
   label: string;
   compact?: boolean;
   start?: number;
+  loop?: boolean;
 }
-const { id, locale, images, label, compact = false, start = 0 } = Astro.props;
+const {
+  id,
+  locale,
+  images,
+  label,
+  compact = false,
+  start = 0,
+  loop = false,
+} = Astro.props;
 const t = copy[locale];
+const initial = Math.max(0, Math.min(images.length - 1, start));
+const looping = loop && images.length > 1;
+const buffer = looping ? Math.min(3, images.length) : 0;
+const originals = images.map((photo, index) => ({
+  ...photo,
+  index,
+  clone: false,
+}));
+const rendered = looping
+  ? [
+      ...originals.slice(-buffer).map((photo) => ({ ...photo, clone: true })),
+      ...originals,
+      ...originals.slice(0, buffer).map((photo) => ({ ...photo, clone: true })),
+    ]
+  : originals;
 ---
 
 <section
   class:list={["photo-gallery", { compact }]}
   aria-label={label}
   data-gallery
-  data-start={start}
+  data-start={initial}
+  data-loop={looping ? "true" : undefined}
+  data-buffer={buffer}
+  data-length={images.length}
 >
-  <div class="gallery-top mono">
-    <span>{label}</span>
-    <span
-      class="gallery-count"
-      aria-live="polite"
-      aria-atomic="true"
-      data-gallery-count
-      data-of={t.of}
-      data-photo={t.photo}
-    >
-      {t.photo} 01 {t.of} {String(images.length).padStart(2, "0")}
-    </span>
-  </div>
+  <span
+    class="sr-only"
+    aria-live="polite"
+    aria-atomic="true"
+    data-gallery-count
+    data-of={t.of}
+    data-photo={t.photo}
+  >
+    {t.photo} {String(initial + 1).padStart(2, "0")} {t.of}{" "}
+    {String(images.length).padStart(2, "0")}
+  </span>
   <div class="gallery-viewport" id={id} tabindex="0" aria-label={label}>
     <ul class="gallery-track">
-      {images.map(({ image, alt }, index) => (
-        <li class="gallery-slide" data-slide>
+      {rendered.map(({ image, alt, objectPosition, index, clone }) => (
+        <li
+          class="gallery-slide"
+          data-slide
+          data-index={index}
+          aria-hidden={clone ? "true" : undefined}
+        >
           <figure>
             <img
               src={image.src}
@@ -45,6 +75,7 @@ const t = copy[locale];
               loading="lazy"
               decoding="async"
               draggable="false"
+              style={objectPosition ? { objectPosition } : undefined}
             />
             <figcaption class="mono">
               <span>{String(index + 1).padStart(2, "0")}</span> {alt}
@@ -71,6 +102,7 @@ const t = copy[locale];
       aria-label={t.next}
       aria-controls={id}
       data-next
+      disabled
     >
       →
     </button>
@@ -88,37 +120,115 @@ const t = copy[locale];
         gallery.querySelector<HTMLButtonElement>("[data-previous]")!;
       const next = gallery.querySelector<HTMLButtonElement>("[data-next]")!;
       const count = gallery.querySelector<HTMLElement>("[data-gallery-count]")!;
-      let active = 0;
+      const length = Number(gallery.dataset.length);
+      const buffer = Number(gallery.dataset.buffer);
+      const looping = gallery.dataset.loop === "true";
+      if (!length) return;
+      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+      let active = buffer + Number(gallery.dataset.start);
+      let target: number | null = null;
       let initialized = false;
-      const position = (slide: HTMLElement) =>
-        slide.getBoundingClientRect().left -
-        viewport.getBoundingClientRect().left +
-        viewport.scrollLeft -
-        (viewport.clientWidth - slide.clientWidth) / 2;
-      const update = () => {
-        active = slides.reduce(
-          (best, slide, index) =>
-            Math.abs(position(slide) - viewport.scrollLeft) <
-            Math.abs(position(slides[best]) - viewport.scrollLeft)
+      let rebasing = false;
+      let settleTimer: ReturnType<typeof setTimeout>;
+      let frame = 0;
+      let positions: number[] = [];
+      const logical = (index: number) => Number(slides[index].dataset.index);
+      const measure = () => {
+        const left = viewport.getBoundingClientRect().left;
+        positions = slides.map((slide) => {
+          const rect = slide.getBoundingClientRect();
+          return (
+            rect.left -
+            left +
+            viewport.scrollLeft -
+            (viewport.clientWidth - rect.width) / 2
+          );
+        });
+      };
+      const closest = () =>
+        positions.reduce(
+          (best, position, index) =>
+            Math.abs(position - viewport.scrollLeft) <
+            Math.abs(positions[best] - viewport.scrollLeft)
               ? index
               : best,
           0,
         );
-        previous.disabled = active === 0;
-        next.disabled = active === slides.length - 1;
+      const update = () => {
+        active = closest();
+        previous.disabled = length < 2 || (!looping && active === 0);
+        next.disabled = length < 2 || (!looping && active === length - 1);
         slides.forEach((slide, index) =>
           slide.toggleAttribute("data-active", index === active),
         );
-        count.textContent = `${count.dataset.photo} ${String(active + 1).padStart(2, "0")} ${count.dataset.of} ${String(slides.length).padStart(2, "0")}`;
+        const announcement = `${count.dataset.photo} ${String(logical(active) + 1).padStart(2, "0")} ${count.dataset.of} ${String(length).padStart(2, "0")}`;
+        if (count.textContent !== announcement)
+          count.textContent = announcement;
+      };
+      // Move from a boundary copy to the identical original. Keeping the offset
+      // preserves the composition, including both neighbours, without a rewind.
+      const rebase = () => {
+        if (!looping || rebasing) return;
+        active = closest();
+        const original = buffer + logical(active);
+        if (original === active) return;
+        const offset = viewport.scrollLeft - positions[active];
+        const shift = original - active;
+        rebasing = true;
+        viewport.classList.add("is-rebasing");
+        if (target !== null) target += shift;
+        viewport.scrollTo({
+          left: positions[original] + offset,
+          behavior: "instant",
+        });
+        update();
+        // Commit the active image's opacity before restoring its transition.
+        getComputedStyle(slides[original].querySelector("img")!).opacity;
+        requestAnimationFrame(() => {
+          viewport.classList.remove("is-rebasing");
+          rebasing = false;
+          settle();
+        });
+      };
+      const settle = () => {
+        clearTimeout(settleTimer);
+        if (rebasing) return;
+        update();
+        // Ignore scrollend from an interrupted animation when a new target is pending.
+        if (
+          target !== null &&
+          Math.abs(viewport.scrollLeft - positions[target]) > 1
+        )
+          return;
+        target = null;
+        rebase();
+      };
+      const goTo = (index: number) => {
+        target = index;
+        viewport.scrollTo({
+          left: positions[index],
+          behavior: reducedMotion.matches ? "instant" : "smooth",
+        });
+        if (reducedMotion.matches) {
+          update();
+          target = null;
+          rebase();
+        }
       };
       const move = (delta: number) => {
-        const target = Math.max(0, Math.min(slides.length - 1, active + delta));
-        viewport.scrollTo({
-          left: position(slides[target]),
-          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-            ? "instant"
-            : "smooth",
-        });
+        if (!initialized || length < 2) return;
+        // Finish any boundary relocation before accepting the next direction.
+        if (looping) rebase();
+        let destination = (target ?? closest()) + delta;
+        if (!looping)
+          destination = Math.max(0, Math.min(length - 1, destination));
+        else if (destination < 0 || destination >= slides.length) {
+          // Rapid repeated clicks can run ahead of the animation; keep their
+          // intended logical destination inside the original sequence.
+          destination =
+            buffer + ((((destination - buffer) % length) + length) % length);
+        }
+        goTo(destination);
       };
       previous.addEventListener("click", () => move(-1));
       next.addEventListener("click", () => move(1));
@@ -126,27 +236,41 @@ const t = copy[locale];
         if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
           event.preventDefault();
           move(event.key === "ArrowLeft" ? -1 : 1);
-        }
-        if (event.key === "Home" || event.key === "End") {
+        } else if (event.key === "Home" || event.key === "End") {
           event.preventDefault();
-          move(event.key === "Home" ? -slides.length : slides.length);
+          goTo(buffer + (event.key === "Home" ? 0 : length - 1));
         }
       });
-      viewport.addEventListener("scroll", update, { passive: true });
+      const cancelTarget = () => {
+        target = null;
+      };
+      viewport.addEventListener("pointerdown", cancelTarget, { passive: true });
+      viewport.addEventListener("wheel", cancelTarget, { passive: true });
+      viewport.addEventListener(
+        "scroll",
+        () => {
+          if (!frame)
+            frame = requestAnimationFrame(() => {
+              frame = 0;
+              update();
+              // A long swipe must never reach an empty physical end of the strip.
+              if (looping && (active <= 1 || active >= slides.length - 2))
+                rebase();
+            });
+          clearTimeout(settleTimer);
+          settleTimer = setTimeout(settle, 180);
+        },
+        { passive: true },
+      );
+      viewport.addEventListener("scrollend", settle);
       new ResizeObserver(() => {
         if (!viewport.clientWidth) return;
-        if (!initialized) {
-          active = Math.max(
-            0,
-            Math.min(slides.length - 1, Number(gallery.dataset.start) || 0),
-          );
-          viewport.scrollTo({
-            left: position(slides[active]),
-            behavior: "instant",
-          });
-          initialized = true;
-          gallery.classList.add("gallery-enhanced");
-        }
+        const index = initialized ? buffer + logical(active) : active;
+        measure();
+        target = null;
+        viewport.scrollTo({ left: positions[index], behavior: "instant" });
+        initialized = true;
+        gallery.classList.add("gallery-enhanced");
         update();
       }).observe(viewport);
     });
