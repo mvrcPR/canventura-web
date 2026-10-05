@@ -37,17 +37,29 @@ const t = copy[locale];
   <div class="header-actions mono">
     <details class="language-picker header-disclosure">
       <summary aria-label={`${t.languages}: ${languageNames[locale]}`}>
-        {locale.toUpperCase()} <span aria-hidden="true">⌄</span>
+        {locale.toUpperCase()}
+        <svg
+          class="language-chevron"
+          viewBox="0 0 12 12"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.25" />
+        </svg>
       </summary>
-      <nav class="header-panel language-options" aria-label={t.languages}>
+      <nav class="language-options" aria-label={t.languages}>
         {locales.map((lang) => (
           <a
             href={page === "menu" ? menuPath(lang) : homePath(lang)}
             lang={lang}
             hreflang={lang}
+            aria-label={languageNames[lang]}
             aria-current={lang === locale ? "page" : undefined}
           >
-            {languageNames[lang]}
+            <span class="language-name">{languageNames[lang]}</span>
+            <span class="language-code" aria-hidden="true">
+              {lang.toUpperCase()}
+            </span>
           </a>
         ))}
       </nav>
@@ -84,13 +96,67 @@ const t = copy[locale];
   const disclosures = [
     ...header.querySelectorAll<HTMLDetailsElement>(".header-disclosure"),
   ];
+  const languagePicker =
+    header.querySelector<HTMLDetailsElement>(".language-picker")!;
+  const hoverPointer = matchMedia("(hover: hover) and (pointer: fine)");
+  const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
+  let hoverCloseTimer: ReturnType<typeof setTimeout>;
+  let hoverExit: Animation | undefined;
+  const openDisclosure = (disclosure: HTMLDetailsElement) => {
+    for (const other of disclosures)
+      if (other !== disclosure) other.open = false;
+    disclosure.open = true;
+  };
+  languagePicker.addEventListener("pointerenter", (event) => {
+    if (!hoverPointer.matches || event.pointerType === "touch") return;
+    clearTimeout(hoverCloseTimer);
+    hoverExit?.cancel();
+    openDisclosure(languagePicker);
+  });
+  languagePicker.addEventListener("pointerleave", () => {
+    if (!hoverPointer.matches) return;
+    hoverCloseTimer = setTimeout(async () => {
+      if (
+        languagePicker.contains(document.activeElement) ||
+        !languagePicker.open
+      )
+        return;
+      if (motionPreference.matches) {
+        languagePicker.open = false;
+        return;
+      }
+      hoverExit = languagePicker.querySelector("nav")!.animate(
+        [
+          { opacity: 1, transform: "translateY(0)" },
+          { opacity: 0, transform: "translateY(-4px)" },
+        ],
+        { duration: 140, easing: "ease-in", fill: "forwards" },
+      );
+      try {
+        await hoverExit.finished;
+        languagePicker.open = false;
+        hoverExit.cancel();
+      } catch {
+        // Re-entering or focusing the list interrupts its exit.
+      }
+    }, 160);
+  });
+  languagePicker.addEventListener("focusin", () => {
+    clearTimeout(hoverCloseTimer);
+    hoverExit?.cancel();
+  });
   const updateHeader = () =>
     header.classList.toggle("scrolled", window.scrollY > 16);
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
   for (const disclosure of disclosures) {
+    const summary = disclosure.querySelector("summary")!;
+    summary.setAttribute("aria-expanded", String(disclosure.open));
     disclosure.addEventListener("toggle", () => {
+      summary.setAttribute("aria-expanded", String(disclosure.open));
+      if (!disclosure.open && disclosure === languagePicker)
+        hoverExit?.cancel();
       if (disclosure.open) {
         for (const other of disclosures)
           if (other !== disclosure) other.open = false;
@@ -121,6 +187,7 @@ const t = copy[locale];
     }
   });
   matchMedia("(max-width: 700px)").addEventListener("change", () => {
+    clearTimeout(hoverCloseTimer);
     for (const disclosure of disclosures) disclosure.open = false;
   });
 </script>

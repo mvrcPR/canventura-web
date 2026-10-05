@@ -131,10 +131,8 @@ const schema = {
           window.addEventListener("resize", updateReservation);
         } else setReservationVisibility(true);
       }
-      if (
-        "IntersectionObserver" in window &&
-        !matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) {
+      const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
+      if ("IntersectionObserver" in window && !motionPreference.matches) {
         const observer = new IntersectionObserver(
           (entries) => {
             for (const entry of entries)
@@ -143,11 +141,25 @@ const schema = {
                 observer.unobserve(entry.target);
               }
           },
-          { threshold: 0.1 },
+          { threshold: 0.08, rootMargin: "0px 0px -32px 0px" },
         );
         document.querySelectorAll("[data-reveal]").forEach((el) => {
           el.classList.add("will-reveal");
           observer.observe(el);
+        });
+        document.addEventListener("focusin", (event) => {
+          const target = (event.target as Element).closest("[data-reveal]");
+          if (target) {
+            target.classList.add("in-view");
+            observer.unobserve(target);
+          }
+        });
+        motionPreference.addEventListener("change", () => {
+          if (!motionPreference.matches) return;
+          observer.disconnect();
+          document
+            .querySelectorAll("[data-reveal]")
+            .forEach((el) => el.classList.add("in-view"));
         });
       }
     </script>

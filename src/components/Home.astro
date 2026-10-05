@@ -43,7 +43,6 @@ const kitchenPhotos = kitchenPhotography.map(
           <div class="hero-details mono">
             <p>Plaça Major nº1, Llívia, Girona</p>
             <a href={`tel:${restaurant.phone}`}>{restaurant.phoneLabel}</a>
-            <a href={`mailto:${restaurant.email}`}>{restaurant.email}</a>
           </div>
         </div>
         <ReserveButton locale={locale} class="hero-reserve" />
@@ -54,11 +53,11 @@ const kitchenPhotos = kitchenPhotography.map(
       id="familia"
       aria-labelledby="family-title"
     >
-      <div class="family-composition" data-reveal>
-        <h2 class="display-heading" id="family-title">
+      <div class="family-composition">
+        <h2 class="display-heading" id="family-title" data-reveal>
           {t.familyTitle}
         </h2>
-        <figure class="family-archive">
+        <figure class="family-archive" data-reveal>
           <img
             src={photos.founders.src}
             width={photos.founders.width}
@@ -67,9 +66,12 @@ const kitchenPhotos = kitchenPhotography.map(
             loading="lazy"
             decoding="async"
           />
-          <figcaption class="mono">{t.familyFoundersCaption}</figcaption>
+          <figcaption>
+            <span class="mono">{t.familyFoundersCaption}</span>
+            <p class="family-story">{t.familyText}</p>
+          </figcaption>
         </figure>
-        <figure class="family-team">
+        <figure class="family-team" data-reveal>
           <img
             src={photos.family.src}
             width={photos.family.width}
@@ -78,15 +80,31 @@ const kitchenPhotos = kitchenPhotography.map(
             loading="lazy"
             decoding="async"
           />
-          <figcaption class="mono">
-            <span>{t.familyTeamCaption}</span>
-            <span class="family-photo-credit">Pere Virgili</span>
+          <figcaption>
+            <div class="family-caption mono">
+              <span>{t.familyTeamCaption}</span>
+              <span class="family-photo-credit">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  role="img"
+                  aria-label={{ ca: "Fotografia", es: "Fotografía", fr: "Photographie", en: "Photograph" }[locale]}
+                >
+                  <path d="M4 6.5h4l1.5-3h5l1.5 3h4a1.5 1.5 0 0 1 1.5 1.5v11a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 19V8A1.5 1.5 0 0 1 4 6.5Z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+                Pere Virgili
+              </span>
+            </div>
           </figcaption>
         </figure>
-        <div class="family-story">
-          <p>{t.familyText}</p>
-          <p class="muted">{t.familySecond}</p>
-        </div>
+        <p class="family-story family-current" data-reveal>
+          {t.familySecond}
+        </p>
       </div>
     </section>
     <section
@@ -127,13 +145,34 @@ const kitchenPhotos = kitchenPhotography.map(
             <div class="house-invitation">
               <p class="mono">{t.houseInvitation}</p>
               <div class="house-arrow" aria-hidden="true">
-                <svg class="hand-arrow" viewBox="0 0 550 360" fill="none">
+                <svg
+                  class="hand-arrow hand-arrow-desktop"
+                  viewBox="0 0 550 360"
+                  fill="none"
+                >
                   <path
+                    pathLength="1"
                     d="M550 0C520 103 423 213 306 258C207 296 97 277 29 229M29 229L39 264M29 229L66 218"
                     stroke="currentColor"
                     stroke-width="3"
                     stroke-linecap="butt"
                     stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="hand-arrow hand-arrow-mobile"
+                  viewBox="0 0 300 300"
+                  preserveAspectRatio="none"
+                  fill="none"
+                >
+                  <path
+                    d="M280 0C286 96 206 156 135 176C95 188 56 202 42 239M42 239L36 207M42 239L73 225"
+                    pathLength="1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="butt"
+                    stroke-linejoin="round"
+                    vector-effect="non-scaling-stroke"
                   />
                 </svg>
                 <span class="house-tip-marker"></span>
