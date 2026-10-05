@@ -11,6 +11,7 @@ import hands from "../assets/photography/originals/supplied/DSC_0552 2.png";
 import season from "../assets/photography/originals/supplied/DSC_1195.png";
 import founders from "../assets/photography/originals/press/josep-merce-pous.jpg";
 import family from "../assets/photography/originals/press/can-ventura-balcony-pere-virgili.jpg";
+import house from "../assets/photography/originals/press/can-ventura-facade-albert-ayma-1983.jpg";
 export const photos = {
   chef,
   facade,
@@ -25,6 +26,7 @@ export const photos = {
   season,
   founders,
   family,
+  house,
 };
 
 // Food-only sequence curated from the supplied originals. Keep the trotters

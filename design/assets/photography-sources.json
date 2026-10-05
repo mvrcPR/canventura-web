@@ -1061,6 +1061,24 @@
       "sha256": "18eae466739fc48bd5402b2b97b3fa1babdebd031c5fd71097d62b03b69bad00",
       "quality": "Highest source-size image retrieved from the article. Photographer original not available. Bytes preserved without resize or re-encoding.",
       "photographer": "Pere Virgili"
+    },
+    {
+      "file": "src/assets/photography/originals/press/can-ventura-facade-albert-ayma-1983.jpg",
+      "source": "https://calaix.gencat.cat/bitstream/handle/10687/94759/387_001.jpg?sequence=3&isAllowed=y",
+      "sourceKind": "heritage-archive",
+      "article": "https://calaix.gencat.cat/handle/10687/94759",
+      "retrievedOn": "2026-10-05",
+      "width": 2704,
+      "height": 1994,
+      "bytes": 1923313,
+      "sha256": "1a9dba36faa9fe9a643bdc3b5498c8638af20ca07eb186296ff4df48ca52f185",
+      "quality": "Original downloadable archival JPEG, preserved without resize or re-encoding.",
+      "photographer": "Albert Aymà Aubeyzon",
+      "photographedOn": "1983",
+      "sourcePublishedOn": "2015-04-10",
+      "credit": "Albert Aymà Aubeyzon · Calaix · Generalitat de Catalunya",
+      "reuse": "Calaix legal notice permits reuse with source and update date, preserving the information and subject to any specific licence. No item-specific licence is listed in the full metadata.",
+      "changes": "None"
     }
   ],
   "suppliedArchive": {

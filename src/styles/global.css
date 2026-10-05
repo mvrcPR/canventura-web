@@ -828,19 +828,24 @@ summary:focus-visible {
 }
 .family-composition {
   display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.85fr);
-  gap: 64px 8vw;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+  gap: 36px 32px;
   margin: 0 auto;
   max-width: 1440px;
   padding: 0 var(--gutter);
   align-items: start;
+  isolation: isolate;
 }
 .family-composition img {
   width: 100%;
   height: auto;
 }
 .family-composition h2 {
-  font-size: clamp(48px, 6.2vw, 92px);
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 4;
+  width: fit-content;
+  font-size: clamp(48px, 6.8vw, 100px);
   margin: 0;
 }
 .family-archive,
@@ -848,11 +853,31 @@ summary:focus-visible {
   width: 100%;
   margin: 0;
 }
+.family-archive {
+  grid-area: 1 / 2;
+  position: relative;
+  z-index: 3;
+  width: calc(100% + 72px);
+  margin: 48px 0 0 -72px;
+}
+.family-archive figcaption {
+  padding-left: 56px;
+}
+.family-team {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(84px, 9.6vw, 140px);
+}
 .family-composition figcaption {
   margin-top: 13px;
   font-size: 10px;
   line-height: 1.5;
   color: var(--muted);
+}
+.family-team figcaption {
+  font-size: 13px;
+  line-height: 1.7;
 }
 .family-caption {
   display: flex;
@@ -881,7 +906,42 @@ summary:focus-visible {
   color: var(--text);
 }
 .family-current {
-  margin-top: 200px;
+  grid-area: 2 / 2;
+  margin: 0;
+}
+.family-house {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 2;
+  justify-self: end;
+  width: clamp(160px, 17vw, 250px);
+  margin: 16px 7% 0 0;
+}
+.family-house figcaption {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  max-width: calc(100% - 24px);
+  margin: 0;
+}
+.family-house .family-photo-credit,
+.family-team .family-photo-credit {
+  align-items: flex-start;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.65;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 85%);
+}
+.family-team-photo {
+  position: relative;
+}
+.family-team-photo > img {
+  display: block;
+}
+.family-team .family-photo-credit {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
 }
 .contact-section {
   padding: 64px 0 70px;
@@ -1015,14 +1075,68 @@ summary:focus-visible {
   transform: none;
 }
 @media (min-width: 701px) {
-  .family-team {
-    margin-top: -40px;
+  .family-composition {
+    --family-image-drop: clamp(16px, 2.2vw, 32px);
   }
-  .family-current {
-    margin-left: -24px;
+  .family-archive > img {
+    display: block;
+    width: 88%;
+    margin-left: auto;
+  }
+  .family-team {
+    width: 88%;
+    margin-top: calc(clamp(84px, 9.6vw, 140px) + var(--family-image-drop));
+  }
+  .family-house {
+    margin-top: calc(16px + var(--family-image-drop));
   }
   .family-archive.will-reveal {
     transition-delay: 90ms;
+  }
+}
+@media (min-width: 701px) and (max-width: 1199px) {
+  .family-archive {
+    width: calc(100% + 40px);
+    margin-left: -40px;
+  }
+  .family-archive figcaption {
+    padding-left: 24px;
+  }
+  .family-current {
+    grid-area: 2 / 1;
+  }
+}
+@media (min-width: 1200px) {
+  .family-archive {
+    width: 100%;
+    margin: 48px 0 0;
+  }
+  .family-archive > img {
+    width: 100%;
+    max-width: 400px;
+  }
+  .family-archive figcaption {
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    padding-left: 0;
+  }
+  .family-archive .family-story {
+    margin-top: 12px;
+  }
+  .family-team {
+    width: 70%;
+    margin-top: clamp(192px, 16vw, 236px);
+  }
+  .family-house {
+    width: clamp(188px, 15.7vw, 226px);
+    margin: clamp(136px, 12.1vw, 178px) 12% 0 0;
+  }
+  .family-current {
+    grid-area: 1 / 1;
+    align-self: end;
+    width: clamp(360px, 30vw, 430px);
+    margin: 0 0 10px calc(70% + 24px);
   }
 }
 .menu-page {
@@ -1382,20 +1496,39 @@ summary:focus-visible {
     gap: 32px;
   }
   .family-archive {
-    width: 72%;
+    grid-area: 2 / 1;
+    width: 76%;
+    margin: 0;
     justify-self: end;
   }
-  .family-caption > span:first-child {
-    display: none;
+  .family-archive figcaption {
+    padding-left: 0;
   }
   .family-composition h2 {
-    font-size: 13vw;
+    grid-area: 1 / 1;
+    font-size: 11.5vw;
   }
   .family-story {
     margin-top: 20px;
     font-size: 16px;
   }
   .family-current {
+    grid-area: 4 / 1;
+    margin: 0;
+    max-width: 90%;
+  }
+  .family-house {
+    grid-area: 1 / 1;
+    width: 38%;
+    margin: -4px 0 0;
+  }
+  .family-house .family-photo-credit {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .family-team {
+    grid-area: 3 / 1;
     margin-top: 0;
   }
   .contact-section {
