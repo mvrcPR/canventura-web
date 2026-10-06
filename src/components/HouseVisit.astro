@@ -1,0 +1,517 @@
+---
+import { Image, getImage } from "astro:assets";
+import { copy, houseTour, type Locale } from "../content/site";
+import { housePhotography } from "../content/photos";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = copy[locale];
+const photographs = housePhotography.map(({ image, subject }) => ({
+  image, subject, alt: t.housePhotos[subject],
+}));
+const cover = photographs.find(({ subject }) => subject === "entrance")!;
+const previews = [photographs[0], photographs[1]];
+const firstPhoto = photographs[0];
+const fallback = await getImage({ src: cover.image, width: 1280, format: "webp", quality: 85 });
+---
+
+<section class="house-section section-space" id="casa" aria-labelledby="house-title" data-house-visit>
+  <div class="house-composition" data-reveal>
+    <div class="house-note">
+      <a class="house-entry-copy" href={fallback.src} data-open-visit>
+        <h2 id="house-title">{t.houseTitle}</h2>
+        <div class="house-invitation">
+          <p class="mono">{t.houseInvitation}</p>
+          <div class="house-arrow" aria-hidden="true">
+            <svg class="hand-arrow hand-arrow-desktop" viewBox="0 0 550 360" fill="none">
+              <path pathLength="1" d="M550 0C520 103 423 213 306 258C207 296 97 277 29 229M29 229L39 264M29 229L66 218" stroke="currentColor" stroke-width="3" stroke-linecap="butt" stroke-linejoin="round" />
+            </svg>
+            <svg class="hand-arrow hand-arrow-mobile" viewBox="0 0 300 300" preserveAspectRatio="none" fill="none">
+              <path pathLength="1" d="M280 0C286 96 206 156 135 176C95 188 56 202 42 239M42 239L36 207M42 239L73 225" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+            </svg>
+            <span class="house-tip-marker"></span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <a class="house-door" href={fallback.src} data-open-visit aria-label={t.openHouse}>
+      {previews.map(({ image }, index) => (
+        <span class:list={["house-preview", `house-preview-${index + 1}`]} aria-hidden="true">
+          <Image src={image} width={640} widths={[320, 480, 640]} sizes="(max-width: 700px) 70vw, 430px" format="webp" quality={85} alt="" loading="lazy" decoding="async" draggable="false" />
+        </span>
+      ))}
+      <span class="house-cover">
+        <Image src={cover.image} width={1280} widths={[320, 640, 960, 1280]} sizes="(max-width: 700px) 78vw, (min-width: 1800px) 520px, 42vw" format="webp" quality={85} alt={cover.alt} loading="lazy" decoding="async" draggable="false" />
+      </span>
+    </a>
+  </div>
+
+  <noscript>
+    <div class="house-static-album">
+      {photographs.filter(({ subject }) => subject !== "entrance").map(({ image, alt }) => (
+        <Image src={image} width={640} format="webp" quality={85} alt={alt} loading="lazy" />
+      ))}
+    </div>
+    <a class="house-static-tour mono" href={houseTour.url} target="_blank" rel="noopener noreferrer">{t.houseVirtualVisit} ↗</a>
+  </noscript>
+
+  <dialog class="visit-dialog" id="house-visit-dialog" aria-labelledby="house-visit-title">
+    <div class="visit-layout">
+      <header class="visit-heading mono">
+        <div class="visit-heading-start">
+          <button class="visit-back" type="button" data-visit-back hidden><span aria-hidden="true">←</span> {t.houseVisitBack}</button>
+          <h2 id="house-visit-title" data-choice-title={t.houseGallery}>{t.houseGallery}</h2>
+        </div>
+        <div class="visit-actions">
+          <a class="visit-external" href={houseTour.url} target="_blank" rel="noopener noreferrer" aria-label={t.openTourExternal} hidden>Google Maps <span aria-hidden="true">↗</span></a>
+          <button class="visit-close" type="button" data-close-visit>{t.close} <span aria-hidden="true">×</span></button>
+        </div>
+      </header>
+
+      <div class="visit-canvas">
+        <div class="visit-choices">
+          <button class="visit-choice" type="button" data-visit-mode="photos" aria-controls="house-photos-panel">
+            <Image src={firstPhoto.image} width={1280} widths={[480, 768, 1024, 1280]} sizes="(max-width: 700px) 100vw, 50vw" format="webp" quality={85} alt="" loading="lazy" decoding="async" draggable="false" />
+            <span class="visit-choice-label"><span>{t.housePhotographs}</span><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26 26 6M6 6h20v20" stroke="currentColor" stroke-width="1.5" /></svg></span>
+          </button>
+          <button class="visit-choice" type="button" data-visit-mode="tour" aria-controls="house-tour-panel">
+            <Image src={cover.image} width={1280} widths={[480, 768, 1024, 1280]} sizes="(max-width: 700px) 100vw, 50vw" format="webp" quality={85} alt="" loading="lazy" decoding="async" draggable="false" />
+            <span class="visit-choice-label"><span>{t.houseVirtualVisit}</span><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26 26 6M6 6h20v20" stroke="currentColor" stroke-width="1.5" /></svg></span>
+          </button>
+        </div>
+
+        <div class="album-panel" id="house-photos-panel" role="region" aria-label={t.housePhotographs} hidden>
+          <div class="album-view">
+            <div class="album-stage" tabindex="0" role="group" aria-label={t.housePhotographs}>
+              <div class="album-track">
+                {photographs.map(({ image, alt }, index) => (
+                  <figure class:list={["album-slide", { "is-active": index === 0 }]} aria-hidden={index !== 0 ? "true" : undefined}>
+                    <Image src={image} width={1280} widths={[480, 768, 1024, 1280]} sizes="(max-width: 700px) 100vw, 65vh" format="webp" quality={85} alt={alt} loading="lazy" decoding="async" draggable="false" />
+                  </figure>
+                ))}
+              </div>
+            </div>
+            <button class="album-arrow album-previous" type="button" aria-label={t.previous} aria-controls="house-photos-panel" data-album-previous disabled><span aria-hidden="true">←</span></button>
+            <button class="album-arrow album-next" type="button" aria-label={t.next} aria-controls="house-photos-panel" data-album-next><span aria-hidden="true">→</span></button>
+          </div>
+          <div class="album-footer">
+            <p class="album-caption mono" aria-live="polite" aria-atomic="true"><span data-album-count>01 / {String(photographs.length).padStart(2, "0")}</span><span data-album-caption>{firstPhoto.alt}</span></p>
+            <div class="album-thumbnails" role="group" aria-label={t.housePhotographs}>
+              {photographs.map(({ image, alt }, index) => (
+                <button class="album-thumbnail" type="button" data-album-index={index} aria-label={`${t.photo} ${index + 1}: ${alt}`} aria-current={index === 0 ? "true" : undefined}>
+                  <Image src={image} width={120} format="webp" quality={80} alt="" loading="lazy" decoding="async" draggable="false" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-viewer" id="house-tour-panel" role="region" aria-label={t.houseVirtualVisit} hidden>
+          <p class="tour-loading mono" role="status">{t.tourLoading}</p>
+          <iframe title={`${t.houseGallery} · ${t.houseVirtualVisit}`} data-src={`${houseTour.embedUrl}&hl=${locale}`} allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+    </div>
+  </dialog>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-house-visit]").forEach((section) => {
+    const dialog = section.querySelector<HTMLDialogElement>(".visit-dialog")!;
+    const composition = section.querySelector<HTMLElement>(".house-composition")!;
+    const door = section.querySelector<HTMLAnchorElement>(".house-door")!;
+    const triggers = [...section.querySelectorAll<HTMLAnchorElement>("[data-open-visit]")];
+    const canvas = dialog.querySelector<HTMLElement>(".visit-canvas")!;
+    const choices = dialog.querySelector<HTMLElement>(".visit-choices")!;
+    const options = [...choices.querySelectorAll<HTMLButtonElement>("[data-visit-mode]")];
+    const backButton = dialog.querySelector<HTMLButtonElement>("[data-visit-back]")!;
+    const title = dialog.querySelector<HTMLElement>("#house-visit-title")!;
+    const photosPanel = dialog.querySelector<HTMLElement>(".album-panel")!;
+    const stage = dialog.querySelector<HTMLElement>(".album-stage")!;
+    const slides = [...dialog.querySelectorAll<HTMLElement>(".album-slide")];
+    const thumbnails = [...dialog.querySelectorAll<HTMLButtonElement>("[data-album-index]")];
+    const previous = dialog.querySelector<HTMLButtonElement>("[data-album-previous]")!;
+    const next = dialog.querySelector<HTMLButtonElement>("[data-album-next]")!;
+    const count = dialog.querySelector<HTMLElement>("[data-album-count]")!;
+    const caption = dialog.querySelector<HTMLElement>("[data-album-caption]")!;
+    const viewer = dialog.querySelector<HTMLElement>(".tour-viewer")!;
+    const frame = viewer.querySelector<HTMLIFrameElement>("iframe")!;
+    const loading = viewer.querySelector<HTMLElement>(".tour-loading")!;
+    const external = dialog.querySelector<HTMLAnchorElement>(".visit-external")!;
+    const closeButton = dialog.querySelector<HTMLButtonElement>("[data-close-visit]")!;
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const touchPointer = matchMedia("(hover: none), (pointer: coarse)");
+    const animations = new Set<Animation>();
+    let activeTrigger = door;
+    let active = 0;
+    let mode = "choice";
+    let lastOption = options[0];
+    let closing = false;
+    let hasOpened = false;
+    let hintTimer: ReturnType<typeof setTimeout> | undefined;
+    let scrollFrame = 0;
+    let stageWidth = 0;
+    let navigationId = 0;
+    let navigationAnimation: Animation | undefined;
+    let sessionActive = false;
+
+    const animate = (element: Element, keyframes: Keyframe[], options: KeyframeAnimationOptions) => {
+      const animation = element.animate(keyframes, options);
+      animations.add(animation);
+      animation.finished.catch(() => {}).finally(() => {
+        animation.cancel();
+        animations.delete(animation);
+      });
+      return animation;
+    };
+    const clearHint = () => {
+      clearTimeout(hintTimer);
+      composition.classList.remove("tour-hint-visible");
+    };
+    const hintObserver = new IntersectionObserver(([entry]) => {
+      clearHint();
+      if (entry.intersectionRatio >= 0.3 && touchPointer.matches && !hasOpened) {
+        hintTimer = setTimeout(() => composition.classList.add("tour-hint-visible"), 2000);
+      }
+    }, { threshold: 0.3, rootMargin: "-110px 0px -90px 0px" });
+    hintObserver.observe(composition);
+
+    const updateActive = (index: number, scrollThumbnails = true) => {
+      active = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("is-active", i === active);
+        slide.setAttribute("aria-hidden", String(i !== active));
+      });
+      thumbnails.forEach((thumbnail, i) => {
+        if (i === active) thumbnail.setAttribute("aria-current", "true");
+        else thumbnail.removeAttribute("aria-current");
+      });
+      previous.disabled = active === 0;
+      next.disabled = active === slides.length - 1;
+      count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+      caption.textContent = slides[active].querySelector("img")!.alt;
+      if (scrollThumbnails) {
+        const thumbnail = thumbnails[active];
+        const strip = thumbnail.parentElement!;
+        strip.scrollTo({ left: thumbnail.offsetLeft - (strip.clientWidth - thumbnail.clientWidth) / 2, behavior: reducedMotion.matches ? "instant" : "smooth" });
+      }
+    };
+    const goTo = async (index: number) => {
+      const id = ++navigationId;
+      navigationAnimation?.cancel();
+      const destination = Math.max(0, Math.min(slides.length - 1, index));
+      if (!reducedMotion.matches && Math.abs(destination - active) > 1) {
+        navigationAnimation = animate(stage, [{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "ease-in", fill: "forwards" });
+        await navigationAnimation.finished.catch(() => {});
+        if (id !== navigationId || !dialog.open || mode !== "photos" || closing) return;
+        stage.scrollTo({ left: destination * stage.clientWidth, behavior: "instant" });
+        updateActive(destination);
+        navigationAnimation = animate(stage, [{ opacity: 0 }, { opacity: 1 }], { duration: 280, easing: "ease-out" });
+        return;
+      }
+      stage.scrollTo({ left: destination * stage.clientWidth, behavior: reducedMotion.matches ? "instant" : "smooth" });
+    };
+    stage.addEventListener("scroll", () => {
+      cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(() => {
+        if (!dialog.open || mode !== "photos" || !stage.clientWidth) return;
+        const index = Math.round(stage.scrollLeft / stage.clientWidth);
+        if (index !== active) updateActive(index);
+      });
+    }, { passive: true });
+    previous.addEventListener("click", () => goTo(active - 1));
+    next.addEventListener("click", () => goTo(active + 1));
+    thumbnails.forEach((thumbnail, index) => thumbnail.addEventListener("click", () => goTo(index)));
+    const resizeObserver = new ResizeObserver(() => {
+      const width = stage.clientWidth;
+      if (dialog.open && mode === "photos" && width && width !== stageWidth) {
+        stageWidth = width;
+        stage.scrollTo({ left: active * width, behavior: "instant" });
+      }
+    });
+    resizeObserver.observe(stage);
+
+    const unloadTour = () => {
+      frame.removeAttribute("src");
+      viewer.classList.remove("is-loaded");
+      viewer.removeAttribute("aria-busy");
+      loading.hidden = false;
+    };
+    const clearTransitions = () => {
+      ++navigationId;
+      animations.forEach((animation) => animation.cancel());
+      dialog.querySelectorAll(".visit-transition").forEach((element) => element.remove());
+    };
+    const showChoices = (focus = true) => {
+      clearTransitions();
+      mode = "choice";
+      choices.hidden = false;
+      photosPanel.hidden = true;
+      viewer.hidden = true;
+      external.hidden = true;
+      backButton.hidden = true;
+      title.textContent = title.dataset.choiceTitle!;
+      unloadTour();
+      if (focus) lastOption.focus({ preventScroll: true });
+      if (dialog.open && !reducedMotion.matches) {
+        animate(choices, [{ opacity: 0 }, { opacity: 1 }], { duration: 450, easing: "ease-out" });
+      }
+    };
+    const selectOption = (option: HTMLButtonElement) => {
+      if (closing || mode !== "choice") return;
+      const bounds = canvas.getBoundingClientRect();
+      const sources = options.map((element) => ({
+        element, rect: element.getBoundingClientRect(),
+        objectPosition: getComputedStyle(element.querySelector("img")!).objectPosition,
+      }));
+      clearTransitions();
+      mode = option.dataset.visitMode!;
+      lastOption = option;
+      choices.hidden = true;
+      photosPanel.hidden = mode !== "photos";
+      viewer.hidden = mode !== "tour";
+      external.hidden = mode !== "tour";
+      backButton.hidden = false;
+      title.textContent = option.textContent!.trim();
+      if (mode === "tour") {
+        viewer.setAttribute("aria-busy", "true");
+        frame.src = frame.dataset.src!;
+        backButton.focus({ preventScroll: true });
+      } else {
+        stage.scrollTo({ left: active * stage.clientWidth, behavior: "instant" });
+        stageWidth = stage.clientWidth;
+        stage.focus({ preventScroll: true });
+      }
+      if (reducedMotion.matches) return;
+
+      // Crossfade photographs at their original scale; only the tour expands.
+      sources.forEach(({ element, rect, objectPosition }) => {
+        const selected = element === option;
+        const expands = selected && mode === "tour";
+        const flying = document.createElement("div");
+        flying.className = "visit-choice visit-transition";
+        flying.setAttribute("aria-hidden", "true");
+        flying.append(...[...element.children].map((child) => child.cloneNode(true)));
+        flying.querySelector("img")!.style.objectPosition = objectPosition;
+        const x = rect.left - bounds.left;
+        const y = rect.top - bounds.top;
+        Object.assign(flying.style, { left: `${x}px`, top: `${y}px`, width: `${rect.width}px`, height: `${rect.height}px`, zIndex: selected ? "5" : "4", backgroundImage: element.style.backgroundImage, backgroundPosition: objectPosition });
+        canvas.append(flying);
+        let keyframes: Keyframe[];
+        if (expands) {
+          const scale = Math.max(bounds.width / rect.width, bounds.height / rect.height);
+          const dx = (bounds.width - rect.width * scale) / 2 - x;
+          const dy = (bounds.height - rect.height * scale) / 2 - y;
+          const transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+          keyframes = [{ transform: "none", opacity: 1 }, { transform, opacity: 1, offset: 0.72 }, { transform, opacity: 0 }];
+        } else {
+          keyframes = [{ opacity: 1 }, { opacity: 0 }];
+        }
+        const label = flying.querySelector<HTMLElement>(".visit-choice-label")!;
+        label.style.opacity = "0";
+        animate(label, [{ opacity: 1 }, { opacity: 0 }], { duration: 180 });
+        const animation = animate(flying, keyframes, { duration: expands ? 800 : 450, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" });
+        animation.finished.catch(() => {}).finally(() => flying.remove());
+      });
+      animate(mode === "photos" ? photosPanel : viewer, [{ opacity: 0 }, { opacity: 1 }], { duration: 400, delay: mode === "photos" ? 0 : 350, easing: "ease-out", fill: "backwards" });
+    };
+    frame.addEventListener("load", () => {
+      if (!frame.hasAttribute("src") || mode !== "tour") return;
+      viewer.classList.add("is-loaded");
+      viewer.removeAttribute("aria-busy");
+      loading.hidden = true;
+    });
+    options.forEach((option) => {
+      option.addEventListener("click", () => selectOption(option));
+      option.querySelector("img")!.addEventListener("load", () => option.style.removeProperty("background-image"));
+    });
+    backButton.addEventListener("click", () => { if (!closing) showChoices(); });
+    dialog.addEventListener("keydown", (event) => {
+      if (mode !== "photos" || event.altKey || event.ctrlKey || event.metaKey || !(event.target instanceof Element) || !event.target.closest(".album-panel")) return;
+      const targets: Record<string, number> = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: slides.length - 1 };
+      if (!(event.key in targets)) return;
+      event.preventDefault();
+      goTo(targets[event.key]);
+    });
+
+    triggers.forEach((trigger) => {
+      trigger.setAttribute("aria-haspopup", "dialog");
+      trigger.setAttribute("aria-controls", dialog.id);
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (dialog.open || closing) return;
+        activeTrigger = trigger;
+        hasOpened = true;
+        clearHint();
+        hintObserver.disconnect();
+        updateActive(0, false);
+        showChoices(false);
+        options.forEach((option, index) => {
+          const image = option.querySelector("img")!;
+          const preview = door.querySelector<HTMLImageElement>(index === 0 ? ".house-preview-1 img" : ".house-cover img")!;
+          // Reuse the already visible cover while the larger image arrives.
+          if (!image.naturalWidth && preview.naturalWidth) option.style.backgroundImage = `url("${preview.currentSrc}")`;
+          image.loading = "eager";
+        });
+        document.body.classList.add("dialog-open");
+        dialog.showModal();
+        sessionActive = true;
+        options[0].focus({ preventScroll: true });
+        if (!reducedMotion.matches) {
+          const easing = "cubic-bezier(0.22, 1, 0.36, 1)";
+          animate(dialog, [{ opacity: 0 }, { opacity: 1 }], { duration: 650, easing });
+          options.forEach((option, index) => animate(option, [{ opacity: 0, transform: "translateY(24px)" }, { opacity: 1, transform: "none" }], { duration: 700, delay: index * 70, easing, fill: "backwards" }));
+        }
+      });
+    });
+
+    const restorePage = () => {
+      if (!sessionActive) return;
+      sessionActive = false;
+      clearTransitions();
+      dialog.classList.remove("is-closing");
+      unloadTour();
+      closing = false;
+      document.body.classList.remove("dialog-open");
+      activeTrigger.focus({ preventScroll: true });
+    };
+    const close = async () => {
+      if (closing || !dialog.open) return;
+      closing = true;
+      clearTransitions();
+      dialog.classList.add("is-closing");
+      if (!reducedMotion.matches) await animate(dialog, [{ opacity: 1 }, { opacity: 0, transform: "scale(0.99)" }], { duration: 280, easing: "ease-in", fill: "forwards" }).finished.catch(() => {});
+      dialog.close();
+      restorePage();
+    };
+    closeButton.addEventListener("click", close);
+    dialog.addEventListener("cancel", (event) => { event.preventDefault(); close(); });
+    dialog.addEventListener("click", (event) => { if (event.target === dialog) close(); });
+    dialog.addEventListener("close", () => {
+      if (!dialog.open) restorePage();
+    });
+  });
+</script>
+
+<style>
+  .house-door { isolation: isolate; }
+  .house-cover, .house-preview { display: block; background: var(--bg); }
+  .house-cover { position: relative; z-index: 2; }
+  .house-cover img, .house-preview img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .house-cover, .house-preview { transition: transform 650ms var(--ease-out); }
+  .house-preview { position: absolute; inset: 0; transform-origin: center; pointer-events: none; }
+  .house-preview-1 { z-index: 1; transform: translate(46px, -24px) rotate(-4deg) scale(0.94); }
+  .house-preview-2 { z-index: 0; transform: translate(88px, 25px) rotate(5deg) scale(0.94); }
+  .house-preview-1 img { object-position: 60% center; }
+  .house-static-album { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin: 60px var(--gutter) 0; }
+  .house-static-tour { display: inline-block; margin: 24px var(--gutter); }
+  .visit-dialog { background: var(--bg); color: var(--text); border: 0; padding: 0; width: 100%; max-width: 100%; height: 100dvh; max-height: 100dvh; overflow: hidden; }
+  .visit-dialog::backdrop { background: #000e; }
+  .visit-dialog[open]::backdrop { animation: visit-backdrop-enter 700ms ease-out; }
+  .visit-dialog.is-closing::backdrop { animation: visit-backdrop-enter 280ms ease-in reverse forwards; }
+  .visit-layout { height: 100%; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .visit-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px; padding: max(16px, env(safe-area-inset-top)) 32px 16px; font-size: 12px; }
+  .visit-heading-start { display: flex; align-items: center; gap: 28px; min-width: 0; }
+  .visit-heading h2 { font-size: inherit; font-weight: 400; letter-spacing: 0.05em; }
+  .visit-back, .visit-close { background: none; border: 0; padding: 0; min-height: 44px; font-size: inherit; text-transform: uppercase; flex-shrink: 0; }
+  .visit-back { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); transition: color var(--motion-fast); }
+  .visit-back:hover { color: var(--text); }
+  .visit-back span { font-size: 20px; }
+  .visit-actions { display: flex; align-items: center; justify-content: end; gap: 24px; }
+  .visit-close { display: inline-flex; align-items: center; gap: 12px; }
+  .visit-close span { font-size: 30px; line-height: 1; }
+  .visit-external { color: var(--muted); min-height: 44px; align-items: center; gap: 8px; display: inline-flex; }
+  .visit-back[hidden], .visit-external[hidden], .visit-choices[hidden], .album-panel[hidden], .tour-viewer[hidden] { display: none; }
+  .visit-canvas { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+  .visit-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; height: 100%; }
+  .visit-choice { position: relative; padding: 0; border: 0; background: var(--bg) center / cover no-repeat; color: var(--text); overflow: hidden; min-width: 0; min-height: 0; text-align: left; }
+  .visit-choice img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 800ms var(--ease-out); }
+  .visit-choice::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #0001 35%, #0009 100%); pointer-events: none; }
+  .visit-choice-label { position: absolute; inset: auto 48px 48px; z-index: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; font-size: clamp(36px, 5.2vw, 84px); font-weight: 400; line-height: 1; letter-spacing: -0.045em; }
+  .visit-choice-label svg { width: 38px; height: 38px; flex-shrink: 0; transition: transform 500ms var(--ease-out); }
+  .visit-choice:focus-visible { outline-offset: -8px; }
+  .visit-transition { position: absolute; transform-origin: 0 0; pointer-events: none; }
+  .visit-transition img { transition: none; }
+  .album-panel { height: 100%; min-height: 0; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: 12px 0 24px; }
+  .album-view { position: relative; min-height: 0; min-width: 0; }
+  .album-stage { height: 100%; width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .album-stage::-webkit-scrollbar, .album-thumbnails::-webkit-scrollbar { display: none; }
+  .album-track { display: flex; height: 100%; }
+  .album-slide { flex: 0 0 100%; min-width: 0; height: 100%; margin: 0; padding: 0 100px; display: flex; justify-content: center; align-items: center; scroll-snap-align: center; scroll-snap-stop: always; }
+  .album-slide img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.65; transform: scale(0.985); transition: opacity 350ms ease-out, transform 500ms var(--ease-out); }
+  .album-slide.is-active img { opacity: 1; transform: none; }
+  .album-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 64px; height: 64px; padding: 0; border: 0; background: var(--bg); color: var(--text); font-size: 32px; transition: opacity var(--motion-fast); }
+  .album-previous { left: 24px; }
+  .album-next { right: 24px; }
+  .album-arrow:disabled { opacity: 0.25; cursor: default; }
+  .album-footer { min-width: 0; padding: 16px 24px 0; }
+  .album-caption { margin: 0 0 14px; display: flex; justify-content: center; align-items: baseline; gap: 18px; color: var(--muted); font-size: 12px; }
+  .album-caption [data-album-count] { flex-shrink: 0; }
+  .album-thumbnails { position: relative; display: flex; width: max-content; max-width: 100%; margin: 0 auto; padding: 4px; gap: 12px; overflow-x: auto; scrollbar-width: none; }
+  .album-thumbnail { flex: 0 0 52px; height: 64px; padding: 0; border: 0; background: none; opacity: 0.5; transition: opacity 300ms ease-out; }
+  .album-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+  .album-thumbnail:hover, .album-thumbnail[aria-current="true"] { opacity: 1; }
+  .album-thumbnail[aria-current="true"] { outline: 1px solid var(--text); outline-offset: 3px; }
+  .tour-viewer { position: relative; height: 100%; min-height: 0; background: #080808; }
+  .tour-loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--muted); font-size: 12px; white-space: nowrap; }
+  .tour-viewer iframe { display: block; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity 900ms ease-in-out; }
+  .tour-viewer.is-loaded iframe { opacity: 1; }
+  @keyframes visit-backdrop-enter { from { opacity: 0; } to { opacity: 1; } }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .house-composition:has([data-open-visit]:hover, [data-open-visit]:focus-visible) .house-preview-1 { transform: translate(85px, -40px) rotate(-5deg) scale(0.94); }
+    .house-composition:has([data-open-visit]:hover, [data-open-visit]:focus-visible) .house-preview-2 { transform: translate(125px, 35px) rotate(6deg) scale(0.94); }
+    .house-composition:has([data-open-visit]:hover, [data-open-visit]:focus-visible) .house-cover { transform: scale(1.015); }
+    .visit-choices .visit-choice:hover img { transform: scale(1.04); }
+    .visit-choices .visit-choice:hover .visit-choice-label svg { transform: translate(4px, -4px); }
+  }
+  @media (max-width: 1000px) {
+    .visit-heading { gap: 16px; padding-inline: 24px; }
+    .visit-actions { gap: 16px; }
+    .visit-external { font-size: 0; }
+    .visit-external span { font-size: 20px; }
+  }
+  @media (min-width: 701px) and (max-width: 1200px) {
+    .house-door { max-width: calc(100% - 48px); }
+    .house-preview-1 { transform: translate(32px, -18px) rotate(-3deg) scale(0.94); }
+    .house-preview-2 { transform: translate(62px, 22px) rotate(4deg) scale(0.94); }
+  }
+  @media (min-width: 701px) and (max-width: 1200px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .house-composition:has([data-open-visit]:hover, [data-open-visit]:focus-visible) .house-preview-1 { transform: translate(50px, -28px) rotate(-4deg) scale(0.94); }
+    .house-composition:has([data-open-visit]:hover, [data-open-visit]:focus-visible) .house-preview-2 { transform: translate(78px, 26px) rotate(4deg) scale(0.94); }
+  }
+  @media (min-width: 701px) and (max-width: 1000px) {
+    .visit-choice-label { inset: auto 24px 32px; font-size: 36px; gap: 16px; }
+    .visit-choice-label svg { width: 28px; height: 28px; }
+  }
+  @media (max-width: 700px) {
+    .house-preview-1 { transform: translate(25px, -14px) rotate(-3deg) scale(0.94); }
+    .house-preview-2 { transform: translate(48px, 18px) rotate(3deg) scale(0.94); }
+    .visit-heading { min-height: 72px; gap: 12px; padding: max(8px, env(safe-area-inset-top)) 16px 8px; font-size: 10px; }
+    .visit-heading-start { gap: 16px; }
+    .visit-heading h2 { line-height: 1.4; }
+    .visit-actions { gap: 12px; flex-shrink: 0; }
+    .visit-back { gap: 8px; }
+    .visit-close { gap: 8px; }
+    .visit-choices { grid-template-columns: minmax(0, 1fr); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+    .visit-choice-label { inset: auto 24px 28px; font-size: clamp(30px, 9vw, 46px); gap: 16px; }
+    .visit-choice-label svg { width: 28px; height: 28px; }
+    .visit-choices .visit-choice:first-child { background-position: center 60%; }
+    .visit-choices .visit-choice:last-child { background-position: center 45%; }
+    .visit-choices .visit-choice:first-child img { object-position: center 60%; }
+    .visit-choices .visit-choice:last-child img { object-position: center 45%; }
+    .album-panel { padding: 8px 0 max(16px, env(safe-area-inset-bottom)); }
+    .album-slide { padding: 0 12px; }
+    .album-arrow { top: auto; bottom: -52px; transform: none; width: 44px; height: 44px; font-size: 24px; }
+    .album-previous { left: 12px; }
+    .album-next { right: 12px; }
+    .album-footer { padding: 16px 12px 0; }
+    .album-caption { flex-direction: column; align-items: center; gap: 4px; min-height: 56px; padding: 0 48px; text-align: center; font-size: 11px; line-height: 1.5; }
+    .album-thumbnails { gap: 10px; }
+    .album-thumbnail { flex-basis: 44px; height: 54px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .house-cover, .house-preview, .album-slide img, .visit-choice img, .visit-choice-label svg { transition: none; }
+    .album-slide img { transform: none; }
+    .visit-dialog[open]::backdrop { animation: none; }
+  }
+</style>

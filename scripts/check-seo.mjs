@@ -83,6 +83,7 @@ try {
     $("a[href]").each((_, el) => {
       const url = new URL($(el).attr("href"), canonical);
       if (url.origin === origin && (url.pathname.startsWith("/wp-content/uploads/") || url.pathname.endsWith("/els-nostres-menus/"))) legacyResources.add(url.href);
+      else if (url.origin === origin && url.pathname.startsWith("/_astro/")) assets.add(url.pathname);
       else if (url.origin === origin) links.add(url.href);
     });
     $("link[rel='stylesheet'], link[rel='preload'], script[src]").each((_, el) => {

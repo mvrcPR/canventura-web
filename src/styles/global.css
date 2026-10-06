@@ -448,19 +448,6 @@ summary:focus-visible {
   display: block;
   max-width: 430px;
 }
-.house-door > img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-}
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .house-door {
-    transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .house-door:is(:hover, :focus-visible) {
-    transform: scale(1.035);
-  }
-}
 .house-note {
   grid-column: 2;
   grid-row: 1;
@@ -566,126 +553,6 @@ summary:focus-visible {
   .house-tip-marker {
     animation: none !important;
   }
-}
-.house-tour {
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-}
-.tour-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 64px;
-  padding: 8px 24px;
-  gap: 16px;
-  font-size: 12px;
-}
-.tour-heading h2 {
-  min-width: 0;
-  font-size: inherit;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.tour-actions {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 24px;
-}
-.tour-external {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  color: var(--muted);
-}
-.tour-external:hover {
-  color: var(--text);
-}
-.tour-close {
-  background: none;
-  border: 0;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 0 4px;
-  min-height: 44px;
-  text-transform: uppercase;
-}
-.tour-close span {
-  font-size: 30px;
-  line-height: 1;
-}
-.tour-dialog {
-  background: var(--bg);
-  color: var(--text);
-  border: 1px solid var(--line);
-  padding: 0;
-  width: min(1600px, calc(100% - 48px));
-  height: calc(100dvh - 48px);
-  max-height: calc(100dvh - 48px);
-  overflow: hidden;
-}
-.tour-dialog::backdrop {
-  background: #000c;
-  backdrop-filter: blur(8px);
-}
-.tour-dialog[open] {
-  animation: tour-enter 1000ms cubic-bezier(0.45, 0, 0.2, 1);
-}
-.tour-dialog[open]::backdrop {
-  animation: tour-backdrop-enter 1000ms ease-in-out;
-}
-.tour-dialog.is-closing::backdrop {
-  animation: tour-backdrop-enter 320ms ease-in-out reverse forwards;
-}
-@keyframes tour-enter {
-  from {
-    opacity: 0;
-    transform: scale(0.995);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes tour-backdrop-enter {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.tour-viewer {
-  position: relative;
-  min-height: 0;
-  background: #080808;
-}
-.tour-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--muted);
-  font-size: 12px;
-  white-space: nowrap;
-}
-.tour-viewer iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  opacity: 0;
-  transition: opacity 1000ms ease-in-out;
-}
-.tour-viewer.is-loaded iframe {
-  opacity: 1;
 }
 .section-intro {
   display: grid;
@@ -1620,29 +1487,6 @@ html:has(.menu-page) {
   }
   .house-invitation p {
     font-size: 12px;
-  }
-  .tour-dialog {
-    width: 100%;
-    max-width: 100%;
-    height: 100dvh;
-    max-height: 100dvh;
-    border: 0;
-  }
-  .tour-heading {
-    padding: 8px 16px;
-    gap: 12px;
-    font-size: 10px;
-  }
-  .tour-actions {
-    gap: 12px;
-  }
-  .tour-external {
-    gap: 4px;
-  }
-  .tour-close {
-    font-size: 11px;
-    padding: 0;
-    gap: 8px;
   }
   .section-intro {
     grid-template-columns: 1fr;

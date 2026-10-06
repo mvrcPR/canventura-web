@@ -3,6 +3,17 @@ import facade from "../assets/photography/originals/supplied/DSC_1047.png";
 import founders from "../assets/photography/originals/press/josep-merce-pous.jpg";
 import family from "../assets/photography/originals/press/can-ventura-balcony-pere-virgili.jpg";
 import house from "../assets/photography/originals/press/can-ventura-facade-albert-ayma-1983.jpg";
+import roomDaylight from "../assets/photography/originals/supplied/DSC_0411.png";
+import roomGreenChairs from "../assets/photography/originals/supplied/DSC_0633.png";
+import tableDaylight from "../assets/photography/originals/supplied/DSC_0478.png";
+import roomSideboard from "../assets/photography/originals/supplied/DSC_0634.png";
+import roomWindow from "../assets/photography/originals/supplied/DSC_0639.png";
+import roomIntimate from "../assets/photography/originals/supplied/DSC_0421.png";
+import houseCeramics from "../assets/photography/originals/supplied/DSC_1041.png";
+import roomCurtain from "../assets/photography/originals/supplied/DSC_0409.png";
+import tableGreenChair from "../assets/photography/originals/supplied/DSC_0644.png";
+import houseStillLife from "../assets/photography/originals/supplied/DSC_0632.png";
+import houseCuisineSign from "../assets/photography/originals/supplied/DSC_1118.png";
 import dish0053 from "../assets/photography/originals/supplied/DSC_0053.png";
 import dish0029 from "../assets/photography/originals/supplied/DSC_0029.png";
 import dish0084 from "../assets/photography/originals/supplied/DSC_0084.png";
@@ -31,6 +42,21 @@ import dish0486 from "../assets/photography/originals/supplied/DSC_0486.png";
 import dish1198 from "../assets/photography/originals/supplied/DSC_1198.png";
 
 export const photos = { chef, facade, founders, family, house };
+
+export const housePhotography = [
+  { image: roomDaylight, subject: "daylight" },
+  { image: roomGreenChairs, subject: "diningRoom" },
+  { image: tableDaylight, subject: "table" },
+  { image: tableGreenChair, subject: "greenChair" },
+  { image: roomSideboard, subject: "sideboard" },
+  { image: roomWindow, subject: "window" },
+  { image: roomCurtain, subject: "curtain" },
+  { image: houseCeramics, subject: "ceramics" },
+  { image: houseStillLife, subject: "stillLife" },
+  { image: roomIntimate, subject: "intimate" },
+  { image: houseCuisineSign, subject: "cuisineSign" },
+  { image: facade, subject: "entrance" },
+] as const;
 
 // Import only the curated originals; globbing the entire archive also ships
 // unused PNGs. Trotters stay at index 2 between the first mountain dishes.
