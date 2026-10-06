@@ -52,6 +52,32 @@ const kitchenPhotos = kitchenPhotography.map(
       </div>
     </section>
     <section
+      class="kitchen-section section-space"
+      id="cuina"
+      aria-labelledby="kitchen-title"
+    >
+      <div class="section-intro" data-reveal>
+        <h2 class="display-heading" id="kitchen-title">
+          {t.kitchenTitle}
+        </h2>
+        <div class="section-intro-copy" id="carta">
+          <p>{t.kitchenText}</p>
+          <a class="text-link kitchen-menu-link mono" href={menuPath(locale)}>
+            {t.viewMenu}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <PhotoGallery
+        id="kitchen-gallery"
+        locale={locale}
+        images={kitchenPhotos}
+        label={t.galleryLabel}
+        start={2}
+        loop
+      />
+    </section>
+    <section
       class="family-section section-space"
       id="familia"
       aria-labelledby="family-title"
@@ -149,32 +175,6 @@ const kitchenPhotos = kitchenPhotography.map(
           {t.familySecond}
         </p>
       </div>
-    </section>
-    <section
-      class="kitchen-section section-space"
-      id="cuina"
-      aria-labelledby="kitchen-title"
-    >
-      <div class="section-intro" data-reveal>
-        <h2 class="display-heading" id="kitchen-title">
-          {t.kitchenTitle}
-        </h2>
-        <div class="section-intro-copy" id="carta">
-          <p>{t.kitchenText}</p>
-          <a class="text-link kitchen-menu-link mono" href={menuPath(locale)}>
-            {t.viewMenu}
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-      <PhotoGallery
-        id="kitchen-gallery"
-        locale={locale}
-        images={kitchenPhotos}
-        label={t.galleryLabel}
-        start={2}
-        loop
-      />
     </section>
     <section
       class="house-section section-space"

@@ -4,7 +4,6 @@ import {
   copy,
   locales,
   homePath,
-  menuPath,
   pagePath,
   reservationUrl,
   languageNames,
@@ -27,13 +26,8 @@ const t = copy[locale];
     set:html={logo}
   />
   <nav class="primary-nav mono" aria-label={t.navigation}>
-    <a href={`${homePath(locale)}#casa`}>{t.house}</a>
-    <a
-      href={menuPath(locale)}
-      aria-current={page === "menu" ? "page" : undefined}
-    >
-      {t.menu}
-    </a>
+    <a href={`${homePath(locale)}#familia`}>{t.house}</a>
+    <a href={`${homePath(locale)}#cuina`}>{t.kitchen}</a>
     <a href={`${homePath(locale)}#contacte`}>{t.contact}</a>
   </nav>
   <div class="header-actions mono">
@@ -77,13 +71,8 @@ const t = copy[locale];
         </span>
       </summary>
       <nav class="header-panel mobile-links" aria-label={t.navigation}>
-        <a href={`${homePath(locale)}#casa`}>{t.house}</a>
-        <a
-          href={menuPath(locale)}
-          aria-current={page === "menu" ? "page" : undefined}
-        >
-          {t.menu}
-        </a>
+        <a href={`${homePath(locale)}#familia`}>{t.house}</a>
+        <a href={`${homePath(locale)}#cuina`}>{t.kitchen}</a>
         <a href={`${homePath(locale)}#contacte`}>{t.contact}</a>
         <a class="mobile-reserve" href={reservationUrl(locale)}>
           {t.reserve} <span aria-hidden="true">↗</span>
