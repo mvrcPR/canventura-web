@@ -3,7 +3,8 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ReserveButton from "../components/ReserveButton.astro";
-import { photos } from "../content/photos";
+import restaurantImage from "../assets/photography/optimized/restaurant-can-ventura-llivia.jpg";
+import socialImage from "../assets/photography/optimized/peus-de-porc-can-ventura.jpg";
 import {
   copy,
   locales,
@@ -32,12 +33,13 @@ const schema = {
   "@id": `${siteUrl}/#restaurant`,
   name: restaurant.name,
   url: siteUrl,
-  image: `${siteUrl}${photos.facade.src}`,
+  image: `${siteUrl}${restaurantImage.src}`,
   telephone: restaurant.phone,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Plaça Major, 1",
     addressLocality: "Llívia",
+    postalCode: "17527",
     addressRegion: "Girona",
     addressCountry: "ES",
   },
@@ -73,9 +75,16 @@ const schema = {
     />
     <link
       rel="preload"
-      href="/fonts/inter-regular.ttf"
+      href="/fonts/inter-regular-ac6e61d240.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono-regular-47875c70ce.woff2"
+      as="font"
+      type="font/woff2"
       crossorigin
     />
     <meta property="og:type" content="website" />
@@ -83,9 +92,9 @@ const schema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={`${siteUrl}${path}`} />
     <meta property="og:site_name" content="Can Ventura" />
-    <meta property="og:image" content={`${siteUrl}${photos.dish.src}`} />
-    <meta property="og:image:width" content={photos.dish.width} />
-    <meta property="og:image:height" content={photos.dish.height} />
+    <meta property="og:image" content={`${siteUrl}${socialImage.src}`} />
+    <meta property="og:image:width" content={socialImage.width} />
+    <meta property="og:image:height" content={socialImage.height} />
     <meta property="og:image:alt" content={copy[locale].photoDish} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta

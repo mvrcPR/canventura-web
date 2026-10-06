@@ -70,7 +70,7 @@ export const copy = {
     openTourExternal: "Obrir el recorregut a Google Maps (nova pestanya)",
     close: "Tancar",
     kitchenTitle: "Del territori,\na la taula.",
-    kitchenText: "Cuina de la Cerdanya, amb el que ens porta cada temporada.",
+    kitchenText: "Cuina de la Cerdanya i producte de temporada. A casa nostra, a Llívia.",
     galleryLabel: "Galeria d’imatges",
     previous: "Fotografia anterior",
     next: "Fotografia següent",
@@ -94,7 +94,7 @@ export const copy = {
     familyText:
       "El 1977, en Josep i la Mercè van obrir Can Ventura amb la il·lusió de tenir una casa de menjars.",
     familySecond:
-      "Des del 1994, en Jordi i l’Esther continuen aquella història, amb la família i l’equip que fan possible cada servei.",
+      "Des del 1994, en Jordi i l’Esther continuen aquesta història al capdavant del restaurant familiar, amb l’equip que fa possible cada servei.",
     familyFoundersCaption: "Josep i Mercè, els fundadors.",
     familyTeamCaption: "La família i l’equip, al balcó de casa.",
     photoFounders: "Josep Pous i Mercè Rodríguez, fundadors de Can Ventura",
@@ -176,7 +176,7 @@ export const copy = {
     openTourExternal: "Abrir el recorrido en Google Maps (nueva pestaña)",
     close: "Cerrar",
     kitchenTitle: "Del territorio,\na la mesa.",
-    kitchenText: "Cocina de la Cerdanya, con lo que nos trae cada temporada.",
+    kitchenText: "Cocina de la Cerdanya y producto de temporada. En nuestra casa, en Llívia.",
     galleryLabel: "Galería de imágenes",
     previous: "Fotografía anterior",
     next: "Fotografía siguiente",
@@ -200,7 +200,7 @@ export const copy = {
     familyText:
       "En 1977, Josep y Mercè abrieron Can Ventura con la ilusión de tener su propia casa de comidas.",
     familySecond:
-      "Desde 1994, Jordi y Esther continúan aquella historia, junto a la familia y el equipo que hacen posible cada servicio.",
+      "Desde 1994, Jordi y Esther continúan esta historia al frente del restaurante familiar, junto al equipo que hace posible cada servicio.",
     familyFoundersCaption: "Josep y Mercè, los fundadores.",
     familyTeamCaption: "La familia y el equipo, en el balcón de casa.",
     photoFounders: "Josep Pous y Mercè Rodríguez, fundadores de Can Ventura",
@@ -285,7 +285,7 @@ export const copy = {
     openTourExternal: "Ouvrir la visite dans Google Maps (nouvel onglet)",
     close: "Fermer",
     kitchenTitle: "Du terroir,\nà la table.",
-    kitchenText: "Une cuisine de Cerdagne, au fil des saisons.",
+    kitchenText: "Cuisine de Cerdagne et produits de saison. Chez nous, à Llívia.",
     galleryLabel: "Galerie de photos",
     previous: "Photo précédente",
     next: "Photo suivante",
@@ -309,7 +309,7 @@ export const copy = {
     familyText:
       "En 1977, Josep et Mercè ont ouvert Can Ventura avec le rêve de tenir leur propre restaurant.",
     familySecond:
-      "Depuis 1994, Jordi et Esther poursuivent cette histoire, avec la famille et l’équipe qui rendent chaque service possible.",
+      "Depuis 1994, Jordi et Esther poursuivent cette histoire à la tête du restaurant familial, avec l’équipe qui rend chaque service possible.",
     familyFoundersCaption: "Josep et Mercè, les fondateurs.",
     familyTeamCaption: "La famille et l’équipe, au balcon de Can Ventura.",
     photoFounders: "Josep Pous et Mercè Rodríguez, fondateurs de Can Ventura",
@@ -393,7 +393,7 @@ export const copy = {
     openTourExternal: "Open the tour in Google Maps (new tab)",
     close: "Close",
     kitchenTitle: "From the land,\nto the table.",
-    kitchenText: "Cuisine from Cerdanya, with what each season brings.",
+    kitchenText: "Cerdanya cooking and seasonal produce. At our home in Llívia.",
     galleryLabel: "Photo gallery",
     previous: "Previous photo",
     next: "Next photo",
@@ -417,7 +417,7 @@ export const copy = {
     familyText:
       "In 1977, Josep and Mercè opened Can Ventura with the dream of running a restaurant of their own.",
     familySecond:
-      "Since 1994, Jordi and Esther have carried that story forward, alongside the family and team who make every service possible.",
+      "Since 1994, Jordi and Esther have carried that story forward, running the family restaurant alongside the team who make every service possible.",
     familyFoundersCaption: "Josep and Mercè, the founders.",
     familyTeamCaption: "The family and team, on the restaurant balcony.",
     photoFounders: "Josep Pous and Mercè Rodríguez, founders of Can Ventura",

@@ -18,6 +18,7 @@ const first = menu.documents[0];
   description={t.menuIntro}
 >
   <main class="menu-page" id="main" data-menu-reader>
+    <noscript><style is:inline>.menu-reader-tools { display: none; }</style></noscript>
     <div class="menu-layout">
       <aside class="menu-index">
         <a href={homePath(locale)} class="menu-back mono">← {t.back}</a>
@@ -28,7 +29,7 @@ const first = menu.documents[0];
               <a
                 id={`menu-tab-${index + 1}`}
                 href={`#menu-page-${index + 1}`}
-                aria-label={`${t.menuPage} ${index + 1}`}
+                aria-label={`${t.menuPage} ${String(index + 1).padStart(2, "0")}`}
                 data-menu-index={index}
               >
                 {String(index + 1).padStart(2, "0")}
@@ -43,7 +44,7 @@ const first = menu.documents[0];
             <div class="menu-pagination mono">
               <button type="button" aria-label={t.menuPrevious} data-menu-previous disabled>←</button>
               <span aria-live="polite" aria-atomic="true" data-menu-count>01 / {String(menu.documents.length).padStart(2, "0")}</span>
-              <button type="button" aria-label={t.menuNext} data-menu-next>→</button>
+              <button type="button" aria-label={t.menuNext} data-menu-next disabled>→</button>
             </div>
             <a class="menu-expand mono" href={first.src} target="_blank" rel="noopener noreferrer" data-menu-expand>
               {t.menuExpand} <span aria-hidden="true">↗</span>
@@ -52,7 +53,7 @@ const first = menu.documents[0];
           <div class="menu-documents" role="region" aria-label={t.menu}>
             <div class="menu-document-stage">
               {menu.documents.map((document, index) => (
-                <figure class="menu-document" id={`menu-page-${index + 1}`} data-menu-page>
+                <div class="menu-document" id={`menu-page-${index + 1}`} data-menu-page>
                   <a
                     href={document.src}
                     target="_blank"
@@ -66,11 +67,12 @@ const first = menu.documents[0];
                       height={document.height}
                       alt={`${t.menu} · ${t.menuPage} ${index + 1}`}
                       loading={index === 0 ? "eager" : "lazy"}
+                      fetchpriority={index === 0 ? "high" : "auto"}
                       decoding="async"
                     />
                   </a>
-                  <figcaption class="sr-only">{t.menuPage} {index + 1}</figcaption>
-                </figure>
+                  <p class="sr-only">{t.menuPage} {index + 1}</p>
+                </div>
               ))}
             </div>
           </div>

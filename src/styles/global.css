@@ -1,13 +1,13 @@
 @font-face {
   font-family: Inter;
-  src: url("/fonts/inter-regular.ttf") format("truetype");
+  src: url("/fonts/inter-regular-ac6e61d240.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Plex Mono";
-  src: url("/fonts/ibm-plex-mono-regular.ttf") format("truetype");
+  src: url("/fonts/ibm-plex-mono-regular-47875c70ce.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -771,7 +771,7 @@ summary:focus-visible {
   transition: opacity 400ms ease;
 }
 .gallery-enhanced .gallery-slide:not([data-active]) figcaption {
-  opacity: 0.45;
+  opacity: 0.75;
 }
 .gallery-slide figcaption span {
   color: var(--text);
@@ -1162,7 +1162,7 @@ summary:focus-visible {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
 }
 .menu-page h1 {
@@ -1207,7 +1207,7 @@ summary:focus-visible {
   scroll-margin-top: 124px;
 }
 .menu-reader-tools {
-  display: none;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
@@ -1216,9 +1216,6 @@ summary:focus-visible {
   z-index: 1;
   padding: 12px 0;
   background: var(--bg);
-}
-.menu-enhanced .menu-reader-tools {
-  display: flex;
 }
 .menu-pagination {
   display: flex;
@@ -1522,7 +1519,7 @@ html:has(.menu-page) {
     letter-spacing: -0.06em;
   }
   .hero-details {
-    font-size: 11px;
+    font-size: 12px;
     padding-right: 0;
     align-items: flex-start;
     text-align: left;
@@ -1636,7 +1633,7 @@ html:has(.menu-page) {
     max-height: 55svh;
   }
   .gallery-slide figcaption {
-    font-size: 11px;
+    font-size: 12px;
     gap: 15px;
     padding-top: 16px;
   }
@@ -1745,18 +1742,21 @@ html:has(.menu-page) {
     grid-template-columns: 1fr auto;
     gap: 12px;
     padding-bottom: calc(104px + env(safe-area-inset-bottom));
-    font-size: 10px;
+    font-size: 12px;
   }
   .footer-bottom a {
     gap: 8px;
   }
   .footer-bottom .footer-social {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.04em;
   }
   .footer-signature {
     grid-column: 1 / -1;
     gap: 8px;
+  }
+  .footer-signature-label {
+    font-size: 12px;
   }
   .footer-signature-name {
     font-size: 20px;
@@ -1824,11 +1824,11 @@ html:has(.menu-page) {
   }
   .menu-pagination {
     gap: 2px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .menu-expand {
     gap: 6px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .menu-zoom {
     width: 100%;

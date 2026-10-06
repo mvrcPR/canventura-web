@@ -1,0 +1,10 @@
+/fonts/inter-regular-ac6e61d240.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/ibm-plex-mono-regular-47875c70ce.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Prevent the public staging host from competing with the restaurant's domain.
+# Static pages are served by ASSETS; SSR pages use src/middleware.ts.
+https://canventura-web.canventura.workers.dev/*
+  X-Robots-Tag: noindex

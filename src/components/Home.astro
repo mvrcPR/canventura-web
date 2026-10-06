@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import ReserveButton from "./ReserveButton.astro";
 import PhotoGallery from "./PhotoGallery.astro";
 import {
@@ -28,10 +29,12 @@ const kitchenPhotos = kitchenPhotography.map(
   <main id="main">
     <section class="hero" data-hero aria-labelledby="hero-title">
       <div class="hero-photo">
-        <img
-          src={photos.chef.src}
-          width={photos.chef.width}
-          height={photos.chef.height}
+        <Image
+          src={photos.chef}
+          widths={[480, 768, 1024, 1280, 1488]}
+          sizes="(max-width: 700px) max(100vw, calc(80svh - 112px)), 64vw"
+          format="webp"
+          quality={85}
           alt={t.photoChef}
           fetchpriority="high"
           loading="eager"
@@ -58,10 +61,12 @@ const kitchenPhotos = kitchenPhotography.map(
           {t.familyTitle}
         </h2>
         <figure class="family-archive" data-reveal>
-          <img
-            src={photos.founders.src}
-            width={photos.founders.width}
-            height={photos.founders.height}
+          <Image
+            src={photos.founders}
+            widths={[240, 480, 768, 1024]}
+            sizes="(max-width: 700px) 70vw, 32vw"
+            format="webp"
+            quality={85}
             alt={t.photoFounders}
             loading="lazy"
             decoding="async"
@@ -72,10 +77,13 @@ const kitchenPhotos = kitchenPhotography.map(
           </figcaption>
         </figure>
         <figure class="family-house" data-reveal>
-          <img
-            src={photos.house.src}
-            width={photos.house.width}
-            height={photos.house.height}
+          <Image
+            src={photos.house}
+            width={500}
+            widths={[160, 320, 500]}
+            sizes="(max-width: 700px) 38vw, 250px"
+            format="webp"
+            quality={85}
             alt={{ ca: "La façana de Can Ventura l’any 1983", es: "La fachada de Can Ventura en 1983", fr: "La façade de Can Ventura en 1983", en: "The façade of Can Ventura in 1983" }[locale]}
             loading="lazy"
             decoding="async"
@@ -106,10 +114,12 @@ const kitchenPhotos = kitchenPhotography.map(
         </figure>
         <figure class="family-team" data-reveal>
           <div class="family-team-photo">
-            <img
-              src={photos.family.src}
-              width={photos.family.width}
-              height={photos.family.height}
+            <Image
+              src={photos.family}
+              widths={[320, 640, 960, 1280]}
+              sizes="(max-width: 700px) calc(100vw - 48px), (min-width: 1440px) 830px, 58vw"
+              format="webp"
+              quality={85}
               alt={t.photoFamily}
               loading="lazy"
               decoding="async"
@@ -219,10 +229,13 @@ const kitchenPhotos = kitchenPhotography.map(
           data-open-tour
           aria-label={t.openHouse}
         >
-          <img
-            src={photos.facade.src}
-            width={photos.facade.width}
-            height={photos.facade.height}
+          <Image
+            src={photos.facade}
+            width={1280}
+            widths={[320, 640, 960, 1280]}
+            sizes="(max-width: 700px) 78vw, (min-width: 1800px) 520px, 42vw"
+            format="webp"
+            quality={85}
             alt={t.photoFacade}
             loading="lazy"
             decoding="async"

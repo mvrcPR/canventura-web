@@ -36,7 +36,7 @@ const t = copy[locale];
   </nav>
   <div class="header-actions mono">
     <details class="language-picker header-disclosure">
-      <summary aria-label={`${t.languages}: ${languageNames[locale]}`}>
+      <summary aria-label={`${locale.toUpperCase()} · ${t.languages}: ${languageNames[locale]}`}>
         {locale.toUpperCase()}
         <svg
           class="language-chevron"
@@ -53,7 +53,7 @@ const t = copy[locale];
             href={page === "menu" ? menuPath(lang) : homePath(lang)}
             lang={lang}
             hreflang={lang}
-            aria-label={languageNames[lang]}
+            aria-label={`${lang.toUpperCase()} · ${languageNames[lang]}`}
             aria-current={lang === locale ? "page" : undefined}
           >
             <span class="language-name">{languageNames[lang]}</span>

@@ -9,6 +9,7 @@ Disseny basat en les maquetes de `design/references/`.
 - [Plans i històric](plans/README.md).
 - [Pautes de treball](AGENTS.md).
 - [Skills del projecte](.agents/README.md).
+- [Auditoria tècnica i de continguts SEO/GEO](docs/audits/2026-10-06-seo.md).
 
 ## Desenvolupament
 
@@ -41,14 +42,39 @@ Es conserven els 56 fitxers de la web anterior i els 52 PNG aportats a
 El registre de procedència, resolució i SHA-256 està a
 `design/assets/photography-sources.json`. Els fitxers es preserven sense resize
 ni recompressió; no s'ha confirmat que siguin originals de càmera.
-De les 11 fotos utilitzades, 10 fan servir les versions aportades, inclosa la
-del cuiner de 1488 × 1860 píxels. La foto de família amb el davantal conserva
-la versió de la web anterior perquè no té equivalent al ZIP.
-Les fotos utilitzades també es copien al build sense canviar-ne els bytes.
+La selecció actual inclou 26 fotografies de plats, la portada del cuiner,
+la porta i tres fotografies de la història familiar. Astro genera WebP amb
+`srcset` i `sizes` durant el build per servir una mida adequada a cada pantalla.
+Les versions originals es conserven intactes al repositori i no es copien al
+build públic. Els dos JPEG de `src/assets/photography/optimized/` són derivats
+de `DSC_1047.png` i `DSC_0084.png` per al JSON-LD i les previsualitzacions socials
+(amplada màxima 1200 px, qualitat 86). No requereixen un servei d'imatges de pagament.
 
 La base factual i les fonts tipogràfiques estan a
 `design/assets/content-sources.json`. Les fonts se serveixen localment amb
-les seves llicències. Textos i traduccions queden pendents de revisió familiar.
+les seves llicències; el navegador utilitza WOFF2 i els TTF es conserven.
+Textos i traduccions queden pendents de revisió familiar.
+
+## Comprovacions de SEO i rendiment
+
+```sh
+npm run validate             # build i comprovacions HTTP/HTML de totes les rutes
+npm run seo:check            # només comprovacions, amb el build existent
+npm run performance:report   # build i 3 càrregues en fred per ruta i dispositiu
+```
+
+Els scripts inicien el preview real de Cloudflare en un port lliure i el
+tanquen en acabar. `seo:check` utilitza el sitemap com a inventari i comprova
+metadades, alternances d'idioma, JSON-LD, recursos, àncores, redireccions i 404.
+Identifica per separat les URLs que encara depenen del WordPress antic.
+
+El mesurament de rendiment adapta el flux de Vento: mediana de tres execucions
+Lighthouse per portada i carta, en mòbil i escriptori. Requereix Chrome; es pot
+indicar l'executable amb `CHROME_PATH`. Desa informes HTML/JSON i un resum a
+`artifacts/lighthouse/`, exclòs de Git. Les rutes i repeticions estan a
+`scripts/performance-config.mjs`. Són mesures de laboratori, no dades de camp
+ni una garantia de posicionament. Aquests scripts s'executen a petició; no
+s'ha afegit una tasca programada ni modificat el desplegament automàtic.
 
 ## Carta automàtica: integració pendent
 
@@ -85,6 +111,9 @@ npm run deploy
 
 El destí és el compte **Can Ventura**, definit a `wrangler.jsonc`. La web de
 prova es publica només a `workers.dev`; no s'hi configura cap domini propi.
+`public/_headers` i `src/middleware.ts` preparen `X-Robots-Tag: noindex` per
+aquest host de proves. Cal verificar la capçalera pública després del proper
+desplegament; el domini definitiu continua amb la indexació permesa.
 
 A Cloudflare Workers Builds, connecta `mvrcPR/canventura-web` amb aquests
 valors:
