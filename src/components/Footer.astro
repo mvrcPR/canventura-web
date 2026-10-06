@@ -72,6 +72,12 @@ const t = copy[locale];
               </a>
             </p>
           </div>
+          <div class="contact-faq">
+            <h3 class="mono">{visitCopy[locale].title}</h3>
+            <a class="text-link mono" href={visitPath(locale)}>
+              {visitCopy[locale].linkLabel} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -81,13 +87,15 @@ const t = copy[locale];
       <span class="footer-copyright">
         © {new Date().getFullYear()} Can Ventura
       </span>
-      <a
-        class="footer-visit"
-        href={visitPath(locale)}
-        aria-current={Astro.url.pathname === visitPath(locale) ? "page" : undefined}
-      >
-        {visitCopy[locale].title}
-      </a>
+      {!showContact && (
+        <a
+          class="footer-visit"
+          href={visitPath(locale)}
+          aria-current={Astro.url.pathname === visitPath(locale) ? "page" : undefined}
+        >
+          {visitCopy[locale].linkLabel} <span aria-hidden="true">↗</span>
+        </a>
+      )}
     </div>
     <a
       class="footer-social"

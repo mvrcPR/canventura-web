@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { copy, homePath, menuPath, restaurant, type Locale } from "../content/site";
+import { menuPath, restaurant, type Locale } from "../content/site";
 import { parkingUrl, visitCopy } from "../content/visit";
 
 interface Props {
@@ -9,33 +9,18 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = visitCopy[locale];
-const site = copy[locale];
 ---
 
 <Layout
   locale={locale}
   page="visit"
-  title={`${t.title} · Can Ventura, Llívia`}
+  title={`${t.linkLabel} · Can Ventura, Llívia`}
   description={t.description}
 >
   <main class="visit-page" id="main" data-visit-page>
-    <a class="visit-back mono" href={homePath(locale)}>
-      <span aria-hidden="true">←</span> {site.back}
-    </a>
     <div class="visit-intro">
       <h1 class="visit-title" data-reveal>{t.heading}</h1>
-      <div class="visit-contact" data-reveal>
-        <p>{t.contact}</p>
-        <a class="visit-phone" href={`tel:${restaurant.phone}`}>
-          {restaurant.phoneLabel}
-        </a>
-        <a class="visit-email" href={`mailto:${restaurant.email}`}>
-          {restaurant.email}
-        </a>
-        <a class="visit-hours" href={restaurant.directions}>
-          {site.hoursText} <span aria-hidden="true">↗</span>
-        </a>
-      </div>
+      <p class="visit-subtitle" data-reveal>{t.intro}</p>
     </div>
     <div class="visit-topics">
       {t.topics.map(({ id, title, paragraphs }) => (
@@ -57,45 +42,57 @@ const site = copy[locale];
         </section>
       ))}
     </div>
+    <section class="visit-contact" aria-labelledby="visit-contact-title" data-reveal>
+      <h2 id="visit-contact-title">{t.contact}</h2>
+      <div class="visit-direct">
+        <a class="visit-phone" href={`tel:${restaurant.phone}`}>
+          {restaurant.phoneLabel}
+        </a>
+        <a class="visit-email" href={`mailto:${restaurant.email}`}>
+          {restaurant.email}
+        </a>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
   .visit-page {
-    padding: 136px var(--gutter) 64px;
+    padding: 128px var(--gutter) 64px;
   }
-  .visit-back {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    gap: 10px;
-    color: var(--muted);
-    font-size: 12px;
-  }
-  .visit-intro,
   .visit-topic {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: clamp(48px, 8vw, 140px);
   }
   .visit-intro {
-    align-items: end;
-    margin: 36px 0 104px;
+    margin: clamp(24px, 3vw, 44px) 0 clamp(52px, 5vw, 80px);
+    text-align: left;
   }
   .visit-title {
-    font-size: clamp(76px, 8vw, 132px);
-    line-height: 1.02;
-    letter-spacing: -0.065em;
+    max-width: 1150px;
+    margin: 0;
+    font-size: clamp(52px, 8.3vw, 125px);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    text-wrap: balance;
     white-space: pre-line;
   }
-  .visit-contact {
-    padding-bottom: 8px;
-  }
-  .visit-contact p {
+  .visit-subtitle {
+    max-width: 40ch;
+    margin: 28px 0 0;
     color: var(--muted);
-    margin-bottom: 14px;
-    font-size: 17px;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.5;
     text-wrap: balance;
+  }
+  .visit-contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    column-gap: clamp(48px, 8vw, 140px);
+    padding: 40px 0 24px;
+    border-top: 1px solid var(--line);
   }
   .visit-contact a {
     display: flex;
@@ -104,36 +101,22 @@ const site = copy[locale];
     min-height: 44px;
   }
   .visit-phone {
-    font-size: clamp(24px, 2.3vw, 34px);
+    font-size: clamp(24px, 2.1vw, 32px);
     letter-spacing: -0.03em;
     line-height: 1.3;
   }
   .visit-email {
     color: var(--muted);
-    font-size: 16px;
+    font-size: 15px;
     overflow-wrap: anywhere;
-  }
-  .visit-hours {
-    gap: 8px;
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: 14px;
-    text-decoration: underline;
-    text-decoration-color: var(--line);
-    text-underline-offset: 4px;
-  }
-  .visit-hours:hover {
-    text-decoration-color: currentColor;
-  }
-  .visit-hours span {
-    flex-shrink: 0;
   }
   .visit-topic {
     padding: 36px 0 52px;
     border-top: 1px solid var(--line);
     align-items: start;
   }
-  .visit-topic h2 {
+  .visit-topic h2,
+  .visit-contact h2 {
     max-width: 12em;
     font-size: clamp(30px, 3vw, 46px);
     line-height: 1.18;
@@ -154,42 +137,35 @@ const site = copy[locale];
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
-  @media (max-width: 1000px) {
-    .visit-intro {
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    }
-    .visit-title {
-      font-size: clamp(68px, 8.5vw, 85px);
-    }
-  }
   @media (max-width: 700px) {
     .visit-page {
       padding-top: 108px;
       padding-bottom: 24px;
     }
-    .visit-intro,
     .visit-topic {
       grid-template-columns: minmax(0, 1fr);
     }
     .visit-intro {
-      margin: 28px 0 48px;
-      row-gap: 36px;
+      margin: 28px 0 68px;
     }
     .visit-title {
-      font-size: clamp(52px, 12vw, 84px);
+      font-size: clamp(46px, 11.4vw, 70px);
+    }
+    .visit-subtitle {
+      margin-top: 22px;
+      max-width: 28ch;
     }
     .visit-contact {
-      padding-bottom: 0;
-    }
-    .visit-contact p {
-      margin-bottom: 8px;
-      font-size: 15px;
+      grid-template-columns: minmax(0, 1fr);
+      padding: 28px 0 16px;
+      row-gap: 12px;
     }
     .visit-topic {
       padding: 28px 0 36px;
       row-gap: 18px;
     }
-    .visit-topic h2 {
+    .visit-topic h2,
+    .visit-contact h2 {
       font-size: 30px;
     }
     .visit-answer {

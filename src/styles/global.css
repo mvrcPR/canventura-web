@@ -990,7 +990,6 @@ summary:focus-visible {
   font-size: 16px;
 }
 .contact-hours {
-  grid-column: 1 / -1;
   max-width: 380px;
 }
 .contact-grid p {
@@ -1011,6 +1010,16 @@ summary:focus-visible {
 .contact-grid .text-link {
   margin-top: 14px;
   white-space: nowrap;
+}
+.contact-faq .text-link {
+  margin-top: 0;
+  gap: 16px;
+  font-size: 13px;
+  white-space: normal;
+  text-wrap: balance;
+}
+.contact-faq .text-link span {
+  flex-shrink: 0;
 }
 .contact-phone {
   font-size: clamp(22px, 2.1vw, 32px);
@@ -1045,6 +1054,10 @@ summary:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   gap: 0 24px;
+}
+.footer-visit {
+  color: var(--text);
+  font-size: 12px;
 }
 .footer-visit:is(:hover, :focus-visible, [aria-current="page"]) {
   text-decoration: underline;
@@ -1752,6 +1765,9 @@ html:has(.menu-page) {
     font-size: 10px;
     gap: 12px;
     letter-spacing: 0.04em;
+  }
+  .contact-faq .text-link {
+    font-size: 12px;
   }
   .contact-phone {
     font-size: clamp(18px, 5.9vw, 23px);

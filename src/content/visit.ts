@@ -7,10 +7,12 @@ export const parkingUrl =
 export const visitCopy = {
   ca: {
     title: "Abans de venir",
-    heading: "Abans de\nvenir.",
+    linkLabel: "Preguntes freqüents",
+    heading: "Abans de\nseure a taula.",
+    intro: "Respostes als dubtes més habituals.",
     description:
       "Carta, menú degustació i informació pràctica per visitar Can Ventura, a Llívia: grups, infants, al·lèrgies, accés, aparcament i gossos.",
-    contact: "Si et queda algun dubte, parlem-ne.",
+    contact: "Et queda algun dubte?",
     menuLink: "Veure la carta",
     parkingLink: "Veure l’aparcament",
     topics: [
@@ -82,10 +84,12 @@ export const visitCopy = {
   },
   es: {
     title: "Antes de venir",
-    heading: "Antes de\nvenir.",
+    linkLabel: "Preguntas frecuentes",
+    heading: "Antes de\nsentarnos a la mesa.",
+    intro: "Respuestas a las dudas más habituales.",
     description:
       "Carta, menú degustación e información práctica para visitar Can Ventura, en Llívia: grupos, niños, alergias, acceso, aparcamiento y perros.",
-    contact: "Si te queda alguna duda, hablamos.",
+    contact: "¿Te queda alguna duda?",
     menuLink: "Ver la carta",
     parkingLink: "Ver el aparcamiento",
     topics: [
@@ -157,10 +161,12 @@ export const visitCopy = {
   },
   fr: {
     title: "Avant de venir",
-    heading: "Avant de\nvenir.",
+    linkLabel: "Questions fréquentes",
+    heading: "Avant de\npasser à table.",
+    intro: "Les réponses aux questions les plus fréquentes.",
     description:
       "Carte, menu dégustation et informations pratiques pour visiter Can Ventura, à Llívia : groupes, enfants, allergies, accès, parking et chiens.",
-    contact: "Une autre question ? Parlons-en.",
+    contact: "Une autre question ?",
     menuLink: "Voir la carte",
     parkingLink: "Voir le parking",
     topics: [
@@ -232,10 +238,12 @@ export const visitCopy = {
   },
   en: {
     title: "Before you visit",
-    heading: "Before you\nvisit.",
+    linkLabel: "Frequently asked questions",
+    heading: "Before you\nsit down to eat.",
+    intro: "Answers to the most common questions.",
     description:
       "Menus, tasting menu and practical information for visiting Can Ventura in Llívia: groups, children, allergies, access, parking and dogs.",
-    contact: "Any other questions? Let’s talk.",
+    contact: "Any other questions?",
     menuLink: "View the menu",
     parkingLink: "Find the car park",
     topics: [
@@ -309,7 +317,9 @@ export const visitCopy = {
   Locale,
   {
     title: string;
+    linkLabel: string;
     heading: string;
+    intro: string;
     description: string;
     contact: string;
     menuLink: string;
