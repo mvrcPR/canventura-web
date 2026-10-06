@@ -104,7 +104,7 @@ export const copy = {
     callUs: "Parlem?",
     hours: "Horaris",
     hoursText:
-      "Consulta els serveis disponibles en reservar o truca’ns per confirmar els horaris.",
+      "Consulta els horaris actualitzats a Google Maps",
     directions: "Com arribar-hi",
     instagram: "Segueix-nos a Instagram",
     designCredit: "Imagined by",
@@ -211,7 +211,7 @@ export const copy = {
     callUs: "¿Hablamos?",
     hours: "Horarios",
     hoursText:
-      "Consulta los servicios disponibles al reservar o llámanos para confirmar los horarios.",
+      "Consulta los horarios actualizados en Google Maps",
     directions: "Cómo llegar",
     instagram: "Síguenos en Instagram",
     designCredit: "Imagined by",
@@ -319,7 +319,7 @@ export const copy = {
     callUs: "On en parle ?",
     hours: "Horaires",
     hoursText:
-      "Consultez les services disponibles lors de la réservation ou appelez-nous pour confirmer les horaires.",
+      "Consultez les horaires à jour sur Google Maps",
     directions: "Comment venir",
     instagram: "Suivez-nous sur Instagram",
     designCredit: "Imagined by",
@@ -427,7 +427,7 @@ export const copy = {
     callUs: "Let’s talk",
     hours: "Opening hours",
     hoursText:
-      "Check the available services when booking, or call us to confirm opening hours.",
+      "Check our latest opening hours on Google Maps",
     directions: "Get directions",
     instagram: "Follow us on Instagram",
     designCredit: "Imagined by",

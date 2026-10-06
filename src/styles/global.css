@@ -997,6 +997,17 @@ summary:focus-visible {
   color: var(--muted);
   font-size: 15px;
 }
+.contact-hours-link {
+  display: inline-block;
+  min-height: 44px;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+.contact-hours-link:hover {
+  color: var(--text);
+  text-decoration-color: currentColor;
+}
 .contact-grid .text-link {
   margin-top: 14px;
   white-space: nowrap;

@@ -65,7 +65,11 @@ const t = copy[locale];
           </div>
           <div class="contact-hours">
             <h3 class="mono">{t.hours}</h3>
-            <p>{t.hoursText}</p>
+            <p>
+              <a class="contact-hours-link" href={restaurant.directions}>
+                {t.hoursText} <span aria-hidden="true">↗</span>
+              </a>
+            </p>
           </div>
         </div>
       </div>
