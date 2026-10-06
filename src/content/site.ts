@@ -1,5 +1,6 @@
 export const locales = ["ca", "es", "fr", "en"] as const;
 export type Locale = (typeof locales)[number];
+export type Page = "home" | "menu" | "visit";
 export const languageNames = {
   ca: "Català",
   es: "Castellano",
@@ -28,6 +29,14 @@ export function homePath(locale: Locale) {
 }
 export function menuPath(locale: Locale) {
   return `${homePath(locale)}carta/`;
+}
+export function visitPath(locale: Locale) {
+  return `${homePath(locale)}abans-de-venir/`;
+}
+export function pagePath(page: Page, locale: Locale) {
+  if (page === "menu") return menuPath(locale);
+  if (page === "visit") return visitPath(locale);
+  return homePath(locale);
 }
 export function reservationUrl(locale: Locale) {
   return `https://canventura.myrestoo.net/${locale}/reservar`;

@@ -8,15 +8,16 @@ import socialImage from "../assets/photography/optimized/peus-de-porc-can-ventur
 import {
   copy,
   locales,
-  homePath,
   menuPath,
+  pagePath,
   restaurant,
   siteUrl,
   type Locale,
+  type Page,
 } from "../content/site";
 interface Props {
   locale: Locale;
-  page?: "home" | "menu";
+  page?: Page;
   title?: string;
   description?: string;
 }
@@ -26,7 +27,7 @@ const {
   title = copy[locale].title,
   description = copy[locale].description,
 } = Astro.props;
-const path = page === "menu" ? menuPath(locale) : homePath(locale);
+const path = pagePath(page, locale);
 const schema = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
@@ -65,13 +66,13 @@ const schema = {
       <link
         rel="alternate"
         hreflang={lang}
-        href={`${siteUrl}${page === "menu" ? menuPath(lang) : homePath(lang)}`}
+        href={`${siteUrl}${pagePath(page, lang)}`}
       />
     ))}
     <link
       rel="alternate"
       hreflang="x-default"
-      href={`${siteUrl}${page === "menu" ? menuPath("ca") : "/"}`}
+      href={`${siteUrl}${pagePath(page, "ca")}`}
     />
     <link
       rel="preload"
@@ -115,7 +116,7 @@ const schema = {
     <Footer locale={locale} showContact={page === "home"} />
     <ReserveButton
       locale={locale}
-      class={`floating-reserve${page === "menu" ? " visible" : ""}`}
+      class={`floating-reserve${page !== "home" ? " visible" : ""}`}
     />
     <script>
       const heroReserve = document.querySelector(".hero-reserve");

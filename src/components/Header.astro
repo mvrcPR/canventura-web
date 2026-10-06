@@ -5,13 +5,15 @@ import {
   locales,
   homePath,
   menuPath,
+  pagePath,
   reservationUrl,
   languageNames,
   type Locale,
+  type Page,
 } from "../content/site";
 interface Props {
   locale: Locale;
-  page?: "home" | "menu";
+  page?: Page;
 }
 const { locale, page = "home" } = Astro.props;
 const t = copy[locale];
@@ -50,7 +52,7 @@ const t = copy[locale];
       <nav class="language-options" aria-label={t.languages}>
         {locales.map((lang) => (
           <a
-            href={page === "menu" ? menuPath(lang) : homePath(lang)}
+            href={pagePath(page, lang)}
             lang={lang}
             hreflang={lang}
             aria-label={`${lang.toUpperCase()} · ${languageNames[lang]}`}

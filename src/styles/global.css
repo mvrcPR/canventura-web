@@ -143,7 +143,7 @@ h3 {
   transition: background 360ms ease;
 }
 .site-header.scrolled,
-.site-header[data-page="menu"] {
+.site-header:not([data-page="home"]) {
   background: var(--bg);
 }
 .brand {
@@ -1040,6 +1040,16 @@ summary:focus-visible {
   align-items: center;
   gap: 14px;
 }
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 24px;
+}
+.footer-visit:is(:hover, :focus-visible, [aria-current="page"]) {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
 .footer-signature {
   display: flex;
   justify-self: end;
@@ -1455,7 +1465,7 @@ html:has(.menu-page) {
     justify-content: center;
   }
   .site-header.scrolled .language-options,
-  .site-header[data-page="menu"] .language-options {
+  .site-header:not([data-page="home"]) .language-options {
     top: calc(var(--header-height) + 4px);
   }
   .language-name {

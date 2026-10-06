@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { copy, homePath, menuPath, restaurant, type Locale } from "../content/site";
+import { parkingUrl, visitCopy } from "../content/visit";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = visitCopy[locale];
+const site = copy[locale];
+---
+
+<Layout
+  locale={locale}
+  page="visit"
+  title={`${t.title} · Can Ventura, Llívia`}
+  description={t.description}
+>
+  <main class="visit-page" id="main" data-visit-page>
+    <a class="visit-back mono" href={homePath(locale)}>
+      <span aria-hidden="true">←</span> {site.back}
+    </a>
+    <div class="visit-intro">
+      <h1 class="visit-title" data-reveal>{t.heading}</h1>
+      <div class="visit-contact" data-reveal>
+        <p>{t.contact}</p>
+        <a class="visit-phone" href={`tel:${restaurant.phone}`}>
+          {restaurant.phoneLabel}
+        </a>
+        <a class="visit-email" href={`mailto:${restaurant.email}`}>
+          {restaurant.email}
+        </a>
+        <a class="visit-hours" href={restaurant.directions}>
+          {site.hoursText} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="visit-topics">
+      {t.topics.map(({ id, title, paragraphs }) => (
+        <section class="visit-topic" aria-labelledby={`visit-${id}`} data-reveal>
+          <h2 id={`visit-${id}`}>{title}</h2>
+          <div class="visit-answer">
+            {paragraphs.map((text) => <p>{text}</p>)}
+            {(id === "menu" || id === "tasting-menu") && (
+              <a class="visit-menu visit-link text-link mono" href={menuPath(locale)}>
+                {t.menuLink} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+            {id === "parking" && (
+              <a class="visit-parking visit-link text-link mono" href={parkingUrl}>
+                {t.parkingLink} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .visit-page {
+    padding: 136px var(--gutter) 64px;
+  }
+  .visit-back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .visit-intro,
+  .visit-topic {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(48px, 8vw, 140px);
+  }
+  .visit-intro {
+    align-items: end;
+    margin: 36px 0 104px;
+  }
+  .visit-title {
+    font-size: clamp(76px, 8vw, 132px);
+    line-height: 1.02;
+    letter-spacing: -0.065em;
+    white-space: pre-line;
+  }
+  .visit-contact {
+    padding-bottom: 8px;
+  }
+  .visit-contact p {
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-size: 17px;
+    text-wrap: balance;
+  }
+  .visit-contact a {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 44px;
+  }
+  .visit-phone {
+    font-size: clamp(24px, 2.3vw, 34px);
+    letter-spacing: -0.03em;
+    line-height: 1.3;
+  }
+  .visit-email {
+    color: var(--muted);
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+  .visit-hours {
+    gap: 8px;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+  }
+  .visit-hours:hover {
+    text-decoration-color: currentColor;
+  }
+  .visit-hours span {
+    flex-shrink: 0;
+  }
+  .visit-topic {
+    padding: 36px 0 52px;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+  .visit-topic h2 {
+    max-width: 12em;
+    font-size: clamp(30px, 3vw, 46px);
+    line-height: 1.18;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+  .visit-answer {
+    padding-top: 3px;
+    font-size: clamp(17px, 1.45vw, 21px);
+    line-height: 1.65;
+  }
+  .visit-answer p + p {
+    margin-top: 20px;
+  }
+  .visit-link {
+    min-height: 44px;
+    margin-top: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 1000px) {
+    .visit-intro {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    }
+    .visit-title {
+      font-size: clamp(68px, 8.5vw, 85px);
+    }
+  }
+  @media (max-width: 700px) {
+    .visit-page {
+      padding-top: 108px;
+      padding-bottom: 24px;
+    }
+    .visit-intro,
+    .visit-topic {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .visit-intro {
+      margin: 28px 0 48px;
+      row-gap: 36px;
+    }
+    .visit-title {
+      font-size: clamp(52px, 12vw, 84px);
+    }
+    .visit-contact {
+      padding-bottom: 0;
+    }
+    .visit-contact p {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .visit-topic {
+      padding: 28px 0 36px;
+      row-gap: 18px;
+    }
+    .visit-topic h2 {
+      font-size: 30px;
+    }
+    .visit-answer {
+      padding-top: 0;
+      font-size: 17px;
+    }
+    .visit-answer p + p {
+      margin-top: 16px;
+    }
+  }
+</style>

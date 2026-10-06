@@ -1,0 +1,13 @@
+---
+import VisitPage from "../../components/VisitPage.astro";
+import { locales, type Locale } from "../../content/site";
+export const prerender = true;
+export function getStaticPaths() {
+  return locales
+    .filter((lang) => lang !== "ca")
+    .map((lang) => ({ params: { lang } }));
+}
+const locale = Astro.params.lang as Locale;
+---
+
+<VisitPage locale={locale} />

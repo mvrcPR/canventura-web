@@ -1,5 +1,6 @@
 ---
-import { copy, reservationUrl, restaurant, type Locale } from "../content/site";
+import { copy, reservationUrl, restaurant, visitPath, type Locale } from "../content/site";
+import { visitCopy } from "../content/visit";
 
 interface Props {
   locale: Locale;
@@ -76,9 +77,18 @@ const t = copy[locale];
     </section>
   )}
   <div class="footer-bottom mono">
-    <span class="footer-copyright">
-      © {new Date().getFullYear()} Can Ventura
-    </span>
+    <div class="footer-meta">
+      <span class="footer-copyright">
+        © {new Date().getFullYear()} Can Ventura
+      </span>
+      <a
+        class="footer-visit"
+        href={visitPath(locale)}
+        aria-current={Astro.url.pathname === visitPath(locale) ? "page" : undefined}
+      >
+        {visitCopy[locale].title}
+      </a>
+    </div>
     <a
       class="footer-social"
       href={restaurant.instagram}

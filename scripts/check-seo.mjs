@@ -68,11 +68,14 @@ try {
         else if (url.origin === origin) assets.add(url.pathname);
       }
     });
-    if (!path.endsWith("carta/")) {
+    if ($(".hero").length) {
       check($(".family-section").text().includes("1977") || $("main").text().includes("1977"), `${path}: història absent sense JavaScript`);
       const hero = $(".hero-photo img").first();
       check(hero.attr("srcset") && hero.attr("sizes") && hero.attr("fetchpriority") === "high", `${path}: portada sense càrrega responsive/prioritària`);
       check($("a[href^='tel:']").length && $("a[href*='myrestoo.net']").length, `${path}: falten accions de contacte/reserva`);
+    } else if ($("[data-visit-page]").length) {
+      check($(".visit-topic h2").length && $(".visit-answer p").length, `${path}: informació pràctica absent sense JavaScript`);
+      check($("a[href^='tel:']").length && $("a[href^='mailto:']").length && $("a[href*='myrestoo.net']").length, `${path}: falten accions de contacte/reserva`);
     } else {
       check(/no-store/.test(res.headers.get("cache-control") ?? ""), `${path}: carta amb memòria cau inesperada`);
       check($("[data-menu-page] img").length || $(".menu-empty a[href*='els-nostres-menus']").length, `${path}: carta sense documents ni fallback`);
