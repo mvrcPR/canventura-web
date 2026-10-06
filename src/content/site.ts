@@ -134,9 +134,9 @@ export const copy = {
       duckMagret: "Magret d’ànec amb puré de carbassa i ratafia Rufaca",
       duckPears: "Tiró amb peres de Puigcerdà",
       organicBeef:
-        "Llata ecològica de Cal Grauet amb castanyes i foie micuit",
+        "Llata ecològica de Cal Grauet amb castanyes i foie mi-cuit",
       botifarraTrinxat:
-        "Botifarra de Cal Jaume amb trinxat de Ceretani del Molí de Ger i maionesa de ceps",
+        "Botifarra de Cal Jaume, trinxat amb formatge Ceretani del Molí de Ger i maionesa de ceps",
       salmon:
         "Salmó marinat amb crema d’alvocat, pico de gallo i jalapeños",
       wildAsparagus:
@@ -226,11 +226,11 @@ export const copy = {
     photoDish: "Un plato de la cocina de Can Ventura",
     foodPhotos: {
       cannelloni:
-        "Canelones de carne, ceps y foie con trufa y salsa de parmesano",
-      fillet: "Filete de vaca servido a la piedra caliente con patatas fritas",
+        "Canelones de carne, boletus y foie con trufa y salsa de parmesano",
+      fillet: "Solomillo de vaca servido a la piedra caliente con patatas fritas",
       trotters:
         "Manitas de cerdo rellenas de butifarra negra con alioli de membrillo",
-      trinxat: "Trinxat de la Cerdanya con tocino de Cal Jaume de Bellver",
+      trinxat: "Trinxat de la Cerdanya con torrezno de Cal Jaume de Bellver",
       scallops: "Vieiras con arroz Venere y mayonesa de ajo negro",
       cod: "Bacalao de autor El Barquero a la llauna",
       rumpsteak: "Rumpsteak de ternera con yema de huevo y salsa ponzu",
@@ -243,9 +243,9 @@ export const copy = {
       duckMagret: "Magret de pato con puré de calabaza y ratafía Rufaca",
       duckPears: "Pato con peras de Puigcerdà",
       organicBeef:
-        "Llata ecológica de Cal Grauet con castañas y foie micuit",
+        "Llata ecológica de Cal Grauet con castañas y foie mi-cuit",
       botifarraTrinxat:
-        "Butifarra de Cal Jaume con trinxat de Ceretani del Molí de Ger y mayonesa de ceps",
+        "Butifarra de Cal Jaume, trinxat con queso Ceretani del Molí de Ger y mayonesa de boletus",
       salmon:
         "Salmón marinado con crema de aguacate, pico de gallo y jalapeños",
       wildAsparagus:
@@ -340,7 +340,7 @@ export const copy = {
       trinxat:
         "Trinxat de Cerdagne et lard croustillant de Cal Jaume de Bellver",
       scallops: "Saint-Jacques, riz Venere et mayonnaise à l’ail noir",
-      cod: "Morue de signature El Barquero à la llauna",
+      cod: "Morue d’El Barquero à la llauna",
       rumpsteak: "Rumsteck de bœuf, jaune d’œuf et sauce ponzu",
       donut: "Torrija de donut et glace au lait meringué",
       pearVichyssoise: "Vichyssoise de poire aux crevettes",
@@ -353,7 +353,7 @@ export const copy = {
       organicBeef:
         "Paleron de bœuf bio de Cal Grauet, châtaignes et foie gras mi-cuit",
       botifarraTrinxat:
-        "Botifarra de Cal Jaume, trinxat de Ceretani du Molí de Ger et mayonnaise aux cèpes",
+        "Botifarra de Cal Jaume, trinxat au fromage Ceretani du Molí de Ger et mayonnaise aux cèpes",
       salmon:
         "Saumon mariné, crème d’avocat, pico de gallo et jalapeños",
       wildAsparagus:
@@ -445,7 +445,7 @@ export const copy = {
       fillet: "Beef fillet served on a hot stone with chips",
       trotters:
         "Pig’s trotters stuffed with black pudding and quince aioli",
-      trinxat: "Cerdanya trinxat with crispy pork from Cal Jaume de Bellver",
+      trinxat: "Cerdanya trinxat with crispy bacon from Cal Jaume de Bellver",
       scallops: "Scallops with Venere rice and black garlic mayonnaise",
       cod: "El Barquero signature cod a la llauna",
       rumpsteak: "Rump steak with egg yolk and ponzu sauce",
@@ -460,11 +460,11 @@ export const copy = {
       organicBeef:
         "Organic beef shoulder from Cal Grauet with chestnuts and mi-cuit foie gras",
       botifarraTrinxat:
-        "Cal Jaume botifarra with Ceretani trinxat from Molí de Ger and porcini mayonnaise",
+        "Cal Jaume botifarra, trinxat with Ceretani cheese from Molí de Ger and porcini mayonnaise",
       salmon:
         "Marinated salmon with avocado cream, pico de gallo and jalapeños",
       wildAsparagus:
-        "Wild asparagus with a slow-cooked egg from Cal Carbonell in Llívia and fresh truffle",
+        "Wild asparagus with an egg from Cal Carbonell in Llívia cooked at a low temperature and fresh truffle",
     },
     photoGrill: "Cooking over the grill at Can Ventura",
     photoHands: "The chef’s hands preparing a dish",
