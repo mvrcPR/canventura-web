@@ -577,7 +577,7 @@ summary:focus-visible {
 }
 .kitchen-menu-link {
   margin-top: 24px;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1538,6 +1538,9 @@ html:has(.menu-page) {
   }
   .text-link {
     font-size: 12px;
+  }
+  .kitchen-menu-link {
+    font-size: 15px;
   }
   .family-composition {
     grid-template-columns: 1fr;
