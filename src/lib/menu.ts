@@ -4,9 +4,10 @@ export interface MenuDocument {
   width: number;
   height: number;
 }
-// Interim adapter for the publicly observed menu page. No prices or snapshots
-// are stored locally. Replace with the verified MyRestoo publication URL once
-// supplied; this is not a claimed MyRestoo API.
+// Interim source: the legacy website publishes the illustrated menus alongside
+// a portrait, text-only edition. Only that edition belongs in this reader.
+// Read on every request without storing dishes, prices or menu snapshots.
+// The direct MyRestoo publication URL still needs to be supplied and verified.
 export function extractMenuDocuments(html: string): MenuDocument[] {
   const documents: MenuDocument[] = [];
   const seen = new Set<string>();
@@ -15,6 +16,15 @@ export function extractMenuDocuments(html: string): MenuDocument[] {
     for (const match of tag[0].matchAll(/([\w-]+)\s*=\s*["']([^"']*)["']/g))
       attributes[match[1].toLowerCase()] = match[2];
     if (!attributes["data-categories"]) continue;
+    const width = Number(attributes.width);
+    const height = Number(attributes.height);
+    if (
+      !Number.isFinite(width) ||
+      !Number.isFinite(height) ||
+      width <= 0 ||
+      height <= width
+    )
+      continue;
     try {
       const url = new URL(attributes.src);
       if (
@@ -27,8 +37,8 @@ export function extractMenuDocuments(html: string): MenuDocument[] {
       seen.add(url.href);
       documents.push({
         src: url.href,
-        width: Number(attributes.width) || 1000,
-        height: Number(attributes.height) || 1415,
+        width,
+        height,
       });
     } catch {
       /* Skip malformed upstream URLs. Never expose raw upstream HTML. */
@@ -41,7 +51,7 @@ export async function getCurrentMenu(locale: Locale) {
   try {
     const response = await fetch(source, {
       signal: AbortSignal.timeout(6500),
-      headers: { Accept: "text/html" },
+      headers: { Accept: "text/html", "Cache-Control": "no-cache" },
     });
     if (
       !response.ok ||

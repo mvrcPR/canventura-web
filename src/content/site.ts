@@ -86,6 +86,10 @@ export const copy = {
       "Pots consultar la carta completa aquí o trucar-nos si tens qualsevol dubte.",
     menuDocument: "Obrir aquesta pàgina de la carta",
     menuPage: "Pàgina",
+    menuIndex: "Pàgines de la carta",
+    menuExpand: "Ampliar la carta",
+    menuPrevious: "Pàgina anterior",
+    menuNext: "Pàgina següent",
     familyTitle: "Una casa.\nUna família.",
     familyText:
       "El 1977, en Josep i la Mercè van obrir Can Ventura amb la il·lusió de tenir una casa de menjars.",
@@ -188,6 +192,10 @@ export const copy = {
       "Puedes consultar la carta completa aquí o llamarnos si tienes alguna duda.",
     menuDocument: "Abrir esta página de la carta",
     menuPage: "Página",
+    menuIndex: "Páginas de la carta",
+    menuExpand: "Ampliar la carta",
+    menuPrevious: "Página anterior",
+    menuNext: "Página siguiente",
     familyTitle: "Una casa.\nUna familia.",
     familyText:
       "En 1977, Josep y Mercè abrieron Can Ventura con la ilusión de tener su propia casa de comidas.",
@@ -293,6 +301,10 @@ export const copy = {
       "Consultez la carte complète ici ou appelez-nous si vous avez une question.",
     menuDocument: "Ouvrir cette page de la carte",
     menuPage: "Page",
+    menuIndex: "Pages de la carte",
+    menuExpand: "Agrandir la carte",
+    menuPrevious: "Page précédente",
+    menuNext: "Page suivante",
     familyTitle: "Une maison.\nUne famille.",
     familyText:
       "En 1977, Josep et Mercè ont ouvert Can Ventura avec le rêve de tenir leur propre restaurant.",
@@ -397,6 +409,10 @@ export const copy = {
       "Explore the full menu here, or give us a call if you have any questions.",
     menuDocument: "Open this menu page",
     menuPage: "Page",
+    menuIndex: "Menu pages",
+    menuExpand: "Enlarge the menu",
+    menuPrevious: "Previous page",
+    menuNext: "Next page",
     familyTitle: "One house.\nOne family.",
     familyText:
       "In 1977, Josep and Mercè opened Can Ventura with the dream of running a restaurant of their own.",

@@ -8,6 +8,7 @@ interface Props {
 const { locale } = Astro.props;
 const t = copy[locale];
 const menu = await getCurrentMenu(locale);
+const first = menu.documents[0];
 ---
 
 <Layout
@@ -16,52 +17,228 @@ const menu = await getCurrentMenu(locale);
   title={`${t.menu} · Can Ventura, Llívia`}
   description={t.menuIntro}
 >
-  <main class="menu-page" id="main">
-    <a href={homePath(locale)} class="mono">
-      ← {t.back}
-    </a>
-    <h1>{t.menu}</h1>
-    <p class="menu-page-intro">{t.menuText}</p>
-    <a
-      class="text-link mono menu-source"
-      href={menu.source}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {t.menuSource} ↗
-    </a>
-    {menu.available ? (
-      <div class="menu-documents">
-        {menu.documents.map((document, index) => (
-          <a
-            class="menu-document"
-            href={document.src}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${t.menuDocument} ${index + 1}`}
-          >
-            <img
-              src={document.src}
-              width={document.width}
-              height={document.height}
-              alt={`${t.menu} · ${t.menuPage} ${index + 1}`}
-              loading={index === 0 ? "eager" : "lazy"}
-              decoding="async"
-            />
-            <span class="mono">
-              {t.menuPage} {String(index + 1).padStart(2, "0")}{" "}
-              <span aria-hidden="true">↗</span>
-            </span>
+  <main class="menu-page" id="main" data-menu-reader>
+    <div class="menu-layout">
+      <aside class="menu-index">
+        <a href={homePath(locale)} class="menu-back mono">← {t.back}</a>
+        <h1>{t.menu}</h1>
+        {menu.available && (
+          <nav class="menu-page-index mono" aria-label={t.menuIndex}>
+            {menu.documents.map((_, index) => (
+              <a
+                id={`menu-tab-${index + 1}`}
+                href={`#menu-page-${index + 1}`}
+                aria-label={`${t.menuPage} ${index + 1}`}
+                data-menu-index={index}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </a>
+            ))}
+          </nav>
+        )}
+      </aside>
+      {menu.available ? (
+        <div class="menu-reader">
+          <div class="menu-reader-tools" data-menu-controls>
+            <div class="menu-pagination mono">
+              <button type="button" aria-label={t.menuPrevious} data-menu-previous disabled>←</button>
+              <span aria-live="polite" aria-atomic="true" data-menu-count>01 / {String(menu.documents.length).padStart(2, "0")}</span>
+              <button type="button" aria-label={t.menuNext} data-menu-next>→</button>
+            </div>
+            <a class="menu-expand mono" href={first.src} target="_blank" rel="noopener noreferrer" data-menu-expand>
+              {t.menuExpand} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="menu-documents" role="region" aria-label={t.menu}>
+            <div class="menu-document-stage">
+              {menu.documents.map((document, index) => (
+                <figure class="menu-document" id={`menu-page-${index + 1}`} data-menu-page>
+                  <a
+                    href={document.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${t.menuDocument} ${index + 1}`}
+                    data-menu-expand
+                  >
+                    <img
+                      src={document.src}
+                      width={document.width}
+                      height={document.height}
+                      alt={`${t.menu} · ${t.menuPage} ${index + 1}`}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                    />
+                  </a>
+                  <figcaption class="sr-only">{t.menuPage} {index + 1}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="menu-empty">
+          <p>{t.menuUnavailable}</p>
+          <a class="menu-source mono" href={menu.source} target="_blank" rel="noopener noreferrer">
+            {t.menuSource} <span aria-hidden="true">↗</span>
           </a>
-        ))}
-      </div>
-    ) : (
-      <div class="menu-empty">
-        <p>{t.menuUnavailable}</p>
-        <a class="text-link mono" href={`tel:${restaurant.phone}`}>
-          {restaurant.phoneLabel}
-        </a>
-      </div>
+          <a class="text-link mono" href={`tel:${restaurant.phone}`}>{restaurant.phoneLabel}</a>
+        </div>
+      )}
+    </div>
+    {menu.available && (
+      <dialog class="menu-zoom" aria-label={t.menuExpand}>
+        <div class="menu-zoom-heading mono">
+          <span data-menu-zoom-title>{t.menu}</span>
+          <button type="button" data-menu-close>{t.close} <span aria-hidden="true">×</span></button>
+        </div>
+        <div class="menu-zoom-content">
+          <img width={first.width} height={first.height} alt="" decoding="async" data-menu-zoom-image />
+        </div>
+      </dialog>
     )}
   </main>
 </Layout>
+<script>
+  const root = document.querySelector<HTMLElement>("[data-menu-reader]");
+  const pages = Array.from(root?.querySelectorAll<HTMLElement>("[data-menu-page]") ?? []);
+  if (root && pages.length) {
+    const links = Array.from(root.querySelectorAll<HTMLAnchorElement>("[data-menu-index]"));
+    const previous = root.querySelector<HTMLButtonElement>("[data-menu-previous]")!;
+    const next = root.querySelector<HTMLButtonElement>("[data-menu-next]")!;
+    const count = root.querySelector<HTMLElement>("[data-menu-count]")!;
+    const expand = root.querySelector<HTMLAnchorElement>(".menu-reader-tools [data-menu-expand]")!;
+    const toolbar = root.querySelector<HTMLElement>(".menu-reader-tools")!;
+    const documents = root.querySelector<HTMLElement>(".menu-documents")!;
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    let active = 0;
+    let requested = 0;
+    let selection = 0;
+    let animation: Animation | undefined;
+    root.classList.add("menu-enhanced");
+    links[0].parentElement!.setAttribute("role", "tablist");
+    links.forEach((link, index) => {
+      link.setAttribute("role", "tab");
+      link.setAttribute("aria-controls", pages[index].id);
+      pages[index].setAttribute("role", "tabpanel");
+      pages[index].setAttribute("aria-labelledby", link.id);
+    });
+    const showPage = (index: number) => {
+      active = index;
+      pages.forEach((page, i) => {
+        page.hidden = i !== active;
+        links[i].setAttribute("aria-selected", String(i === active));
+        links[i].tabIndex = i === active ? 0 : -1;
+      });
+      previous.disabled = active === 0;
+      next.disabled = active === pages.length - 1;
+      count.textContent = `${String(active + 1).padStart(2, "0")} / ${String(pages.length).padStart(2, "0")}`;
+      expand.href = pages[active].querySelector<HTMLAnchorElement>("a")!.href;
+    };
+    const preparePage = async (index: number) => {
+      const image = pages[index]?.querySelector<HTMLImageElement>("img");
+      if (!image) return;
+      image.loading = "eager";
+      await image.decode().catch(() => {});
+    };
+    const prepareNeighbours = () => {
+      void preparePage(active - 1);
+      void preparePage(active + 1);
+    };
+    const select = async (index: number, animate = true) => {
+      const target = Math.max(0, Math.min(pages.length - 1, index));
+      const change = ++selection;
+      const direction = target > active ? 1 : -1;
+      requested = target;
+      animation?.cancel();
+      documents.removeAttribute("aria-busy");
+      if (!animate) {
+        showPage(target);
+        prepareNeighbours();
+        return;
+      }
+      if (target === active) return;
+      documents.setAttribute("aria-busy", "true");
+      // Keep the current paper visible while the next image loads and decodes.
+      await preparePage(target);
+      if (change !== selection) return;
+      if (!reducedMotion.matches) {
+        animation = pages[active].animate(
+          [{ opacity: 1, transform: "translateX(0)" }, { opacity: 0, transform: `translateX(${-direction * 12}px)` }],
+          { duration: 160, easing: "ease-in", fill: "forwards" },
+        );
+        await animation.finished.catch(() => {});
+        if (change !== selection) return;
+      }
+      showPage(target);
+      // Start the next sheet below the sticky controls, while the paper is faded.
+      // The sidebar and toolbar stay in place as the document returns to its top.
+      const paperTop = documents.getBoundingClientRect().top;
+      const controlsBottom = toolbar.getBoundingClientRect().bottom;
+      if (paperTop < controlsBottom)
+        window.scrollBy({ top: paperTop - controlsBottom, behavior: "instant" });
+      history.replaceState(null, "", `#${pages[active].id}`);
+      animation?.cancel();
+      prepareNeighbours();
+      if (!reducedMotion.matches) {
+        animation = pages[active].animate(
+          [{ opacity: 0, transform: `translateX(${direction * 18}px)` }, { opacity: 1, transform: "translateX(0)" }],
+          { duration: 380, easing: "cubic-bezier(.22, 1, .36, 1)" },
+        );
+        await animation.finished.catch(() => {});
+      }
+      if (change === selection) documents.removeAttribute("aria-busy");
+    };
+    const initial = pages.findIndex(page => `#${page.id}` === location.hash);
+    select(initial >= 0 ? initial : 0, false);
+    links.forEach((link, index) => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        select(index);
+      });
+      link.addEventListener("keydown", event => {
+        let target: number | undefined;
+        if (event.key === "ArrowRight") target = (index + 1) % links.length;
+        if (event.key === "ArrowLeft") target = (index + links.length - 1) % links.length;
+        if (event.key === "Home") target = 0;
+        if (event.key === "End") target = links.length - 1;
+        if (target === undefined) return;
+        event.preventDefault();
+        select(target);
+        links[target].focus({ preventScroll: true });
+      });
+    });
+    previous.addEventListener("click", () => select(requested - 1));
+    next.addEventListener("click", () => select(requested + 1));
+    window.addEventListener("hashchange", () => {
+      const index = pages.findIndex(page => `#${page.id}` === location.hash);
+      if (index >= 0) select(index);
+    });
+    const dialog = root.querySelector<HTMLDialogElement>(".menu-zoom")!;
+    const zoomImage = dialog.querySelector<HTMLImageElement>("[data-menu-zoom-image]")!;
+    const zoomTitle = dialog.querySelector<HTMLElement>("[data-menu-zoom-title]")!;
+    let opener: HTMLElement | null = null;
+    root.querySelectorAll<HTMLAnchorElement>("[data-menu-expand]").forEach(link => {
+      link.setAttribute("aria-haspopup", "dialog");
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        const image = pages[active].querySelector<HTMLImageElement>("img")!;
+        opener = link;
+        zoomImage.src = image.src;
+        zoomImage.width = Number(image.getAttribute("width"));
+        zoomImage.height = Number(image.getAttribute("height"));
+        zoomImage.alt = image.alt;
+        zoomTitle.textContent = image.alt;
+        dialog.showModal();
+        dialog.querySelector(".menu-zoom-content")!.scrollTo(0, 0);
+        document.body.classList.add("dialog-open");
+      });
+    });
+    dialog.querySelector("[data-menu-close]")!.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener("close", () => {
+      document.body.classList.remove("dialog-open");
+      opener?.focus({ preventScroll: true });
+      zoomImage.removeAttribute("src");
+    });
+  }
+</script>
