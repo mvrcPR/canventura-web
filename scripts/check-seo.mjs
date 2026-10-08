@@ -54,10 +54,22 @@ try {
     const schema = JSON.parse(head.find('script[type="application/ld+json"]').text());
     const entities = schema["@graph"] ?? [schema];
     const restaurant = entities.find(entity => entity["@type"] === "Restaurant");
+    const website = entities.find(entity => entity["@type"] === "WebSite");
     const webpage = entities.find(entity => entity["@type"] === "WebPage");
     check(restaurant?.url === origin, `${path}: JSON-LD no representa el restaurant`);
     check(restaurant?.address?.postalCode && restaurant.address?.addressLocality && restaurant.telephone, `${path}: dades locals incompletes`);
+    check(restaurant?.description?.trim() && Array.isArray(restaurant.servesCuisine) && restaurant.servesCuisine.length && restaurant.servesCuisine.every(cuisine => typeof cuisine === "string" && cuisine.trim()), `${path}: descripció o tipus de cuina absents`);
+    check(restaurant?.["@id"] === `${origin}/#restaurant` && webpage?.about?.["@id"] === restaurant["@id"], `${path}: identitat del restaurant divergent`);
+    const menuUrl = `${origin}${lang === "ca" ? "" : `/${lang}`}/carta/`;
+    check(restaurant?.hasMenu === menuUrl && restaurant.menu === menuUrl && urls.includes(menuUrl), `${path}: carta estructurada sense URL publicada en el seu idioma`);
     check(webpage?.url === canonical && webpage.inLanguage === lang, `${path}: JSON-LD de pàgina o idioma incorrecte`);
+    check(webpage?.isPartOf?.["@id"] === `${origin}/#website`, `${path}: pàgina sense relació amb el lloc web`);
+    if ($(".hero").length) {
+      check(website?.["@id"] === `${origin}/#website` && website.url === `${origin}/` && website.name === restaurant.name, `${path}: nom o identitat del lloc web incorrectes`);
+      check(website?.publisher?.["@id"] === restaurant["@id"], `${path}: lloc web desvinculat del restaurant`);
+      const languages = alternates.map((_, el) => $(el).attr("hreflang")).get().filter(language => language !== "x-default");
+      check(Array.isArray(website?.inLanguage) && JSON.stringify([...website.inLanguage].sort()) === JSON.stringify(languages.sort()), `${path}: idiomes del lloc web divergents`);
+    }
     const primaryImage = typeof webpage?.primaryImageOfPage === "string" ? webpage.primaryImageOfPage : webpage?.primaryImageOfPage?.contentUrl;
     if ($(".hero").length) check(primaryImage, `${path}: falta la imatge preferida de la portada`);
     for (const image of [restaurant?.image, head.find('meta[property="og:image"]').attr("content"), ...(primaryImage ? [primaryImage] : [])]) {

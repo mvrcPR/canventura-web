@@ -52,6 +52,9 @@ export const copy = {
     title: "Can Ventura · Restaurant a Llívia, cuina de Cerdanya",
     description:
       "Cuina de Cerdanya i producte de temporada a la Plaça Major de Llívia. Restaurant familiar des de 1977. Consulta la carta i reserva taula.",
+    restaurantDescription:
+      "Restaurant familiar a Llívia des de 1977. Cuina catalana contemporània, amb arrels a Cerdanya i producte de temporada. A la Plaça Major, en una casa del segle XVIII.",
+    cuisines: ["Cuina catalana contemporània", "Cuina de Cerdanya"],
     skip: "Anar al contingut",
     languages: "Idioma",
     navigation: "Navegació principal",
@@ -179,6 +182,9 @@ export const copy = {
     title: "Can Ventura · Restaurante en Llívia, cocina de la Cerdanya",
     description:
       "Cocina de la Cerdanya y producto de temporada en la Plaça Major de Llívia. Restaurante familiar desde 1977. Consulta la carta y reserva mesa.",
+    restaurantDescription:
+      "Restaurante familiar en Llívia desde 1977. Cocina catalana contemporánea, con raíces en la Cerdanya y producto de temporada. En la Plaça Major, en una casa del siglo XVIII.",
+    cuisines: ["Cocina catalana contemporánea", "Cocina de la Cerdanya"],
     skip: "Ir al contenido",
     languages: "Idioma",
     navigation: "Navegación principal",
@@ -309,6 +315,9 @@ export const copy = {
     title: "Can Ventura · Restaurant à Llívia, cuisine de Cerdagne",
     description:
       "Cuisine de Cerdagne et produits de saison sur la Plaça Major de Llívia. Restaurant familial depuis 1977. Consultez la carte et réservez votre table.",
+    restaurantDescription:
+      "Restaurant familial à Llívia depuis 1977. Cuisine catalane contemporaine, ancrée en Cerdagne, avec des produits de saison. Sur la Plaça Major, dans une maison du XVIIIe siècle.",
+    cuisines: ["Cuisine catalane contemporaine", "Cuisine de Cerdagne"],
     skip: "Aller au contenu",
     languages: "Langue",
     navigation: "Navigation principale",
@@ -438,6 +447,9 @@ export const copy = {
     title: "Can Ventura · Restaurant in Llívia, Cerdanya cuisine",
     description:
       "Cerdanya cuisine and seasonal produce on Plaça Major, Llívia. A family restaurant since 1977. Explore the menu and book a table.",
+    restaurantDescription:
+      "Family restaurant in Llívia since 1977. Contemporary Catalan cuisine rooted in Cerdanya, with seasonal produce. On Plaça Major, in an 18th-century house.",
+    cuisines: ["Contemporary Catalan cuisine", "Cerdanya cuisine"],
     skip: "Skip to content",
     languages: "Language",
     navigation: "Main navigation",

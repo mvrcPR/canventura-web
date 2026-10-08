@@ -30,13 +30,18 @@ const {
 const path = pagePath(page, locale);
 const canonicalUrl = `${siteUrl}${path}`;
 const socialImageUrl = `${siteUrl}${socialImage.src}`;
+const restaurantId = `${siteUrl}/#restaurant`;
+const websiteId = `${siteUrl}/#website`;
+const menuUrl = `${siteUrl}${menuPath(locale)}`;
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Restaurant",
-      "@id": `${siteUrl}/#restaurant`,
+      "@id": restaurantId,
       name: restaurant.name,
+      description: copy[locale].restaurantDescription,
+      servesCuisine: copy[locale].cuisines,
       url: siteUrl,
       image: `${siteUrl}${restaurantImage.src}`,
       telephone: restaurant.phone,
@@ -48,9 +53,18 @@ const schema = {
         addressRegion: "Girona",
         addressCountry: "ES",
       },
-      hasMenu: `${siteUrl}${menuPath(locale)}`,
+      hasMenu: menuUrl,
+      menu: menuUrl,
       sameAs: [restaurant.instagram],
     },
+    ...(page === "home" ? [{
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: restaurant.name,
+      url: `${siteUrl}/`,
+      inLanguage: locales,
+      publisher: { "@id": restaurantId },
+    }] : []),
     {
       "@type": "WebPage",
       "@id": `${canonicalUrl}#webpage`,
@@ -58,7 +72,8 @@ const schema = {
       name: title,
       description,
       inLanguage: locale,
-      about: { "@id": `${siteUrl}/#restaurant` },
+      about: { "@id": restaurantId },
+      isPartOf: { "@id": websiteId },
       ...(page === "home" && {
         primaryImageOfPage: {
           "@type": "ImageObject",
