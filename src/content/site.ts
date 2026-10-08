@@ -49,9 +49,9 @@ export function currentMenuUrl(locale: Locale) {
 // Family names/year and contact details: design/assets/content-sources.json.
 export const copy = {
   ca: {
-    title: "Can Ventura · Restaurant a Llívia",
+    title: "Can Ventura · Restaurant a Llívia, cuina de Cerdanya",
     description:
-      "Cuina de la Cerdanya i una casa a la Plaça Major de Llívia. Descobreix Can Ventura, consulta la carta i reserva taula.",
+      "Cuina de Cerdanya i producte de temporada a la Plaça Major de Llívia. Restaurant familiar des de 1977. Consulta la carta i reserva taula.",
     skip: "Anar al contingut",
     languages: "Idioma",
     navigation: "Navegació principal",
@@ -65,7 +65,7 @@ export const copy = {
     contact: "Contacte",
     reserve: "Reservar taula",
     reservation: "Reserva",
-    intro: "Cuina de la Cerdanya. Una casa a Llívia.",
+    intro: "Cuina de Cerdanya. Una casa a Llívia.",
     scroll: "Segueix el fil",
     since: "A taula des de 1977",
     location: "Llívia · La Cerdanya",
@@ -96,7 +96,7 @@ export const copy = {
     openTourExternal: "Obrir el recorregut a Google Maps (nova pestanya)",
     close: "Tancar",
     kitchenTitle: "Del territori,\na la taula.",
-    kitchenText: "Cuina de la Cerdanya i producte de temporada. A casa nostra, a Llívia.",
+    kitchenText: "Cuina de Cerdanya i producte de temporada. A casa nostra, a Llívia.",
     galleryLabel: "Galeria d’imatges",
     previous: "Fotografia anterior",
     next: "Fotografia següent",
@@ -106,7 +106,11 @@ export const copy = {
     menuText:
       "La nostra cuina segueix el ritme de les estacions. Consulta la carta i els menús abans de venir.",
     viewMenu: "Veure la carta",
-    menuIntro: "La carta i els menús de Can Ventura.",
+    menuTitle: "Carta i menú degustació · Can Ventura, Llívia",
+    menuIntro:
+      "Consulta la carta i el menú degustació de Can Ventura, a Llívia. Cuina de Cerdanya i producte de temporada. Per fer el menú degustació, avisa’ns amb antelació.",
+    menuTastingNotice:
+      "Si voleu fer el menú degustació, aviseu-nos amb antelació per assegurar-ne la disponibilitat.",
     menuSource: "Obrir la carta completa",
     menuUnavailable:
       "Pots consultar la carta completa aquí o trucar-nos si tens qualsevol dubte.",
@@ -172,9 +176,9 @@ export const copy = {
     photoHands: "Les mans del cuiner preparant un plat",
   },
   es: {
-    title: "Can Ventura · Restaurante en Llívia",
+    title: "Can Ventura · Restaurante en Llívia, cocina de la Cerdanya",
     description:
-      "Cocina de la Cerdanya y una casa en la Plaça Major de Llívia. Descubre Can Ventura, consulta la carta y reserva mesa.",
+      "Cocina de la Cerdanya y producto de temporada en la Plaça Major de Llívia. Restaurante familiar desde 1977. Consulta la carta y reserva mesa.",
     skip: "Ir al contenido",
     languages: "Idioma",
     navigation: "Navegación principal",
@@ -229,7 +233,11 @@ export const copy = {
     menuText:
       "Nuestra cocina sigue el ritmo de las estaciones. Consulta la carta y los menús antes de venir.",
     viewMenu: "Ver la carta",
-    menuIntro: "La carta y los menús de Can Ventura.",
+    menuTitle: "Carta y menú degustación · Can Ventura, Llívia",
+    menuIntro:
+      "Consulta la carta y el menú degustación de Can Ventura, en Llívia. Cocina de la Cerdanya y producto de temporada. Para el menú degustación, avísanos con antelación.",
+    menuTastingNotice:
+      "Si queréis hacer el menú degustación, avisadnos con antelación para asegurar su disponibilidad.",
     menuSource: "Abrir la carta completa",
     menuUnavailable:
       "Puedes consultar la carta completa aquí o llamarnos si tienes alguna duda.",
@@ -298,9 +306,9 @@ export const copy = {
     photoHands: "Las manos del cocinero preparando un plato",
   },
   fr: {
-    title: "Can Ventura · Restaurant à Llívia",
+    title: "Can Ventura · Restaurant à Llívia, cuisine de Cerdagne",
     description:
-      "La cuisine de la Cerdagne, dans une maison de la Plaça Major à Llívia. Découvrez Can Ventura, consultez la carte et réservez votre table.",
+      "Cuisine de Cerdagne et produits de saison sur la Plaça Major de Llívia. Restaurant familial depuis 1977. Consultez la carte et réservez votre table.",
     skip: "Aller au contenu",
     languages: "Langue",
     navigation: "Navigation principale",
@@ -355,7 +363,11 @@ export const copy = {
     menuText:
       "Notre cuisine suit le rythme des saisons. Consultez la carte et les menus avant votre visite.",
     viewMenu: "Voir la carte",
-    menuIntro: "La carte et les menus de Can Ventura.",
+    menuTitle: "Carte et menu dégustation · Can Ventura, Llívia",
+    menuIntro:
+      "Consultez la carte et le menu dégustation de Can Ventura à Llívia. Cuisine de Cerdagne et produits de saison. Pour le menu dégustation, prévenez-nous à l’avance.",
+    menuTastingNotice:
+      "Si vous souhaitez le menu dégustation, prévenez-nous à l’avance pour vous assurer de sa disponibilité.",
     menuSource: "Ouvrir la carte complète",
     menuUnavailable:
       "Consultez la carte complète ici ou appelez-nous si vous avez une question.",
@@ -423,9 +435,9 @@ export const copy = {
     photoHands: "Les mains du cuisinier préparant un plat",
   },
   en: {
-    title: "Can Ventura · Restaurant in Llívia",
+    title: "Can Ventura · Restaurant in Llívia, Cerdanya cuisine",
     description:
-      "Cerdanya cooking in a house on Plaça Major, Llívia. Discover Can Ventura, explore the menu and book a table.",
+      "Cerdanya cuisine and seasonal produce on Plaça Major, Llívia. A family restaurant since 1977. Explore the menu and book a table.",
     skip: "Skip to content",
     languages: "Language",
     navigation: "Main navigation",
@@ -480,7 +492,11 @@ export const copy = {
     menuText:
       "Our cooking follows the seasons. Explore the menus before you visit.",
     viewMenu: "Explore the menu",
-    menuIntro: "The menus at Can Ventura.",
+    menuTitle: "Menu and tasting menu · Can Ventura, Llívia",
+    menuIntro:
+      "Explore the menu and tasting menu at Can Ventura in Llívia. Cerdanya cuisine and seasonal produce. Please request the tasting menu in advance.",
+    menuTastingNotice:
+      "Please request the tasting menu in advance so we can confirm its availability.",
     menuSource: "Open the full menu",
     menuUnavailable:
       "Explore the full menu here, or give us a call if you have any questions.",

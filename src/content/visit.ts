@@ -7,9 +7,10 @@ export const parkingUrl =
 export const visitCopy = {
   ca: {
     title: "Abans de venir",
+    seoTitle: "Preguntes freqüents · Abans de venir a Can Ventura",
     linkLabel: "Preguntes freqüents",
     heading: "Abans de\nseure a taula.",
-    intro: "Respostes als dubtes més habituals.",
+    intro: "Preguntes freqüents de Can Ventura.",
     description:
       "Carta, menú degustació i informació pràctica per visitar Can Ventura, a Llívia: grups, infants, al·lèrgies, accés, aparcament i gossos.",
     contact: "Et queda algun dubte?",
@@ -84,9 +85,10 @@ export const visitCopy = {
   },
   es: {
     title: "Antes de venir",
+    seoTitle: "Preguntas frecuentes · Antes de venir a Can Ventura",
     linkLabel: "Preguntas frecuentes",
     heading: "Antes de\nsentarnos a la mesa.",
-    intro: "Respuestas a las dudas más habituales.",
+    intro: "Preguntas frecuentes de Can Ventura.",
     description:
       "Carta, menú degustación e información práctica para visitar Can Ventura, en Llívia: grupos, niños, alergias, acceso, aparcamiento y perros.",
     contact: "¿Te queda alguna duda?",
@@ -161,9 +163,10 @@ export const visitCopy = {
   },
   fr: {
     title: "Avant de venir",
+    seoTitle: "Questions fréquentes · Avant de venir à Can Ventura",
     linkLabel: "Questions fréquentes",
     heading: "Avant de\npasser à table.",
-    intro: "Les réponses aux questions les plus fréquentes.",
+    intro: "Questions fréquentes sur Can Ventura.",
     description:
       "Carte, menu dégustation et informations pratiques pour visiter Can Ventura, à Llívia : groupes, enfants, allergies, accès, parking et chiens.",
     contact: "Une autre question ?",
@@ -238,9 +241,10 @@ export const visitCopy = {
   },
   en: {
     title: "Before you visit",
+    seoTitle: "Frequently asked questions · Visiting Can Ventura",
     linkLabel: "Frequently asked questions",
     heading: "Before you\nsit down to eat.",
-    intro: "Answers to the most common questions.",
+    intro: "Frequently asked questions about Can Ventura.",
     description:
       "Menus, tasting menu and practical information for visiting Can Ventura in Llívia: groups, children, allergies, access, parking and dogs.",
     contact: "Any other questions?",
@@ -317,6 +321,7 @@ export const visitCopy = {
   Locale,
   {
     title: string;
+    seoTitle: string;
     linkLabel: string;
     heading: string;
     intro: string;

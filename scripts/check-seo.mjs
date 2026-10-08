@@ -52,9 +52,15 @@ try {
     alternates.each((_, el) => check(urls.includes($(el).attr("href")), `${path}: hreflang fora del sitemap`));
 
     const schema = JSON.parse(head.find('script[type="application/ld+json"]').text());
-    check(schema["@type"] === "Restaurant" && schema.url === origin, `${path}: JSON-LD no representa el restaurant`);
-    check(schema.address?.postalCode && schema.address?.addressLocality && schema.telephone, `${path}: dades locals incompletes`);
-    for (const image of [schema.image, head.find('meta[property="og:image"]').attr("content")]) {
+    const entities = schema["@graph"] ?? [schema];
+    const restaurant = entities.find(entity => entity["@type"] === "Restaurant");
+    const webpage = entities.find(entity => entity["@type"] === "WebPage");
+    check(restaurant?.url === origin, `${path}: JSON-LD no representa el restaurant`);
+    check(restaurant?.address?.postalCode && restaurant.address?.addressLocality && restaurant.telephone, `${path}: dades locals incompletes`);
+    check(webpage?.url === canonical && webpage.inLanguage === lang, `${path}: JSON-LD de pàgina o idioma incorrecte`);
+    const primaryImage = typeof webpage?.primaryImageOfPage === "string" ? webpage.primaryImageOfPage : webpage?.primaryImageOfPage?.contentUrl;
+    if ($(".hero").length) check(primaryImage, `${path}: falta la imatge preferida de la portada`);
+    for (const image of [restaurant?.image, head.find('meta[property="og:image"]').attr("content"), ...(primaryImage ? [primaryImage] : [])]) {
       check(image && new URL(image).origin === origin, `${path}: imatge social/schema invàlida`);
       assets.add(new URL(image).pathname);
     }
@@ -86,7 +92,7 @@ try {
       else if (url.origin === origin && url.pathname.startsWith("/_astro/")) assets.add(url.pathname);
       else if (url.origin === origin) links.add(url.href);
     });
-    $("link[rel='stylesheet'], link[rel='preload'], script[src]").each((_, el) => {
+    $("link[rel='stylesheet'], link[rel='preload'], link[rel='icon'], script[src]").each((_, el) => {
       const url = new URL($(el).attr("href") ?? $(el).attr("src"), canonical);
       if (url.origin === origin) assets.add(url.pathname);
     });

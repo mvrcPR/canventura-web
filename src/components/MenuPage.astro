@@ -14,7 +14,7 @@ const first = menu.documents[0];
 <Layout
   locale={locale}
   page="menu"
-  title={`${t.menu} · Can Ventura, Llívia`}
+  title={t.menuTitle}
   description={t.menuIntro}
 >
   <main class="menu-page" id="main" data-menu-reader>
@@ -37,6 +37,7 @@ const first = menu.documents[0];
             ))}
           </nav>
         )}
+        <p class="menu-tasting-notice">{t.menuTastingNotice}</p>
       </aside>
       {menu.available ? (
         <div class="menu-reader">

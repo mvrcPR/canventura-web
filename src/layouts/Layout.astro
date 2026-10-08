@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ReserveButton from "../components/ReserveButton.astro";
 import restaurantImage from "../assets/photography/optimized/restaurant-can-ventura-llivia.jpg";
-import socialImage from "../assets/photography/optimized/peus-de-porc-can-ventura.jpg";
+import socialImage from "../assets/photography/optimized/entrada-can-ventura-social.jpg";
 import {
   copy,
   locales,
@@ -28,24 +28,49 @@ const {
   description = copy[locale].description,
 } = Astro.props;
 const path = pagePath(page, locale);
+const canonicalUrl = `${siteUrl}${path}`;
+const socialImageUrl = `${siteUrl}${socialImage.src}`;
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "@id": `${siteUrl}/#restaurant`,
-  name: restaurant.name,
-  url: siteUrl,
-  image: `${siteUrl}${restaurantImage.src}`,
-  telephone: restaurant.phone,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Plaça Major, 1",
-    addressLocality: "Llívia",
-    postalCode: "17527",
-    addressRegion: "Girona",
-    addressCountry: "ES",
-  },
-  hasMenu: `${siteUrl}${menuPath(locale)}`,
-  sameAs: [restaurant.instagram],
+  "@graph": [
+    {
+      "@type": "Restaurant",
+      "@id": `${siteUrl}/#restaurant`,
+      name: restaurant.name,
+      url: siteUrl,
+      image: `${siteUrl}${restaurantImage.src}`,
+      telephone: restaurant.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Plaça Major, 1",
+        addressLocality: "Llívia",
+        postalCode: "17527",
+        addressRegion: "Girona",
+        addressCountry: "ES",
+      },
+      hasMenu: `${siteUrl}${menuPath(locale)}`,
+      sameAs: [restaurant.instagram],
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: title,
+      description,
+      inLanguage: locale,
+      about: { "@id": `${siteUrl}/#restaurant` },
+      ...(page === "home" && {
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: socialImageUrl,
+          contentUrl: socialImageUrl,
+          width: socialImage.width,
+          height: socialImage.height,
+          caption: copy[locale].photoFacade,
+        },
+      }),
+    },
+  ],
 };
 ---
 
@@ -60,7 +85,8 @@ const schema = {
     <meta name="theme-color" content="#000000" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/brand/favicon-192.png" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/brand/favicon.svg" />
     <link rel="canonical" href={`${siteUrl}${path}`} />
     {locales.map((lang) => (
       <link
@@ -93,11 +119,14 @@ const schema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={`${siteUrl}${path}`} />
     <meta property="og:site_name" content="Can Ventura" />
-    <meta property="og:image" content={`${siteUrl}${socialImage.src}`} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content={socialImage.width} />
     <meta property="og:image:height" content={socialImage.height} />
-    <meta property="og:image:alt" content={copy[locale].photoDish} />
+    <meta property="og:image:alt" content={copy[locale].photoFacade} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={copy[locale].photoFacade} />
     <meta
       property="og:locale"
       content={{ ca: "ca_ES", es: "es_ES", fr: "fr_FR", en: "en_GB" }[locale]}

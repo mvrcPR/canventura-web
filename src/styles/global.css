@@ -1094,6 +1094,13 @@ summary:focus-visible {
   color: var(--text);
   border-color: var(--text);
 }
+.menu-tasting-notice {
+  max-width: 30ch;
+  margin: 32px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
 .menu-source {
   display: inline-flex;
   align-items: center;
@@ -1700,6 +1707,11 @@ html:has(.menu-page) {
   .menu-page-index a {
     width: 44px;
     height: 44px;
+  }
+  .menu-tasting-notice {
+    max-width: 44ch;
+    margin-top: 20px;
+    font-size: 14px;
   }
   .menu-reader-tools {
     top: 88px;
