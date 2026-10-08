@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { menuPath, restaurant, type Locale } from "../content/site";
+import { menuPath, reservationUrl, restaurant, type Locale } from "../content/site";
 import { parkingUrl, visitCopy } from "../content/visit";
 
 interface Props {
@@ -28,6 +28,21 @@ const t = visitCopy[locale];
           <h2 id={`visit-${id}`}>{title}</h2>
           <div class="visit-answer">
             {paragraphs.map((text) => <p>{text}</p>)}
+            {id === "booking" && (
+              <div class="visit-actions">
+                <a class="visit-booking visit-link text-link mono" href={reservationUrl(locale)}>
+                  {t.bookingLink} <span aria-hidden="true">↗</span>
+                </a>
+                <a class="visit-link text-link mono" href={`tel:${restaurant.phone}`}>
+                  {locale === "fr" || locale === "en" ? "+34 " : ""}{restaurant.phoneLabel}
+                </a>
+              </div>
+            )}
+            {id === "location-hours" && (
+              <a class="visit-hours visit-link text-link mono" href={restaurant.directions}>
+                {t.hoursLink} <span aria-hidden="true">↗</span>
+              </a>
+            )}
             {(id === "menu" || id === "tasting-menu") && (
               <a class="visit-menu visit-link text-link mono" href={menuPath(locale)}>
                 {t.menuLink} <span aria-hidden="true">↗</span>
@@ -136,6 +151,11 @@ const t = visitCopy[locale];
     margin-top: 16px;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+  }
+  .visit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 28px;
   }
   @media (max-width: 700px) {
     .visit-page {

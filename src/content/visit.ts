@@ -12,8 +12,10 @@ export const visitCopy = {
     heading: "Abans de\nseure a taula.",
     intro: "Preguntes freqüents de Can Ventura.",
     description:
-      "Carta, menú degustació i informació pràctica per visitar Can Ventura, a Llívia: grups, infants, al·lèrgies, accés, aparcament i gossos.",
+      "Reserves, horaris, carta i menú degustació de Can Ventura, a Llívia. Respostes sobre grups, infants, al·lèrgies, accés, aparcament i gossos.",
     contact: "Et queda algun dubte?",
+    bookingLink: "Reservar taula",
+    hoursLink: "Horaris a Google Maps",
     menuLink: "Veure la carta",
     parkingLink: "Veure l’aparcament",
     topics: [
@@ -81,6 +83,20 @@ export const visitCopy = {
           "Si voleu un pastís d’aniversari, truqueu-nos abans per consultar si us el podem preparar o si el podeu portar.",
         ],
       },
+      {
+        id: "booking",
+        title: "Com podem reservar taula?",
+        paragraphs: [
+          "Podeu reservar en línia o trucar-nos al 972 896 178.",
+        ],
+      },
+      {
+        id: "location-hours",
+        title: "On és Can Ventura i quin horari feu?",
+        paragraphs: [
+          "Som a la Plaça Major, 1, de Llívia. Trobareu els horaris actualitzats i les indicacions per arribar-hi a la nostra fitxa de Google Maps.",
+        ],
+      },
     ],
   },
   es: {
@@ -90,8 +106,10 @@ export const visitCopy = {
     heading: "Antes de\nsentarnos a la mesa.",
     intro: "Preguntas frecuentes de Can Ventura.",
     description:
-      "Carta, menú degustación e información práctica para visitar Can Ventura, en Llívia: grupos, niños, alergias, acceso, aparcamiento y perros.",
+      "Reservas, horarios, carta y menú degustación de Can Ventura, en Llívia. Respuestas sobre grupos, niños, alergias, acceso, aparcamiento y perros.",
     contact: "¿Te queda alguna duda?",
+    bookingLink: "Reservar mesa",
+    hoursLink: "Horarios en Google Maps",
     menuLink: "Ver la carta",
     parkingLink: "Ver el aparcamiento",
     topics: [
@@ -159,6 +177,20 @@ export const visitCopy = {
           "Si queréis una tarta de cumpleaños, llamadnos antes para consultar si podemos prepararla o si podéis traerla.",
         ],
       },
+      {
+        id: "booking",
+        title: "¿Cómo podemos reservar mesa?",
+        paragraphs: [
+          "Podéis reservar online o llamarnos al 972 896 178.",
+        ],
+      },
+      {
+        id: "location-hours",
+        title: "¿Dónde está Can Ventura y qué horario tenéis?",
+        paragraphs: [
+          "Estamos en la Plaça Major, 1, de Llívia. Encontraréis los horarios actualizados y las indicaciones para llegar en nuestra ficha de Google Maps.",
+        ],
+      },
     ],
   },
   fr: {
@@ -168,8 +200,10 @@ export const visitCopy = {
     heading: "Avant de\npasser à table.",
     intro: "Questions fréquentes sur Can Ventura.",
     description:
-      "Carte, menu dégustation et informations pratiques pour visiter Can Ventura, à Llívia : groupes, enfants, allergies, accès, parking et chiens.",
+      "Réservations, horaires, carte et menu dégustation de Can Ventura, à Llívia. Informations sur les groupes, enfants, allergies, accès, parking et chiens.",
     contact: "Une autre question ?",
+    bookingLink: "Réserver une table",
+    hoursLink: "Horaires sur Google Maps",
     menuLink: "Voir la carte",
     parkingLink: "Voir le parking",
     topics: [
@@ -237,6 +271,20 @@ export const visitCopy = {
           "Pour un gâteau d’anniversaire, appelez-nous à l’avance afin de savoir si nous pouvons le préparer ou si vous pouvez apporter le vôtre.",
         ],
       },
+      {
+        id: "booking",
+        title: "Comment réserver une table ?",
+        paragraphs: [
+          "Vous pouvez réserver en ligne ou nous appeler au +34 972 896 178.",
+        ],
+      },
+      {
+        id: "location-hours",
+        title: "Où se trouve Can Ventura et quels sont les horaires ?",
+        paragraphs: [
+          "Nous sommes sur la Plaça Major, au numéro 1, à Llívia. Vous trouverez les horaires à jour et l’itinéraire sur notre fiche Google Maps.",
+        ],
+      },
     ],
   },
   en: {
@@ -246,8 +294,10 @@ export const visitCopy = {
     heading: "Before you\nsit down to eat.",
     intro: "Frequently asked questions about Can Ventura.",
     description:
-      "Menus, tasting menu and practical information for visiting Can Ventura in Llívia: groups, children, allergies, access, parking and dogs.",
+      "Bookings, opening hours, menus and tasting menu at Can Ventura in Llívia. Answers about groups, children, allergies, access, parking and dogs.",
     contact: "Any other questions?",
+    bookingLink: "Book a table",
+    hoursLink: "Opening hours on Google Maps",
     menuLink: "View the menu",
     parkingLink: "Find the car park",
     topics: [
@@ -315,6 +365,20 @@ export const visitCopy = {
           "For a birthday cake, call us beforehand to ask whether we can prepare one or whether you can bring your own.",
         ],
       },
+      {
+        id: "booking",
+        title: "How can we book a table?",
+        paragraphs: [
+          "You can book online or call us on +34 972 896 178.",
+        ],
+      },
+      {
+        id: "location-hours",
+        title: "Where is Can Ventura and what are your opening hours?",
+        paragraphs: [
+          "You’ll find us at Plaça Major, 1, in Llívia. Our Google Maps listing has up-to-date opening hours and directions.",
+        ],
+      },
     ],
   },
 } satisfies Record<
@@ -327,6 +391,8 @@ export const visitCopy = {
     intro: string;
     description: string;
     contact: string;
+    bookingLink: string;
+    hoursLink: string;
     menuLink: string;
     parkingLink: string;
     topics: { id: string; title: string; paragraphs: string[] }[];
